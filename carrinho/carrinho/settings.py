@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 from mongoengine import *
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+# Build paths inside the project like this: os  .path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework_mongoengine',
-    'produtos'
+    'produtos',
+    'principal',
 ]
 
 MIDDLEWARE = [
@@ -70,6 +71,12 @@ TEMPLATES = [
             ],
         },
     },
+]
+
+STATICFILES_DIRS = [
+    (BASE_DIR + '/Templates/css').replace('\\', '/'),
+    (BASE_DIR + '/Templates/images').replace('\\', '/'),
+    (BASE_DIR + '/Templates/js').replace('\\', '/'),
 ]
 
 WSGI_APPLICATION = 'carrinho.wsgi.application'
@@ -140,3 +147,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = (BASE_DIR + '/Templates').replace('\\', '/')

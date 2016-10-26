@@ -1,5 +1,6 @@
 <!doctype html>
 <html>
+{% load staticfiles %}
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1.0">
@@ -11,11 +12,6 @@
 </head>
 <body class="body page-header---footer clearfix">
     <div class="backgroundnot">
-        <div class="container container-1 clearfix">
-            <div class="background"></div>
-            <div class="wrapper"><iframe src="home.html" style="border:none; height:100%; width:100%;" id="iframe1" ></iframe></div>
-            <footer class="footer"></footer>
-        </div>
         <div class="container container-2 clearfix">
             <p class="text">Scan&amp;Skip</p>
             <div class="container clearfix">
@@ -31,6 +27,9 @@
         </div>
         <div>
             {% block content %}{% endblock %}
+        </div>
+        <div class="container container-1 clearfix">
+            <footer class="footer"></footer>
         </div>
     </div>
 </body>
