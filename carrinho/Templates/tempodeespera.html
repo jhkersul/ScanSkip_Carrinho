@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0">
+  <title>tempodeespera</title>
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:700,800,400" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/standardize.css">
+  <link rel="stylesheet" href="css/tempodeespera-grid.css">
+  <link rel="stylesheet" href="css/tempodeespera.css">
+</head>
+<body class="body page-tempodeespera clearfix">
+  <div class="background">
+    <button onClick="window.location.href='carrinho.html';" class="_button" type="button">Sair da Fila</button>
+    <p class="text text-1">1</p>
+    <div class="wrapper"></div>
+    <p class="text text-2">Sua posição na fila é:</p>
+  </div>
+<script type="text/javascript">
+  function time_out() {
+    setTimeout(update_screen, 15000);
+  }
+  function update_screen(){
+    window.location="chamadaacliente.html";
+  }
+
+  time_out();
+</script>
+</body>
+</html>

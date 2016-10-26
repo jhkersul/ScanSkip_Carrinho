@@ -1,0 +1,761 @@
+body {
+  background-color: rgb(255, 255, 255);
+  font: 400 1.75em/2 'Open Sans';
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 17;
+  width: 100%;
+  height: 712px;
+  border: 1px double rgb(0, 0, 0);
+  background: url('../images/Pague%20leve.png') rgb(255, 255, 255);
+  background-size: cover;
+  background-position: center center;
+}
+
+.cadastro {
+  position: absolute;
+  bottom: 77.5px;
+  right: 0;
+  z-index: 14;
+  width: 50%;
+  height: 364px;
+  border-left: 1px solid rgba(0, 0, 0, 0.12);
+  border-bottom-right-radius: 10px;
+}
+
+.cadastro .text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 13;
+  width: 100%;
+  min-height: 50px;
+  margin: 0 auto;
+  font-size: 1em;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.checkbox {
+  display: block;
+  float: left;
+}
+
+.container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.login {
+  position: absolute;
+  bottom: 77.5px;
+  left: 0;
+  z-index: 9;
+  width: 50%;
+  height: 364px;
+  border-right: 1px solid rgba(0, 0, 0, 0.12);
+  border-bottom-left-radius: 10px;
+}
+
+.login .container {
+  bottom: 115px;
+  z-index: 8;
+  width: 80.1435406698%;
+  height: 14px;
+}
+
+.permanecer-conectado {
+  display: block;
+  position: relative;
+  float: left;
+  z-index: 6;
+  width: 70.447761194%;
+  height: 14px;
+  margin: 2px 0 0 0.00468%;
+}
+
+.point-text {
+  display: block;
+  float: left;
+  margin-left: 6px;
+  font: 0.429em/1.38 Helvetica;
+}
+
+.point-text:hover {
+  text-decoration: underline;
+}
+
+._button {
+  display: block;
+  position: absolute;
+  bottom: 16px;
+  left: 0;
+  right: 0;
+  width: 54.0669856459%;
+  height: 52px;
+  margin: 0 auto;
+  border-radius: 5px;
+  background-color: rgb(62, 113, 225);
+  font-style: italic;
+  font-size: 0.857em;
+  font-weight: 600;
+  line-height: 1.38;
+  text-align: center;
+  color: rgb(255, 255, 255);
+}
+
+._button:hover {
+  background-color: rgb(11, 62, 174);
+  color: rgb(250, 220, 10);
+}
+
+._input {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 80.0164473684%;
+  height: 33px;
+  margin: 0 auto;
+  padding: 0 10px;
+  border: 1px solid rgba(0, 0, 0, 0.54);
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+  font: italic 0.429em/1.38 Helvetica;
+  color: rgb(0, 0, 0);
+}
+
+._input:focus {
+  border: 1 solid rgba(0, 0, 0, 0.54);
+}
+
+.cadastro ._button {
+  z-index: 12;
+}
+
+.login ._button {
+  z-index: 2;
+}
+
+.login ._button:focus {
+  background-color: rgb(62, 113, 225);
+}
+
+.container-1 {
+  top: 0;
+  bottom: 0;
+  z-index: 16;
+  width: 69.7829716193%;
+  height: 541px;
+  margin-top: auto;
+  margin-bottom: auto;
+  border-radius: 10px;
+  background-color: rgba(113, 164, 255, 0.2);
+}
+
+.text-1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 15;
+  width: 100%;
+  height: 100px;
+  min-height: 50px;
+  margin: 0 auto;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  font-size: 1.143em;
+  line-height: 2.5;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.text-3 {
+  display: block;
+  position: relative;
+  float: left;
+  clear: both;
+  z-index: 7;
+  width: 37.4041518608%;
+  height: 14px;
+  margin: -14px 0 0 68.3981699999%;
+  font: 0.429em/1.25 Helvetica;
+  color: rgb(0, 0, 0);
+}
+
+.text-3:hover {
+  font-style: italic;
+  text-decoration: underline;
+}
+
+.text-4 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  width: 100%;
+  min-height: 50px;
+  margin: 0 auto;
+  font-size: 1em;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.cadastro ._input-1 {
+  bottom: 155px;
+  z-index: 11;
+}
+
+.cadastro ._input-2 {
+  bottom: 215px;
+  z-index: 10;
+}
+
+.cadastro ._input-2:active {
+  color: rgba(0, 0, 0, 0);
+}
+
+.login ._input-3 {
+  bottom: 155px;
+  z-index: 1;
+}
+
+.login ._input-4 {
+  bottom: 215px;
+}
+
+@media(max-width: 1045px) {
+  .cadastro .text,
+  .login .text-4 {
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 0.929em;
+  }
+
+  .container .permanecer-conectado {
+    position: relative;
+    z-index: 6;
+    width: 91.0199106054%;
+    margin-left: 0;
+  }
+
+  .login .container {
+    left: 0;
+    right: 0;
+    width: 89.577846339%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .permanecer-conectado .point-text {
+    width: 90%;
+    height: 35px;
+  }
+
+  .cadastro ._button {
+    left: 0;
+    right: 0;
+    width: 66.4609827677%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .login ._button {
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .cadastro ._input,
+  .container .text-1,
+  .login ._input {
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .background .container-1 {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+  .container .text-3 {
+    position: relative;
+    z-index: 7;
+    width: 43.6818072578%;
+    margin-left: 62.29272%;
+  }
+}
+
+@media(max-width: 890px) {
+  body {
+    font-size: 1.75em;
+  }
+
+  .cadastro .text {
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+    line-height: 1.5;
+  }
+
+  .container .permanecer-conectado {
+    position: relative;
+    z-index: 6;
+    width: 107.3900841908%;
+    margin-left: 2.84617%;
+  }
+
+  .login .container {
+    left: 0;
+    right: 0;
+    width: 96.1699974702%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .permanecer-conectado .point-text {
+    clear: both;
+    width: 93.8095238095%;
+    margin-top: -13px;
+    margin-left: 26px;
+  }
+
+  .cadastro ._button {
+    left: 0;
+    right: 0;
+    width: 79.6229971724%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .cadastro ._input,
+  .container .text-1,
+  .login ._button,
+  .login ._input,
+  .login .text-4 {
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .background .container-1 {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+  .container .text-3 {
+    position: relative;
+    z-index: 7;
+    width: 44.8234961875%;
+    margin-left: 62.42109%;
+  }
+}
+
+@media(max-width: 850px) {
+  .container .permanecer-conectado {
+    position: relative;
+    z-index: 6;
+    margin-left: 2.81558%;
+  }
+
+  .permanecer-conectado .point-text {
+    clear: none;
+    width: 48.5992816829%;
+    margin-top: 0;
+    margin-left: 6px;
+  }
+
+  .cadastro ._button,
+  .cadastro ._input,
+  .cadastro .text,
+  .container .text-1,
+  .login ._button,
+  .login ._input,
+  .login .container,
+  .login .text-4 {
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .background .container-1 {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+  .container .text-3 {
+    position: relative;
+    z-index: 7;
+    margin-left: 62.41666%;
+  }
+}
+
+@media(max-width: 800px) {
+  body {
+    font-size: 1.75em;
+  }
+
+  .container .permanecer-conectado {
+    position: relative;
+    z-index: 6;
+    margin-left: 2.84058%;
+  }
+
+  .permanecer-conectado .point-text {
+    width: 80.6326697572%;
+  }
+
+  .cadastro ._button,
+  .cadastro ._input,
+  .cadastro .text,
+  .container .text-1,
+  .login ._button,
+  .login ._input,
+  .login .container,
+  .login .text-4 {
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .background .container-1 {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+  .container .text-3 {
+    position: relative;
+    z-index: 7;
+    width: 83.9639217523%;
+    margin-top: 12px;
+    margin-left: 9.79267%;
+  }
+}
+
+@media(max-width: 680px) {
+  .container .permanecer-conectado {
+    position: relative;
+    z-index: 6;
+    margin-left: 2.82798%;
+  }
+
+  .permanecer-conectado .point-text {
+    width: 83.435582822%;
+  }
+
+  .cadastro ._button,
+  .cadastro ._input,
+  .cadastro .text,
+  .container .text-1,
+  .login ._button,
+  .login ._input,
+  .login .container {
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .background .container-1 {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+  .container .text-3 {
+    position: relative;
+    z-index: 7;
+    width: 78.2465475737%;
+    margin-left: 9.95999%;
+  }
+
+  .login .text-4 {
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+    line-height: 1.5;
+  }
+}
+
+@media(max-width: 600px) {
+  body {
+    font-size: 1.75em;
+  }
+
+  .container .permanecer-conectado {
+    position: relative;
+    z-index: 6;
+    width: 119.3548387096%;
+    margin-top: -5px;
+    margin-left: -0.07825%;
+  }
+
+  .permanecer-conectado .point-text {
+    width: 78.4632531305%;
+    margin-left: 4px;
+  }
+
+  .cadastro ._button,
+  .cadastro ._input,
+  .cadastro .text,
+  .container .text-1,
+  .login ._button,
+  .login ._input,
+  .login .container,
+  .login .text-4 {
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .background .container-1 {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+  .container .text-3 {
+    position: relative;
+    z-index: 7;
+    width: 75.117370892%;
+    margin-top: 19px;
+    margin-left: 4.35055%;
+  }
+}
+
+@media(max-width: 480px) {
+  .cadastro .text,
+  .login .text-4 {
+    left: 0;
+    right: 0;
+    height: 104px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .container .permanecer-conectado {
+    position: relative;
+    z-index: 6;
+    margin-left: -0.05823%;
+  }
+
+  .login .container {
+    bottom: 116px;
+    left: 0;
+    right: 0;
+    width: 97.1159283694%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .permanecer-conectado .point-text {
+    margin-left: 9px;
+  }
+
+  .cadastro ._button,
+  .cadastro ._input,
+  .login ._button,
+  .login ._input {
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .background .container-1 {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+  .container .text-1 {
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 1.071em;
+  }
+
+  .container .text-3 {
+    position: relative;
+    z-index: 7;
+    width: 98.9898989898%;
+    margin-left: 4.13432%;
+  }
+}
+
+@media(max-width: 440px) {
+  body {
+    font-size: 1.5em;
+  }
+
+  .cadastro .text,
+  .login .text-4 {
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 1em;
+  }
+
+  .container .permanecer-conectado {
+    position: relative;
+    z-index: 6;
+    margin-top: -8px;
+    margin-left: 11.9448899999%;
+  }
+
+  .login .container {
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .permanecer-conectado .point-text {
+    width: 111px;
+    margin-left: 6px;
+    font-size: 0.5em;
+  }
+
+  .cadastro ._button {
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    width: 91.5603128859%;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 0.917em;
+  }
+
+  .login ._button {
+    bottom: 9px;
+    left: 0;
+    right: 0;
+    width: 67.1881432688%;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 0.917em;
+  }
+
+  .cadastro ._input,
+  .login ._input {
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 0.5em;
+  }
+
+  .background .container-1 {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+  .container .text-1 {
+    top: 23px;
+    left: 0;
+    right: 0;
+    width: 100.1175809007%;
+    height: 77px;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 1.25em;
+    line-height: 1;
+  }
+
+  .container .text-3 {
+    position: relative;
+    z-index: 7;
+    margin-top: 28px;
+    margin-left: 18.59036%;
+    font-size: 0.5em;
+  }
+}
+
+@media(max-width: 360px) {
+  .container .permanecer-conectado {
+    position: relative;
+    z-index: 6;
+    width: 107.56302521%;
+    margin-top: -14px;
+    margin-left: 2.89573%;
+  }
+
+  .permanecer-conectado .point-text {
+    width: 102px;
+    margin-left: 5px;
+  }
+
+  .cadastro ._button,
+  .cadastro ._input,
+  .cadastro .text,
+  .container .text-1,
+  .login ._button,
+  .login ._input,
+  .login .container,
+  .login .text-4 {
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .background .container-1 {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+  .container .text-3 {
+    position: relative;
+    z-index: 7;
+    margin-top: 34px;
+    margin-left: 18.59499%;
+  }
+}

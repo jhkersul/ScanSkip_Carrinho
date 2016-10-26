@@ -57,7 +57,9 @@ ROOT_URLCONF = 'carrinho.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            (BASE_DIR + '/Templates').replace('\\', '/'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -79,7 +81,7 @@ WSGI_APPLICATION = 'carrinho.wsgi.application'
 #_MONGODB_DATABASE_HOST = \
 #    'mongodb://%s:%s@%s/%s' \
 #    % (_MONGODB_USER, _MONGODB_PASSWD, _MONGODB_HOST, _MONGODB_NAME)
-connect('supermercado', username='admin', password='admin123')
+connect('admin', username='admin', password='admin123')
 #mongoengine.connect(_MONGODB_NAME, host=_MONGODB_DATABASE_HOST)
 
 REST_FRAMEWORK = {
@@ -99,6 +101,7 @@ DATABASES = {
 }
 
 SESSION_ENGINE = 'mongoengine.django.sessions'
+SESSION_SERIALIZER = 'mongoengine.django.sessions.BSONSerializer'
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators

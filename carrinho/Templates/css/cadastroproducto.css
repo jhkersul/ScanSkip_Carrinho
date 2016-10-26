@@ -1,0 +1,404 @@
+body {
+  background-color: rgb(255, 255, 255);
+  font: 400 0.813em/1.38 'Open Sans';
+  color: rgb(0, 0, 0);
+}
+
+.background {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 800px;
+  background: url('../images/Pague%20leve.png') rgb(222, 222, 222);
+  background-size: cover;
+  background-position: center center;
+}
+
+.cadastroproducto {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 8;
+  width: 42.3333333333%;
+  height: 505px;
+  margin: auto;
+  border-radius: 10px;
+  background-color: rgba(113, 164, 255, 0.2);
+}
+
+.cadastroproduto {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 7;
+  width: 100%;
+  height: 428px;
+  margin: auto;
+}
+
+.text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  min-height: 63px;
+  margin: 0 auto;
+  font-size: 2.462em;
+  line-height: 2;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+._button {
+  display: block;
+  position: absolute;
+  top: 376px;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  width: 28.5433070866%;
+  height: 52px;
+  margin: 0 auto;
+  border-radius: 5px;
+  background-color: #3e71ff;
+  font-style: italic;
+  font-size: 1.846em;
+  text-align: center;
+  color: rgb(255, 255, 255);
+}
+
+._input {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  padding: 0 10px;
+  border: 1px solid rgba(0, 0, 0, 0.54);
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+  font-style: italic;
+  font-weight: 300;
+  color: rgb(0, 0, 0);
+}
+
+._select {
+  display: block;
+  position: absolute;
+  top: 241px;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  width: 64.170152559%;
+  height: 42px;
+  margin: 0 auto;
+  padding-left: 10px;
+  border: 1px solid rgb(119, 119, 119);
+  border-radius: 3px;
+  background: url('../images/select-arrows.svg') rgb(242, 242, 242);
+  background-repeat: no-repeat;
+  background-size: auto auto;
+  background-position: right center;
+  font-style: italic;
+  font-size: 1em;
+  color: rgb(0, 0, 0);
+}
+
+.cadastroproduto ._input-1 {
+  top: 300px;
+  z-index: 6;
+  width: 64.2501230314%;
+  height: 37px;
+  font-size: 1em;
+}
+
+.cadastroproduto ._input-2 {
+  top: 136px;
+  z-index: 4;
+  width: 64.170152559%;
+  height: 33px;
+  font-size: 0.923em;
+}
+
+.cadastroproduto ._input-3 {
+  top: 186px;
+  z-index: 2;
+  width: 64.170152559%;
+  height: 37px;
+  font-size: 0.923em;
+}
+
+.cadastroproduto ._input-4 {
+  top: 86px;
+  z-index: 1;
+  width: 64.170152559%;
+  height: 33px;
+  font-size: 0.923em;
+}
+
+@media(max-width: 960px) {
+  .background .cadastroproducto {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 52.9166666666%;
+    height: 565px;
+    margin: auto;
+  }
+
+  .cadastroproducto .cadastroproduto {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: auto;
+    height: 542px;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  .cadastroproduto .text {
+    top: 12px;
+    left: 0;
+    right: 0;
+    width: 99.8387592137%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .cadastroproduto ._button {
+    top: 469px;
+    left: 0;
+    right: 0;
+    width: 35.8645577395%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .cadastroproduto ._input {
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .cadastroproduto ._select {
+    top: 312px;
+    left: 0;
+    right: 0;
+    width: 64.0663390663%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .cadastroproduto ._input-1 {
+    top: 385px;
+    width: 64.1431203931%;
+  }
+
+  .cadastroproduto ._input-2 {
+    top: 180px;
+    width: 64.0663390663%;
+  }
+
+  .cadastroproduto ._input-3 {
+    top: 244px;
+    width: 64.0663390663%;
+  }
+
+  .cadastroproduto ._input-4 {
+    top: 116px;
+    width: 64.0663390663%;
+  }
+}
+
+@media(max-width: 750px) {
+  body {
+    font-size: 0.813em;
+  }
+
+  .background .cadastroproducto {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 66.5333333333%;
+    margin: auto;
+  }
+
+  .cadastroproducto .cadastroproduto {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 529px;
+    margin: auto;
+  }
+
+  .cadastroproduto .text {
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 99.8280267295%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .cadastroproduto ._button {
+    top: 439px;
+    left: 0;
+    right: 0;
+    width: 50.0687893081%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .cadastroproduto ._input {
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .cadastroproduto ._select {
+    top: 283px;
+    left: 0;
+    right: 0;
+    width: 64.0575864779%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .cadastroproduto ._input-1 {
+    top: 350px;
+    width: 64.1362028301%;
+  }
+
+  .cadastroproduto ._input-2 {
+    top: 162px;
+    width: 64.0575864779%;
+  }
+
+  .cadastroproduto ._input-3 {
+    top: 221px;
+    width: 64.0575864779%;
+  }
+
+  .cadastroproduto ._input-4 {
+    top: 104px;
+    width: 64.0575864779%;
+  }
+}
+
+@media(max-width: 600px) {
+  .background .cadastroproducto {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 69.6666666666%;
+    height: 652px;
+    margin: auto;
+  }
+
+  .cadastroproducto .cadastroproduto {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 577px;
+    margin: auto;
+  }
+
+  .cadastroproduto .text {
+    top: 32px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .cadastroproduto ._button {
+    top: 493px;
+    left: 0;
+    right: 0;
+    width: 50.1531092964%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .cadastroproduto ._input {
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .cadastroproduto ._select {
+    top: 328px;
+    left: 0;
+    right: 0;
+    width: 64.1684987437%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .cadastroproduto ._input-1 {
+    top: 401px;
+    width: 64.2470163316%;
+  }
+
+  .cadastroproduto ._input-2 {
+    top: 197px;
+    width: 64.1684987437%;
+  }
+
+  .cadastroproduto ._input-3 {
+    top: 261px;
+    width: 64.1684987437%;
+  }
+
+  .cadastroproduto ._input-4 {
+    top: 133px;
+    width: 64.1684987437%;
+  }
+}
+
+@media(max-width: 450px) {
+  body {
+    font-size: 0.813em;
+  }
+
+  .background .cadastroproducto,
+  .cadastroproducto .cadastroproduto {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+  .cadastroproduto .text {
+    top: 0;
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 2.308em;
+  }
+
+  .cadastroproduto ._button,
+  .cadastroproduto ._input,
+  .cadastroproduto ._select {
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
