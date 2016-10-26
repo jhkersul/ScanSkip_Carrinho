@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from control import *
-from serializers import *
+from django.core.serializers import *
 from rest_framework.views import APIView
 
 
@@ -9,7 +9,7 @@ def login(request, idusuario, nome):
     request.session['logado'] = True
     request.session['nome'] = nome
     request.session['idusuario'] = idusuario
-    return render(request, 'carrinho.html', {'carrinho': carrinho})
+
 
 
 def finalizar(request):

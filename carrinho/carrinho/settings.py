@@ -88,7 +88,7 @@ WSGI_APPLICATION = 'carrinho.wsgi.application'
 #_MONGODB_DATABASE_HOST = \
 #    'mongodb://%s:%s@%s/%s' \
 #    % (_MONGODB_USER, _MONGODB_PASSWD, _MONGODB_HOST, _MONGODB_NAME)
-connect('admin', username='admin', password='admin123')
+connect('supermercado', username='admin', password='admin123')
 #mongoengine.connect(_MONGODB_NAME, host=_MONGODB_DATABASE_HOST)
 
 REST_FRAMEWORK = {
