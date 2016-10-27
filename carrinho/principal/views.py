@@ -43,3 +43,10 @@ def total(request, idusuario):
     total = pegaTotal(carrinho)
     dicionario = {'idusuario': idusuario, 'total': total}
     return JsonResponse(dicionario)
+
+def adiciona(request, nome, id_produto, valor):
+    a=0
+    produto = adicionaProduto(request.session['idusuario'], id_produto, nome, valor)
+    a=a+1
+    print a
+    return render(request, 'carrinho.html', {'carrinho': carrinho})

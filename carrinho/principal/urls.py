@@ -7,4 +7,5 @@ urlpatterns = [
     url(r'^Finalizar/', views.finalizar, name="Finalizar"),
     url(r'^Limpar/', views.limpar, name="Limpar"),
     url(r'^$', views.carrinho, name="Carrinho"),
+    url(r'^nome=(?P<nome>\w+)/id_produto=(?P<id_produto>\w+)/valor=(?P<valor>\w+)/$', views.adiciona, name="Adicionar"),
 ]
