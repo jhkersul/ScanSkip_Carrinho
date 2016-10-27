@@ -1,19 +1,19 @@
-<!doctype html>
-<html>
+{% extends "header---footer.html" %}
+
+{% block title %}Carrinho{% endblock %}
+
 {% load staticfiles %}
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="initial-scale=1.0">
-  <title>carrinho</title>
+
+{% block head %}
   <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700,400,600" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="{% static 'css/standardize.css' %}">
   <link rel="stylesheet" href="{% static 'css/carrinho-grid.css' %}">
   <link rel="stylesheet" href="{% static 'css/carrinho.css' %}">
-</head>
-<body class="body page-carrinho clearfix">
+{% endblock %}
+
+{% block content %}
   <div class="background">
-    <form class="cadastro clearfix">
-      {% csrf_token %}
+    <div class="cadastro clearfix">
       <p class="text text-1">Seu carrinho</p>
 
       <div class="container container-1">
@@ -50,17 +50,12 @@
       </div>
 
       <div class="container container-8">
-        <form method="post" action="{% url 'Finalizar' %}">
-          {% csrf_token %}
-          <button class="_button _button-7" type="submit">Finalizar</button>
-        </form>
+        <button onClick="window.location='{{ request.session.urlToda }}';" class="_button _button-7" type="button">Finalizar</button>
         <form method="post" action="{% url 'Limpar' %}">
           {% csrf_token %}
           <button class="_button _button-8" type="submit">Limpar</button>
         </form>
       </div>
-
-    </form>
+    </div>
   </div>
-</body>
-</html>
+{% endblock %}

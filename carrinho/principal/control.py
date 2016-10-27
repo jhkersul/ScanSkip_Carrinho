@@ -22,3 +22,6 @@ def pegaTotal(carrinho):
     for produto in carrinho.produtos:
         total += float(produto.preco)
     return total
+
+def deletaCarrinho(carrinho):
+    carrinho.delete()

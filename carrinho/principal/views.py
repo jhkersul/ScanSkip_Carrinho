@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
+from django.http import HttpResponseRedirect
 from control import *
 from django.core.serializers import *
 from rest_framework.views import APIView
@@ -15,16 +16,17 @@ def login(request, idusuario, nome):
     request.session['logado'] = True
     request.session['nome'] = nome
     request.session['idusuario'] = idusuario
+    request.session['urlToda'] = 'https://webteste-d2bec.firebaseapp.com/tempodeespera.html?myVar='+idusuario
     return render(request, 'carrinho.html', {'carrinho': carrinho})
 
 
-def finalizar(request):
-    urlFila = ''
-    params = {'idusuario': request.session['idusuario'], 'preferencial': False}
-    network = Network()
-    resposta = network.request(urlFila, 'POST', params)
-    urlFila = '' + request.session['idusuario']
-    return redirect(urlFila)
+# def finalizar(request):
+#     urlFila = 'http://www.google.com.br/'
+#     params = {'idusuario': request.session['idusuario'], 'preferencial': False}
+#     network = Network()
+#     resposta = network.request(urlFila, 'POST', params)
+#     urlFila = 'http://www.google.com.br/' + request.session['idusuario']
+#     return HttpResponseRedirect(urlFila)
 
 
 def limpar(request):
@@ -42,4 +44,11 @@ def total(request, idusuario):
     carrinho = adicionaCarrinho(idusuario, None)
     total = pegaTotal(carrinho)
     dicionario = {'idusuario': idusuario, 'total': total}
+    return JsonResponse(dicionario)
+
+
+def fim(request, idusuario):
+    carrinho = adicionaCarrinho(idusuario, None)
+    deletaCarrinho(carrinho)
+    dicionario = {'idusuario': idusuario, 'fim': True}
     return JsonResponse(dicionario)

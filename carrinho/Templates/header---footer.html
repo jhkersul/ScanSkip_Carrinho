@@ -12,25 +12,21 @@
     {% block head %}{% endblock %}
 </head>
 <body class="body page-header---footer clearfix">
-    <div class="backgroundnot">
-        <div class="container container-2 clearfix">
-            <p class="text">Scan&amp;Skip</p>
-            <div class="container clearfix">
-                <button onClick="mudaFrame('home.html')" class="_button _button-1" type="button">Home</button>
-                <button onClick="mudaFrame('sobre.html')" class="_button _button-2" type="button">Sobre</button>
-                {% if request.session.logado %}
-                    <button class="_button _button-4" type="button">Bem Vindo(a) {{ request.session.nome }}!</button>
-                {% else %}
-                    <button onClick="mudaFrame('login.html')" class="_button _button-3" type="button">Login</button>
-                    <button onClick="mudaFrame('cadastro.html');" class="_button _button-4" type="button">Cadastre-se</button>
-                {% endif %}
-            </div>
-        </div>
-        <div>
-            {% block content %}{% endblock %}
-        </div>
-        <div class="container container-1 clearfix">
-            <footer class="footer"></footer>
+    <div class="corpo clearfix">
+        {% block content %}{% endblock %}
+        <footer class="footer"></footer>
+    </div>
+    <div class="barra clearfix">
+        <p class="text">Scan&amp;Skip</p>
+        <div class="botoesbarra clearfix">
+            <button onClick="mudaFrame('home.html')" class="_button _button-1" type="button">Home</button>
+            <button onClick="mudaFrame('sobre.html')" class="_button _button-2" type="button">Sobre</button>
+            {% if request.session.logado %}
+                <button class="_button _button-4" type="button">Bem Vindo(a) {{ request.session.nome }}!</button>
+            {% else %}
+                <button onClick="mudaFrame('login.html')" class="_button _button-3" type="button">Login</button>
+                <button onClick="mudaFrame('cadastro.html');" class="_button _button-4" type="button">Cadastre-se</button>
+            {% endif %}
         </div>
     </div>
 </body>
