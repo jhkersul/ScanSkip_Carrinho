@@ -6,9 +6,10 @@
     <meta name="viewport" content="initial-scale=1.0">
     <title>Scan&amp;Skip - {% block title %}{% endblock %}</title>
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="css/standardize.css">
-    <link rel="stylesheet" href="css/header---footer-grid.css">
-    <link rel="stylesheet" href="css/header---footer.css">
+    <link rel="stylesheet" href="{% static 'css/standardize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header---footer-grid.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header---footer.css' %}">
+    {% block head %}{% endblock %}
 </head>
 <body class="body page-header---footer clearfix">
     <div class="backgroundnot">
@@ -18,7 +19,7 @@
                 <button onClick="mudaFrame('home.html')" class="_button _button-1" type="button">Home</button>
                 <button onClick="mudaFrame('sobre.html')" class="_button _button-2" type="button">Sobre</button>
                 {% if request.session.logado %}
-                    <button class="_button _button-3" type="button">Bem Vindo(a) {{ request.session.nome }}!</button>
+                    <button class="_button _button-4" type="button">Bem Vindo(a) {{ request.session.nome }}!</button>
                 {% else %}
                     <button onClick="mudaFrame('login.html')" class="_button _button-3" type="button">Login</button>
                     <button onClick="mudaFrame('cadastro.html');" class="_button _button-4" type="button">Cadastre-se</button>

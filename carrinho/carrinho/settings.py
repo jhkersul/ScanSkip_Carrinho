@@ -74,9 +74,7 @@ TEMPLATES = [
 ]
 
 STATICFILES_DIRS = [
-    (BASE_DIR + '/Templates/css').replace('\\', '/'),
-    (BASE_DIR + '/Templates/images').replace('\\', '/'),
-    (BASE_DIR + '/Templates/js').replace('\\', '/'),
+    (BASE_DIR + '/Templates').replace('\\', '/'),
 ]
 
 WSGI_APPLICATION = 'carrinho.wsgi.application'
@@ -88,7 +86,7 @@ WSGI_APPLICATION = 'carrinho.wsgi.application'
 #_MONGODB_DATABASE_HOST = \
 #    'mongodb://%s:%s@%s/%s' \
 #    % (_MONGODB_USER, _MONGODB_PASSWD, _MONGODB_HOST, _MONGODB_NAME)
-connect('admin', username='admin', password='admin123')
+connect('supermercado', username='admin', password='admin123')
 #mongoengine.connect(_MONGODB_NAME, host=_MONGODB_DATABASE_HOST)
 
 REST_FRAMEWORK = {
@@ -147,4 +145,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = (BASE_DIR + '/Templates').replace('\\', '/')

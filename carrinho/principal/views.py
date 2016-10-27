@@ -1,7 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from control import *
-from serializers import *
+from django.core.serializers import *
 from rest_framework.views import APIView
+from django.http import JsonResponse
+import sys
+import os
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(BASE_DIR + '/carrinho/utils/')
+from utils.network import Network
 
 
 def login(request, idusuario, nome):
@@ -13,7 +19,12 @@ def login(request, idusuario, nome):
 
 
 def finalizar(request):
-    return carrinho(request)
+    urlFila = ''
+    params = {'idusuario': request.session['idusuario'], 'preferencial': False}
+    network = Network()
+    resposta = network.request(urlFila, 'POST', params)
+    urlFila = '' + request.session['idusuario']
+    return redirect(urlFila)
 
 
 def limpar(request):
@@ -25,3 +36,10 @@ def limpar(request):
 def carrinho(request):
     carrinho = adicionaCarrinho(request.session['idusuario'], request.session['nome'])
     return render(request, 'carrinho.html', {'carrinho': carrinho})
+
+
+def total(request, idusuario):
+    carrinho = adicionaCarrinho(idusuario, None)
+    total = pegaTotal(carrinho)
+    dicionario = {'idusuario': idusuario, 'total': total}
+    return JsonResponse(dicionario)

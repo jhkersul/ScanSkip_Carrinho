@@ -1,11 +1,19 @@
-{% extends "header---footer.html" %}
-
-{% block title %}Carrinho{% endblock %}
-
-{% block content %}
-
+<!doctype html>
+<html>
+{% load staticfiles %}
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0">
+  <title>carrinho</title>
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700,400,600" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="{% static 'css/standardize.css' %}">
+  <link rel="stylesheet" href="{% static 'css/carrinho-grid.css' %}">
+  <link rel="stylesheet" href="{% static 'css/carrinho.css' %}">
+</head>
+<body class="body page-carrinho clearfix">
   <div class="background">
     <form class="cadastro clearfix">
+      {% csrf_token %}
       <p class="text text-1">Seu carrinho</p>
 
       <div class="container container-1">
@@ -43,14 +51,16 @@
 
       <div class="container container-8">
         <form method="post" action="{% url 'Finalizar' %}">
+          {% csrf_token %}
           <button class="_button _button-7" type="submit">Finalizar</button>
         </form>
-        <form method="post" action="{% url 'Finalizar' %}">
+        <form method="post" action="{% url 'Limpar' %}">
+          {% csrf_token %}
           <button class="_button _button-8" type="submit">Limpar</button>
         </form>
       </div>
 
     </form>
   </div>
-
-{% endblock %}
+</body>
+</html>

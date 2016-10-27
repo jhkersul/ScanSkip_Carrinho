@@ -122,4 +122,10 @@ Sigam o item 2, e criem da seguinte forma (caso usem o banco de dados local para
 ```usuário: admin ```
 ```senha: admin123 ```
 
+Para criar esses usuarios no Mongo:
+
+```
+db.createUser({user: "admin", pwd: "admin123", roles: [ { role: "userAdmin", db: "supermercado" } ]})
+```
+
 Façam assim para que o django consiga conectar no bd, já que os arquivos foram configurados dessa forma.
