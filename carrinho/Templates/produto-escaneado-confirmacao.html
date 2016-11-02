@@ -1,25 +1,33 @@
 <!doctype html>
 <html>
+{% load staticfiles %}
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1.0">
-  <title>produto-escaneado-confirmacao</title>
+  <title>Produto</title>
   <link href="http://fonts.googleapis.com/css?family=Open+Sans:600,300,400" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="css/standardize.css">
-  <link rel="stylesheet" href="css/produto-escaneado-confirmacao-grid.css">
-  <link rel="stylesheet" href="css/produto-escaneado-confirmacao.css">
+  <link rel="stylesheet" href="{% static 'css/standardize.css' %}">
+  <link rel="stylesheet" href="{% static 'css/produto-escaneado-confirmacao-grid.css' %}">
+  <link rel="stylesheet" href="{% static 'css/produto-escaneado-confirmacao.css' %}">
 </head>
 <body class="body page-produto-escaneado-confirmacao clearfix">
   <div class="background">
-    <form class="cadastro">
+    <form class="cadastro" method="post" action="{% url 'Adicionar' %}">
+      {% csrf_token %}
       <p class="text">Vizualização de Produto</p>
-      <p id="1" class="textnomeproduto js--nome-produto">Nome do Produto</p>
-      <div class="element"></div>
-      <p id="2" class="textmarcaproduto js--marca-produto">Marca do Produto</p>
-      <p id="3" class="textoprecoproduto js--preco-produto">Preço do Produto</p>
-      <p id="4" class="textocategoriaproduto js--categoria-produto">Categoria do Produto</p>
-      <button id="5" class="confirmar confirmar-1 js-confirmar" type="submit">Retornar</button>
-      <button id="5" class="confirmar confirmar-2 js-confirmar" type="submit">Adicionar</button>
+      <input type="hidden" name="idProduto" value="{{ idProduto }}">
+      <input type="hidden" name="nome" value="{{ nome }}">
+      <input type="hidden" name="marca" value="{{ marca }}">
+      <input type="hidden" name="categoria" value="{{ categoria }}">
+      <input type="hidden" name="preco" value="{{ preco }}">
+      <input type="hidden" name="imagem" value="{{ imagem }}">
+      <p id="1" class="textnomeproduto js--nome-produto">Nome do Produto: {{ nome }}</p>
+      <div style="position: relative; float: left; clear: both; z-index: 5; width: 38.643533123%; height: 235px; margin: 36px 0 0 9.93691%; border: 1px solid rgba(0, 0, 0, 0.54); border-radius: 15px; background: url('{{imagem}}') rgb(222, 222, 222); background-size: cover; background-position: center center;"></div>
+      <p id="2" class="textmarcaproduto js--marca-produto">Marca do Produto: {{ marca }}</p>
+      <p id="3" class="textoprecoproduto js--preco-produto">Preço do Produto: {{ preco }}</p>
+      <p id="4" class="textocategoriaproduto js--categoria-produto">Categoria do Produto: {{ categoria }}</p>
+      <button id="botaoRetornar" class="confirmar confirmar-1 js-confirmar" type="submit">Retornar</button>
+      <button id="botaoAdicionar" class="confirmar confirmar-2 js-confirmar" type="submit">Adicionar</button>
     </form>
   </div>
 </body>
