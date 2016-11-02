@@ -3,7 +3,10 @@ from django.db import models
 from mongoengine import *
 
 class Produto(EmbeddedDocument):
-    nome = StringField(unique_with='marca', required=True)
-    categoria = StringField(required=True)
+    idProduto = StringField(unique=True, required=True)
+    nome = StringField(required=True)
+    categoria = StringField()
     marca = StringField(required=True)
     preco = StringField(required=True)
+    imagem = StringField()
+

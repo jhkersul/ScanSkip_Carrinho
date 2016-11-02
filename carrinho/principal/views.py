@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect
 from control import *
 from django.core.serializers import *
 from rest_framework.views import APIView
@@ -7,39 +8,77 @@ import sys
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(BASE_DIR + '/carrinho/utils/')
-from utils.network import Network
+
+siteFila = 'https://webteste-d2bec.firebaseapp.com/tempodeespera.html?myVar='
+siteLogin = 'http://www.google.com.br/'
 
 
 def login(request, idusuario, nome):
-    carrinho = adicionaCarrinho(idusuario, nome)
+    carrinho = pegaCarrinho(idusuario, nome)
     request.session['logado'] = True
     request.session['nome'] = nome
     request.session['idusuario'] = idusuario
-    return render(request, 'carrinho.html', {'carrinho': carrinho})
+    request.session['urlFila'] = siteFila+idusuario
+    return render(request, 'carrinho.html', {'carrinho': carrinho, 'total': 'R$ 0,00'})
 
 
-def finalizar(request):
-    urlFila = ''
-    params = {'idusuario': request.session['idusuario'], 'preferencial': False}
-    network = Network()
-    resposta = network.request(urlFila, 'POST', params)
-    urlFila = '' + request.session['idusuario']
-    return redirect(urlFila)
+# def finalizar(request):
+#     urlFila = 'http://www.google.com.br/'
+#     params = {'idusuario': request.session['idusuario'], 'preferencial': False}
+#     network = Network()
+#     resposta = network.request(urlFila, 'POST', params)
+#     urlFila = 'http://www.google.com.br/' + request.session['idusuario']
+#     return HttpResponseRedirect(urlFila)
 
 
 def limpar(request):
-    carrinho = adicionaCarrinho(request.session['idusuario'], request.session['nome'])
-    carrinho = limpaCarrinho(carrinho)
-    return render(request, 'carrinho.html', {'carrinho': carrinho})
+    logado = verificaUsuario(request)
+    if logado:
+        carrinho = pegaCarrinho(request.session['idusuario'], request.session['nome'])
+        carrinho = limpaCarrinho(carrinho)
+        total = pegaTotal(carrinho)
+        return render(request, 'carrinho.html', {'carrinho': carrinho, 'total': total})
+    else:
+        return redirect(siteLogin)
 
 
 def carrinho(request):
-    carrinho = adicionaCarrinho(request.session['idusuario'], request.session['nome'])
-    return render(request, 'carrinho.html', {'carrinho': carrinho})
+    logado = verificaUsuario(request)
+    if logado:
+        carrinho = pegaCarrinho(request.session['idusuario'], request.session['nome'])
+        total = pegaTotal(carrinho)
+        return render(request, 'carrinho.html', {'carrinho': carrinho, 'total': total})
+    else:
+        return redirect(siteLogin)
 
 
 def total(request, idusuario):
-    carrinho = adicionaCarrinho(idusuario, None)
+    carrinho = pegaCarrinho(idusuario, None)
     total = pegaTotal(carrinho)
     dicionario = {'idusuario': idusuario, 'total': total}
     return JsonResponse(dicionario)
+
+
+def fim(request, idusuario):
+    carrinho = pegaCarrinho(idusuario, None)
+    deletaCarrinho(carrinho)
+    dicionario = {'idusuario': idusuario, 'fim': True}
+    return JsonResponse(dicionario)
+
+
+def adiciona(request):
+    logado = verificaUsuario(request)
+    if logado:
+        if 'botaoAdicionar' in request.POST:
+            idProduto = request.POST.get('idProduto')
+            nome = request.POST.get('nome')
+            marca = request.POST.get('marca')
+            categoria = request.POST.get('categoria')
+            preco = request.POST.get('preco')
+            imagem = request.POST.get('imagem')
+            produto = adicionaProduto(request.session['idusuario'], idProduto, nome, marca, categoria,  preco, imagem)
+        carrinho = pegaCarrinho(request.session['idusuario'], request.session['nome'])
+        total = pegaTotal(carrinho)
+        return render(request, 'carrinho.html', {'carrinho': carrinho, 'total': total})
+    else:
+        return redirect(siteLogin)
