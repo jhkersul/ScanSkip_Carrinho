@@ -12,48 +12,51 @@
 {% endblock %}
 
 {% block content %}
-  <div class="background">
-    <div class="cadastro clearfix">
-      <p class="text text-1">Seu carrinho</p>
+  <div class="background" style="height: {{ altura1 }}px;">
+    <div class="carrinho clearfix">
+      <p class="titulocarrinho">Seu carrinho</p>
 
-      <div class="container container-1">
-        <p class="text _text text-2">R$ 37,90</p>
-        <p class="text _text text-3">Total</p>
-      </div>
-
-      <div class="element element-1">
-        <div class="container container-2">
-          <div class="container container-3">
-            <button class="_button _button-1">-</button>
-            <button class="_button _button-2">+</button>
-            <p class="text _text text-4">2</p>
+      {% for produto in carrinho.produtos %}
+        <div class="produtocarrinho">
+          <div class="infocarrinho">
+            <div class="alteraquantidade">
+              <button onClick="alteraquantidade('-')" class="_button _button-1" id="-">-</button>
+              <button onClick="alteraquantidade('+')" class="_button _button-2" id="+">+</button>
+              <p class="quantidade" id="quantidade">1</p>
+            </div>
+            <script>
+                var quant = document.getElementById("quantidade");
+                var quantVal = Number(quant.innerHTML);
+                var bmenos = document.getElementById("-");
+                var bmais = document.getElementById("+");
+                function alteraquantidade(op) {
+                  if (op == "-"){
+                    quantVal -= 1;
+                    quant.innerHTML = quantVal;
+                  }
+                  if (op == "+"){                  quantVal += 1;
+                    quant.innerHTML = quantVal;
+                  }
+                }
+              </script>
+            <p class="precoproduto">R$ {{ produto.preco }}</p>
+            <p class="nomeproduto">{{ produto.nome }}</p>
           </div>
-          <p class="text _text text-5">R$ 19,90</p>
-          <p class="text _text text-6">Paçoquita SANTA HELENA 180g</p>
+          <button class="_button _button-3">Remover</button>
+          <div class="fotoprodutocarrinho" style="background-image: url('{{ produto.imagem }}');"></div>
         </div>
-        <button class="_button _button-3">Remover</button>
-        <div class="container _element container-4"></div>
+      {% endfor %}
+
+      <div class="campototalcarrinho">
+        <p class="valortotalcarrinho">{{ total }}</p>
+        <p class="totalcarrinho">Total</p>
       </div>
 
-      <div class="element element-2">
-        <div class="container container-5">
-          <div class="container container-6">
-            <button class="_button _button-4">-</button>
-            <button class="_button _button-5">+</button>
-            <p class="text _text text-7">2</p>
-          </div>
-          <p class="text _text text-8">R$ 9,00</p>
-          <p class="text text-9">Ketchup HEINZ 512g</p>
-        </div>
-        <button class="_button _button-6">Remover</button>
-        <div class="container _element container-7"></div>
-      </div>
-
-      <div class="container container-8">
-        <button onClick="window.location='{{ request.session.urlToda }}';" class="_button _button-7" type="button">Finalizar</button>
+      <div class="containerbotoescarrinho">
+        <button onClick="window.location='{{ request.session.urlFila }}';" class="_button _button-4" type="button">Finalizar</button>
         <form method="post" action="{% url 'Limpar' %}">
           {% csrf_token %}
-          <button class="_button _button-8" type="submit">Limpar</button>
+          <button class="_button _button-5" type="submit">Limpar</button>
         </form>
       </div>
     </div>

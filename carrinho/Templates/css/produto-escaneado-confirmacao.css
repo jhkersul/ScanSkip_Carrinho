@@ -53,9 +53,6 @@ body {
   margin: 36px 0 0 9.93691%;
   border: 1px solid rgba(0, 0, 0, 0.54);
   border-radius: 15px;
-  background: url('../images/prod1.jpg') rgb(222, 222, 222);
-  background-size: cover;
-  background-position: center center;
 }
 
 .text {

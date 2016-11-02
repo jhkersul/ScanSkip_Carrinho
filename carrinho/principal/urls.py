@@ -8,4 +8,5 @@ urlpatterns = [
     # url(r'^Finalizar/', views.finalizar, name="Finalizar"),
     url(r'^Limpar/', views.limpar, name="Limpar"),
     url(r'^$', views.carrinho, name="Carrinho"),
+    url(r'^Adicionar/', views.adiciona, name="Adicionar"),
 ]

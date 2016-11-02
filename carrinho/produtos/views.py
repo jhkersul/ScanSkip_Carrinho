@@ -4,15 +4,22 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(BASE_DIR + '/carrinho/utils/')
 from utils.network import Network
-from django.http import HttpResponseRedirect
+from django.http import JsonResponse
 
-# Create your views here.
-def produto(request, id_produto):
-    urlProduto = 'http://143.107.102.49:3000/produto/' + id_produto
+
+def produto(request, idProduto):
+    urlProduto = 'http://127.0.0.1:8000/produtos/TesteProduto' #'http://143.107.102.49:3000/produto/' + idProduto
     network = Network()
     response = network.request(urlProduto, 'GET')
     nome = response['nome']
+    marca = response['marca']
     preco = response['valor']
-    preco = str(float(preco)/100).replace('.', ',')
-    return render(request, 'produto-escaneado-confirmacao.html', {'nome': nome, 'preco': preco})
+    preco = ('%.2f' % (float(preco)/100)).replace('.', ',')
+    categoria = response['categoria']
+    imagem = response['imagem']
+    return render(request, 'produto-escaneado-confirmacao.html', {'idProduto': idProduto, 'nome': nome, 'marca': marca, 'preco': preco, 'categoria': categoria, 'imagem': imagem})
 
+
+def testeProduto(request):
+    dicionario = {'idProduto': '12', 'nome': 'Agua', 'valor': '499', 'marca': 'Cristal', 'categoria': 'Consumo', 'imagem': 'http://charges.uol.com.br/upload/bobagens/aguad.jpg'}
+    return JsonResponse(dicionario)
