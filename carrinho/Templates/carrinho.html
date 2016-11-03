@@ -22,7 +22,7 @@
             <div class="alteraquantidade">
               <button onClick="alteraquantidade('-')" class="_button _button-1" id="-">-</button>
               <button onClick="alteraquantidade('+')" class="_button _button-2" id="+">+</button>
-              <p class="quantidade" id="quantidade">1</p>
+              <p class="quantidade" id="quantidade">{{ produto.quantidade }}</p>
             </div>
             <script>
                 var quant = document.getElementById("quantidade");
@@ -42,7 +42,11 @@
             <p class="precoproduto">R$ {{ produto.preco }}</p>
             <p class="nomeproduto">{{ produto.nome }}</p>
           </div>
-          <button class="_button _button-3">Remover</button>
+          <form method="post" action="{% url 'Remover' %}">
+            {% csrf_token %}
+            <input type="hidden" name="idProduto" value="{{ produto.idProduto }}">
+            <button class="_button _button-3" name="remover" type="submit">Remover</button>
+          </form>
           <div class="fotoprodutocarrinho" style="background-image: url('{{ produto.imagem }}');"></div>
         </div>
       {% endfor %}

@@ -46,9 +46,13 @@ def adicionaProduto(idusuario, idProduto, nome, marca, categoria, preco, imagem)
     try:
         produto = Carrinho.objects.get(idusuario=idusuario, produtos__produto__idProduto=idProduto)
     except:
-        produto = Produto(idProduto=idProduto, nome=nome, categoria=categoria, marca=marca, preco=preco, imagem=imagem)
+        produto = Produto(idProduto=idProduto, nome=nome, categoria=categoria, marca=marca, preco=preco, imagem=imagem, quantidade=1)
         Carrinho.objects(idusuario=idusuario).update(add_to_set__produtos=produto)
     return produto
+
+
+def removeProduto(idusuario, idProduto):
+    Carrinho.objects(idusuario=idusuario).update_one(pull__produtos__idProduto=idProduto)
 
 
 def pegaAltura(carrinho):
