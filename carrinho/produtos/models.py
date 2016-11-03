@@ -9,4 +9,5 @@ class Produto(EmbeddedDocument):
     marca = StringField(required=True)
     preco = StringField(required=True)
     imagem = StringField()
+    quantidade = IntField(min_value=1, required=True)
 
