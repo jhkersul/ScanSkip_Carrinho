@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework_mongoengine',
     'produtos',
     'principal',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -51,6 +52,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'carrinho.urls'
@@ -76,6 +79,8 @@ TEMPLATES = [
 STATICFILES_DIRS = [
     (BASE_DIR + '/Templates').replace('\\', '/'),
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 WSGI_APPLICATION = 'carrinho.wsgi.application'
 
