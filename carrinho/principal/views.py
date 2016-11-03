@@ -49,8 +49,9 @@ def carrinho(request):
     if logado:
         carrinho = pegaCarrinho(request.session['idusuario'], request.session['nome'])
         total = pegaTotal(carrinho)
+        totalFloat = pegaTotalFloat(carrinho)
         altura1 = pegaAltura(carrinho)
-        return render(request, 'carrinho.html', {'carrinho': carrinho, 'total': total, 'altura1': altura1, 'altura2': altura1+30})
+        return render(request, 'carrinho.html', {'carrinho': carrinho, 'total': total, 'totalFloat': totalFloat, 'altura1': altura1, 'altura2': altura1+30})
     else:
         return redirect(siteLogin)
 

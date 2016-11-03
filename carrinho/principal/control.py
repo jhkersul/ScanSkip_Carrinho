@@ -37,6 +37,12 @@ def pegaTotal(carrinho):
     total = 'R$ ' + ('%.2f' % (float(total))).replace('.', ',')
     return total
 
+def pegaTotalFloat(carrinho):
+    total = 0
+    for produto in carrinho.produtos:
+        total += float(produto.preco.replace(',', '.'))
+    return total
+
 
 def deletaCarrinho(carrinho):
     carrinho.delete()
