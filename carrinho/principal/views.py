@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from control import *
 from django.core.serializers import *
 from rest_framework.views import APIView
@@ -10,7 +10,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(BASE_DIR + '/carrinho/utils/')
 
 siteFila = 'https://webteste-d2bec.firebaseapp.com/tempodeespera.html?myVar='
-siteLogin = 'http://www.google.com.br/'
+siteLogin = 'http://143.107.102.52:8000/cadastro/login'
 
 
 def login(request, idusuario, nome):
@@ -50,7 +50,7 @@ def carrinho(request):
         carrinho = pegaCarrinho(request.session['idusuario'], request.session['nome'])
         total = pegaTotal(carrinho)
         altura1 = pegaAltura(carrinho)
-        return render(request, 'carrinho.html', {'carrinho': carrinho, 'total': total, 'altura1': altura1, 'altura2': altura1+30})
+        return render(request, 'carrinho.html', {'carrinho': carrinho, 'total': total, 'altura1': altura1, 'altura2': altura1 + 30})
     else:
         return redirect(siteLogin)
 
@@ -83,7 +83,7 @@ def adiciona(request):
         carrinho = pegaCarrinho(request.session['idusuario'], request.session['nome'])
         total = pegaTotal(carrinho)
         altura1 = pegaAltura(carrinho)
-        return render(request, 'carrinho.html', {'carrinho': carrinho, 'total': total, 'altura1': altura1, 'altura2': altura1+30})
+        return render(request, 'carrinho.html', {'carrinho': carrinho, 'total': total, 'altura1': altura1, 'altura2': altura1 + 30})
     else:
         return redirect(siteLogin)
 
@@ -97,5 +97,25 @@ def remove(request):
         total = pegaTotal(carrinho)
         altura1 = pegaAltura(carrinho)
         return render(request, 'carrinho.html', {'carrinho': carrinho, 'total': total, 'altura1': altura1, 'altura2': altura1 + 30})
+    else:
+        return redirect(siteLogin)
+
+
+def soma(request):  # Falta testar
+    logado = verificaUsuario(request)
+    if logado:
+        idProduto = request.POST.get('idproduto')
+        quantidade = somaProduto(request.session['idusuario'], idProduto)
+        return HttpResponse(str(quantidade))
+    else:
+        return redirect(siteLogin)
+
+
+def subtrai(request):   # Falta testar
+    logado = verificaUsuario(request)
+    if logado:
+        idProduto = request.POST.get('idproduto')
+        quantidade = subtraiProduto(request.session['idusuario'], idProduto)
+        return HttpResponse(str(quantidade))
     else:
         return redirect(siteLogin)

@@ -61,3 +61,18 @@ def pegaAltura(carrinho):
         altura += 180
     altura = max(altura, 420)
     return altura
+
+def somaProduto(idusuario, idProduto):  # Falta testar
+    produto = Carrinho.objects.get(idusuario=idusuario, produtos__produto__idProduto=idProduto)
+    produto.quantidade += 1
+    quant = produto.quantidade
+    produto.save()
+    return quant
+
+def subtraiProduto(idusuario, idProduto):   # Falta testar
+    produto = Carrinho.objects.get(idusuario=idusuario, produtos__produto__idProduto=idProduto)
+    if produto.quantidade > 1:
+        produto.quantidade -= 1
+        produto.save()
+    quant = produto.quantidade
+    return quant

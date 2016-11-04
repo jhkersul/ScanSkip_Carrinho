@@ -8,7 +8,7 @@ from django.http import JsonResponse
 
 
 def produto(request, idProduto):
-    urlProduto = 'http://192.168.1.54:3000/produtos/TesteProduto' #'http://143.107.102.49:3000/produto/' + idProduto
+    urlProduto = 'http://143.107.102.48:3000/produto/' + idProduto
     network = Network()
     response = network.request(urlProduto, 'GET')
     nome = response['nome']

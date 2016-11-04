@@ -10,4 +10,6 @@ urlpatterns = [
     url(r'^$', views.carrinho, name="Carrinho"),
     url(r'^Adicionar/', views.adiciona, name="Adicionar"),
     url(r'^Remover/', views.remove, name="Remover"),
+    url(r'^Soma/', views.soma, name="Soma"),
+    url(r'^Subtrai/', views.subtrai, name="Subtrai"),
 ]

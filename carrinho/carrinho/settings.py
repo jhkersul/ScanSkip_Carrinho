@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework_mongoengine',
     'produtos',
     'principal',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -51,6 +52,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'carrinho.urls'
@@ -77,17 +80,17 @@ STATICFILES_DIRS = [
     (BASE_DIR + '/Templates').replace('\\', '/'),
 ]
 
+CORS_ORIGIN_ALLOW_ALL = True
+
 WSGI_APPLICATION = 'carrinho.wsgi.application'
 
-#_MONGODB_USER = 'mongouser'
-#_MONGODB_PASSWD = 'password'
-#_MONGODB_HOST = 'thehost'
-#_MONGODB_NAME = 'thedb'
-#_MONGODB_DATABASE_HOST = \
-#    'mongodb://%s:%s@%s/%s' \
-#    % (_MONGODB_USER, _MONGODB_PASSWD, _MONGODB_HOST, _MONGODB_NAME)
-connect('supermercado', username='admin', password='admin123')
-#mongoengine.connect(_MONGODB_NAME, host=_MONGODB_DATABASE_HOST)
+_MONGODB_USER = 'admin'
+_MONGODB_PASSWD = 'admin123'
+_MONGODB_HOST = 'ds143737.mlab.com:43737'
+_MONGODB_NAME = 'supermercado'
+_MONGODB_DATABASE_HOST = 'mongodb://%s:%s@%s/%s' % (_MONGODB_USER, _MONGODB_PASSWD, _MONGODB_HOST, _MONGODB_NAME)
+connect(_MONGODB_NAME, host=_MONGODB_DATABASE_HOST)
+#connect('supermercado', username='admin', password='admin123')
 
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
