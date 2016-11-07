@@ -55,10 +55,11 @@
   </div>
 
   <script>
+    window.onload = acertaTamanho;
     window.addEventListener('resize', acertaTamanho);
 
     function acertaTamanho(){
-      if (window.innerWidth > 960px){
+      if (window.innerWidth > 960){
         document.getElementById("divCarrinho").style.height = ((240 + 180*{{numProdutos}}) + "px");
         document.getElementById("corpo").style.height = ((270 + 180*{{numProdutos}}) + "px");
       }
