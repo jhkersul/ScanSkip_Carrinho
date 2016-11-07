@@ -2,7 +2,7 @@
 
 {% block title %}Carrinho{% endblock %}
 
-{% load staticfiles %}
+{% load static %}
 
 {% block head %}
   <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700,400,600" rel="stylesheet" type="text/css">
@@ -12,7 +12,7 @@
 {% endblock %}
 
 {% block content %}
-  <div class="background" style="height: {{ altura1 }}px;">
+  <div id="divCarrinho" class="background">
     <div class="carrinho clearfix">
       <p class="titulocarrinho">Seu carrinho</p>
 
@@ -42,7 +42,10 @@
       </div>
 
       <div class="containerbotoescarrinho">
-        <button onClick="window.location='{{ request.session.urlFila }}';" class="_button _button-4" type="button">Finalizar</button>
+        <form method="post" action="{% url 'Finalizar' %}">
+          {% csrf_token %}
+          <button class="_button _button-4" type="submit">Finalizar</button>
+        </form>
         <form method="post" action="{% url 'Limpar' %}">
           {% csrf_token %}
           <button class="_button _button-5" type="submit">Limpar</button>
@@ -50,6 +53,21 @@
       </div>
     </div>
   </div>
+
+  <script>
+    window.addEventListener('resize', acertaTamanho);
+
+    function acertaTamanho(){
+      if (window.innerWidth > 960px){
+        document.getElementById("divCarrinho").style.height = ((240 + 180*{{numProdutos}}) + "px");
+        document.getElementById("corpo").style.height = ((270 + 180*{{numProdutos}}) + "px");
+      }
+      else {
+        document.getElementById("divCarrinho").style.height = ((300 + 250*{{numProdutos}}) + "px");
+        document.getElementById("corpo").style.height = ((330 + 250*{{numProdutos}}) + "px");
+      }
+    }
+  </script>
 
   <script>
        // Definindo variáveis iniciais
@@ -70,7 +88,7 @@
         var quantidade = produto['quantidade'];
         var preco = produto['preco'];
 
-        if (op == "-" && quantidade > 0) {
+        if (op == "-" && quantidade > 1) {
           produtos[idProduto]['quantidade'] -= 1;
           valorTotal -= preco;
         }

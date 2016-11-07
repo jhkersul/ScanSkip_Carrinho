@@ -21,7 +21,7 @@ body {
   width: 100%;
   min-height: 420px;
   border: 1px double rgb(0, 0, 0);
-  background-image: url('../images/Scan&Skip%20Background.png');
+  background-image: url('images/Scan&Skip%20Background.png');
   background-size: cover;
   background-position: center center;
 }
@@ -663,7 +663,6 @@ body {
   .infocarrinho .nomeproduto {
     left: 0;
     right: 0;
-    height: 50px;
     margin-right: auto;
     margin-left: auto;
   }
