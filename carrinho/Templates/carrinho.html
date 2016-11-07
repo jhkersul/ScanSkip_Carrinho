@@ -6,14 +6,13 @@
 
 {% block head %}
   <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700,400,600" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="{% static 'css/standardize.css' %}">
   <link rel="stylesheet" href="{% static 'css/carrinho-grid.css' %}">
   <link rel="stylesheet" href="{% static 'css/carrinho.css' %}">
 {% endblock %}
 
 {% block content %}
-  <div id="divCarrinho" class="background">
-    <div class="carrinho clearfix">
+  <div id="divBackground" class="background">
+    <div id="divCarrinho" class="carrinho clearfix">
       <p class="titulocarrinho">Seu carrinho</p>
 
       {% for produto in carrinho.produtos %}
@@ -37,7 +36,7 @@
       {% endfor %}
 
       <div class="campototalcarrinho">
-        <p id="valortotal" class="valortotalcarrinho">{{ total }}</p>
+        <p id="valortotal" class="valortotalcarrinho">R$ 0,00</p>
         <p class="totalcarrinho">Total</p>
       </div>
 
@@ -60,12 +59,14 @@
 
     function acertaTamanho(){
       if (window.innerWidth > 960){
+        document.getElementById("divBackground").style.height = ((280 + 180*{{numProdutos}}) + "px");
         document.getElementById("divCarrinho").style.height = ((240 + 180*{{numProdutos}}) + "px");
-        document.getElementById("corpo").style.height = ((270 + 180*{{numProdutos}}) + "px");
+        document.getElementById("corpo").style.height = ((310 + 180*{{numProdutos}}) + "px");
       }
       else {
+        document.getElementById("divBackground").style.height = ((340 + 250*{{numProdutos}}) + "px");
         document.getElementById("divCarrinho").style.height = ((300 + 250*{{numProdutos}}) + "px");
-        document.getElementById("corpo").style.height = ((330 + 250*{{numProdutos}}) + "px");
+        document.getElementById("corpo").style.height = ((370 + 250*{{numProdutos}}) + "px");
       }
     }
   </script>

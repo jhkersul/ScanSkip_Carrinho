@@ -18,9 +18,8 @@ def login(request, idusuario, nome):
     request.session['logado'] = True
     request.session['nome'] = nome
     request.session['idusuario'] = idusuario
-    altura1 = pegaAltura(carrinho)
     numProdutos = len(carrinho.produtos)
-    return render(request, 'carrinho.html', {'carrinho': carrinho, 'total': 'R$ 0,00', 'altura1': altura1, 'altura2': altura1+30, 'numProdutos': numProdutos})
+    return render(request, 'carrinho.html', {'carrinho': carrinho, 'numProdutos': numProdutos})
 
 
 def finalizar(request):
@@ -33,10 +32,8 @@ def limpar(request):
     if logado:
         carrinho = pegaCarrinho(request.session['idusuario'], request.session['nome'])
         carrinho = limpaCarrinho(carrinho)
-        total = pegaTotal(carrinho)
-        altura1 = pegaAltura(carrinho)
         numProdutos = len(carrinho.produtos)
-        return render(request, 'carrinho.html', {'carrinho': carrinho, 'total': total, 'altura1': altura1, 'altura2': altura1+30, 'numProdutos': numProdutos})
+        return render(request, 'carrinho.html', {'carrinho': carrinho, 'numProdutos': numProdutos})
     else:
         return redirect(siteLogin)
 
@@ -45,10 +42,8 @@ def carrinho(request):
     logado = verificaUsuario(request)
     if logado:
         carrinho = pegaCarrinho(request.session['idusuario'], request.session['nome'])
-        total = pegaTotal(carrinho)
-        altura1 = pegaAltura(carrinho)
         numProdutos = len(carrinho.produtos)
-        return render(request, 'carrinho.html', {'carrinho': carrinho, 'total': total, 'altura1': altura1, 'altura2': altura1 + 30, 'numProdutos': numProdutos})
+        return render(request, 'carrinho.html', {'carrinho': carrinho, 'numProdutos': numProdutos})
     else:
         return redirect(siteLogin)
 
@@ -79,10 +74,8 @@ def adiciona(request):
             imagem = request.POST.get('imagem')
             produto = adicionaProduto(request.session['idusuario'], idProduto, nome, marca, categoria,  preco, imagem)
         carrinho = pegaCarrinho(request.session['idusuario'], request.session['nome'])
-        total = pegaTotal(carrinho)
-        altura1 = pegaAltura(carrinho)
         numProdutos = len(carrinho.produtos)
-        return render(request, 'carrinho.html', {'carrinho': carrinho, 'total': total, 'altura1': altura1, 'altura2': altura1 + 30, 'numProdutos': numProdutos})
+        return render(request, 'carrinho.html', {'carrinho': carrinho, 'numProdutos': numProdutos})
     else:
         return redirect(siteLogin)
 
@@ -93,10 +86,8 @@ def remove(request):
         idProduto = request.POST.get('idProduto')
         removeProduto(request.session['idusuario'], idProduto)
         carrinho = pegaCarrinho(request.session['idusuario'], request.session['nome'])
-        total = pegaTotal(carrinho)
-        altura1 = pegaAltura(carrinho)
         numProdutos = len(carrinho.produtos)
-        return render(request, 'carrinho.html', {'carrinho': carrinho, 'total': total, 'altura1': altura1, 'altura2': altura1 + 30, 'numProdutos': numProdutos})
+        return render(request, 'carrinho.html', {'carrinho': carrinho, 'numProdutos': numProdutos})
     else:
         return redirect(siteLogin)
 

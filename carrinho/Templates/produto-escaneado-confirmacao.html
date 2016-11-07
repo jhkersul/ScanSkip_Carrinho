@@ -1,18 +1,18 @@
-<!doctype html>
-<html>
+{% extends "header---footer.html" %}
+
+{% block title %}Produto{% endblock %}
+
 {% load static %}
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="initial-scale=1.0">
-  <title>Produto</title>
+
+{% block head %}
   <link href="http://fonts.googleapis.com/css?family=Open+Sans:600,300,400" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="{% static 'css/standardize.css' %}">
   <link rel="stylesheet" href="{% static 'css/produto-escaneado-confirmacao-grid.css' %}">
   <link rel="stylesheet" href="{% static 'css/produto-escaneado-confirmacao.css' %}">
-</head>
-<body class="body page-produto-escaneado-confirmacao clearfix">
+{% endblock %}
+
+{% block content %}
   <div class="background">
-    <form class="cadastro" method="post" action="{% url 'Adicionar' %}">
+    <form class="produtoescaneado" method="post" action="{% url 'Adicionar' %}">
       {% csrf_token %}
       <p class="text">Visualização de Produto</p>
       <input type="hidden" name="idProduto" value="{{ idProduto }}">
@@ -22,7 +22,7 @@
       <input type="hidden" name="preco" value="{{ preco }}">
       <input type="hidden" name="imagem" value="{{ imagem }}">
       <p id="1" class="textnomeproduto js--nome-produto">Nome do Produto: {{ nome }}</p>
-      <div class="element" style="background: url('{{imagem}}') rgb(255, 255, 255); background-size: contain; background-repeat: no-repeat; background-position: center center;"></div>
+      <div class="element" style="background: url('{{imagem}}') rgb(222, 222, 222); background-size: contain; background-repeat: no-repeat; background-position: center center;"></div>
       <p id="2" class="textmarcaproduto js--marca-produto">Marca do Produto: {{ marca }}</p>
       <p id="3" class="textoprecoproduto js--preco-produto">Preço do Produto: {{ preco }}</p>
       <p id="4" class="textocategoriaproduto js--categoria-produto">Categoria do Produto: {{ categoria }}</p>
@@ -30,5 +30,4 @@
       <button name="botaoAdicionar" class="confirmar confirmar-2 js-confirmar" type="submit">Adicionar</button>
     </form>
   </div>
-</body>
-</html>
+{% endblock %}

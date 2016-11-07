@@ -8,13 +8,13 @@ body {
   position: relative;
   float: left;
   width: 100%;
-  height: 700px;
+  height: 611px;
   background-image: url('images/Pague%20leve.png');
   background-size: cover;
   background-position: center center;
 }
 
-.cadastro {
+.produtoescaneado {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -24,6 +24,8 @@ body {
   width: 52.8333333333%;
   height: 541px;
   margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
   border-radius: 10px;
   background-color: rgba(113, 164, 255, 0.2);
 }
@@ -146,7 +148,7 @@ body {
 }
 
 @media(max-width: 770px) {
-  .background .cadastro {
+  .background .produtoescaneado {
     top: 0;
     bottom: 0;
     left: 0;
@@ -156,7 +158,7 @@ body {
     margin: auto;
   }
 
-  .cadastro .confirmar {
+  .produtoescaneado .confirmar {
     position: absolute;
     float: none;
     top: 521px;
@@ -165,7 +167,7 @@ body {
     margin-left: 0;
   }
 
-  .cadastro .element {
+  .produtoescaneado .element {
     position: absolute;
     float: none;
     clear: none;
@@ -176,14 +178,14 @@ body {
     margin-left: 0;
   }
 
-  .cadastro .text {
+  .produtoescaneado .text {
     left: 0;
     right: 0;
     margin-right: auto;
     margin-left: auto;
   }
 
-  .cadastro .textmarcaproduto {
+  .produtoescaneado .textmarcaproduto {
     position: absolute;
     float: none;
     top: 240px;
@@ -193,7 +195,7 @@ body {
     margin-left: 0;
   }
 
-  .cadastro .textnomeproduto {
+  .produtoescaneado .textnomeproduto {
     position: absolute;
     float: none;
     top: 113px;
@@ -205,7 +207,7 @@ body {
     margin-left: auto;
   }
 
-  .cadastro .textocategoriaproduto {
+  .produtoescaneado .textocategoriaproduto {
     position: absolute;
     float: none;
     top: 420px;
@@ -216,7 +218,7 @@ body {
     margin-left: 0;
   }
 
-  .cadastro .textoprecoproduto {
+  .produtoescaneado .textoprecoproduto {
     position: absolute;
     float: none;
     clear: none;
@@ -227,11 +229,11 @@ body {
     margin-left: 0;
   }
 
-  .cadastro .confirmar-1 {
+  .produtoescaneado .confirmar-1 {
     left: 10.0189925935%;
   }
 
-  .cadastro .confirmar-2 {
+  .produtoescaneado .confirmar-2 {
     left: 61.4987553397%;
   }
 }
@@ -241,7 +243,7 @@ body {
     font-size: 1em;
   }
 
-  .background .cadastro {
+  .background .produtoescaneado {
     top: 0;
     bottom: 0;
     left: 0;
@@ -249,16 +251,16 @@ body {
     margin: auto;
   }
 
-  .cadastro .confirmar {
+  .produtoescaneado .confirmar {
     top: 509px;
     width: 34%;
   }
 
-  .cadastro .element {
+  .produtoescaneado .element {
     left: 10.0804565701%;
   }
 
-  .cadastro .text {
+  .produtoescaneado .text {
     left: 0;
     right: 0;
     margin-right: auto;
@@ -266,11 +268,11 @@ body {
     line-height: 2;
   }
 
-  .cadastro .textmarcaproduto {
+  .produtoescaneado .textmarcaproduto {
     left: 51.7842427616%;
   }
 
-  .cadastro .textnomeproduto {
+  .produtoescaneado .textnomeproduto {
     top: 144px;
     left: 0;
     right: 0;
@@ -278,25 +280,25 @@ body {
     margin-left: auto;
   }
 
-  .cadastro .textocategoriaproduto {
+  .produtoescaneado .textocategoriaproduto {
     left: 51.7886971046%;
   }
 
-  .cadastro .textoprecoproduto {
+  .produtoescaneado .textoprecoproduto {
     left: 51.7912026726%;
   }
 
-  .cadastro .confirmar-1 {
+  .produtoescaneado .confirmar-1 {
     left: 10.0779510022%;
   }
 
-  .cadastro .confirmar-2 {
+  .produtoescaneado .confirmar-2 {
     left: 55.9820434298%;
   }
 }
 
 @media(max-width: 475px) {
-  .background .cadastro {
+  .background .produtoescaneado {
     top: 0;
     bottom: 0;
     left: 0;
@@ -305,23 +307,23 @@ body {
     margin: auto;
   }
 
-  .cadastro .confirmar {
+  .produtoescaneado .confirmar {
     width: 38%;
   }
 
-  .cadastro .element {
+  .produtoescaneado .element {
     left: 6.7105263157%;
     width: 42.1052631578%;
   }
 
-  .cadastro .text {
+  .produtoescaneado .text {
     left: 0;
     right: 0;
     margin-right: auto;
     margin-left: auto;
   }
 
-  .cadastro .textnomeproduto {
+  .produtoescaneado .textnomeproduto {
     left: 0;
     right: 0;
     width: 86.8421052631%;
@@ -329,18 +331,18 @@ body {
     margin-left: auto;
   }
 
-  .cadastro .textmarcaproduto,
-  .cadastro .textocategoriaproduto,
-  .cadastro .textoprecoproduto {
+  .produtoescaneado .textmarcaproduto,
+  .produtoescaneado .textocategoriaproduto,
+  .produtoescaneado .textoprecoproduto {
     left: 51.7105263157%;
     width: 41.5789473684%;
   }
 
-  .cadastro .confirmar-1 {
+  .produtoescaneado .confirmar-1 {
     left: 6.7105263157%;
   }
 
-  .cadastro .confirmar-2 {
+  .produtoescaneado .confirmar-2 {
     left: 55.4235197368%;
   }
 }

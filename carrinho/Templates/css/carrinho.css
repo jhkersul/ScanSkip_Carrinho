@@ -16,10 +16,11 @@ body {
 }
 
 .background {
-  position: relative;
+  position: absolute;
+  top: 30;
   float: left;
   width: 100%;
-  min-height: 420px;
+  min-height: 460px;
   border: 1px double rgb(0, 0, 0);
   background-image: url('images/Scan&Skip%20Background.png');
   background-size: cover;
@@ -28,7 +29,7 @@ body {
 
 .campototalcarrinho {
   position: absolute;
-  bottom: 103px;
+  bottom: 100px;
   left: 0;
   right: 0;
   z-index: 16;
@@ -45,8 +46,10 @@ body {
   right: 0;
   z-index: 17;
   width: 56.0934891485%;
-  min-height: 400px;
+  min-height: 420px;
   margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
   border-radius: 10px;
   background-color: rgba(113, 164, 255, 0.2);
 }
@@ -74,7 +77,9 @@ body {
   margin: auto 0;
   border: 1px solid rgba(0, 0, 0, 0.54);
   border-radius: 5px;
-  background-size: cover;
+  background-color: rgb(222, 222, 222);
+  background-size: contain;
+  background-repeat: no-repeat;
   background-position: center center;
 }
 
@@ -320,7 +325,7 @@ body {
   }
 
   .carrinho .containerbotoescarrinho {
-    top: 384px;
+    bottom: 25px;
     left: 0;
     right: 0;
     width: 80.1850818452%;
