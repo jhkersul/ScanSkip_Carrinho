@@ -19,7 +19,7 @@ def pegaCarrinho(idusuario, nome):
         carrinho = Carrinho.objects.get(idusuario=idusuario)
     else:
         try:
-            carrinho = Carrinho.objects.get(idusuario=idusuario, nome=nome)
+            carrinho = Carrinho.objects.get(idusuario=idusuario)
         except:
             carrinho = Carrinho(idusuario=idusuario, nome=nome)
             carrinho.save()
