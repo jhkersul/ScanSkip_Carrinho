@@ -9,7 +9,7 @@ body {
   float: left;
   width: 100%;
   height: 700px;
-  background-image: url('../images/Pague%20leve.png');
+  background-image: url('images/Pague%20leve.png');
   background-size: cover;
   background-position: center center;
 }
@@ -63,9 +63,6 @@ body {
   height: 235px;
   border: 1px solid rgba(0, 0, 0, 0.54);
   border-radius: 15px;
-  background: url('../images/prod1.jpg') rgb(222, 222, 222);
-  background-size: cover;
-  background-position: center center;
 }
 
 .text {

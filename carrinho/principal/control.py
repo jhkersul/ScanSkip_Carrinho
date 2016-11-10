@@ -19,16 +19,18 @@ def pegaCarrinho(idusuario, nome):
         carrinho = Carrinho.objects.get(idusuario=idusuario)
     else:
         try:
-            carrinho = Carrinho.objects.get(idusuario=idusuario, nome=nome)
+            carrinho = Carrinho.objects.get(idusuario=idusuario)
         except:
             carrinho = Carrinho(idusuario=idusuario, nome=nome)
             carrinho.save()
     return carrinho
 
+
 def limpaCarrinho(carrinho):
     carrinho.produtos.delete()  # Verificar isso (Garantir que remove todos os produtos, deixando a lista vazia)
     carrinho.save()
     return carrinho
+
 
 def pegaTotal(carrinho):
     total = 0
@@ -60,10 +62,25 @@ def adicionaProduto(idusuario, idProduto, nome, marca, categoria, preco, imagem)
 def removeProduto(idusuario, idProduto):
     Carrinho.objects(idusuario=idusuario).update_one(pull__produtos__idProduto=idProduto)
 
-
 def pegaAltura(carrinho):
     altura = 240
     for produto in carrinho.produtos:
         altura += 180
     altura = max(altura, 420)
     return altura
+
+def somaProduto(idusuario, idProduto):  # Falta testar
+    produto = Carrinho.objects.get(idusuario=idusuario, produtos__produto__idProduto=idProduto)
+    produto.quantidade += 1
+    quant = produto.quantidade
+    produto.save()
+    return quant
+
+
+def subtraiProduto(idusuario, idProduto):   # Falta testar
+    produto = Carrinho.objects.get(idusuario=idusuario, produtos__produto__idProduto=idProduto)
+    if produto.quantidade > 1:
+        produto.quantidade -= 1
+        produto.save()
+    quant = produto.quantidade
+    return quant

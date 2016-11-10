@@ -10,6 +10,8 @@ Abra a pasta que se deseja inicializar (por exemplo, login) e utilize:
 
 ```python manage.py runserver```
 
+...
+
 ### Trabalhando em branches separadas:
 
 * Criando uma branch nova e mudando para ela (o nome ficará no estilo "seunome/nomebranch"):

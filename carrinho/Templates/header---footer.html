@@ -1,31 +1,32 @@
 <!doctype html>
 <html>
-{% load staticfiles %}
+{% load static %}
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1.0">
     <title>Scan&amp;Skip - {% block title %}{% endblock %}</title>
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{% static 'css/standardize.css' %}">
     <link rel="stylesheet" href="{% static 'css/header---footer-grid.css' %}">
     <link rel="stylesheet" href="{% static 'css/header---footer.css' %}">
     {% block head %}{% endblock %}
 </head>
 <body class="body page-header---footer clearfix">
-    <div class="corpo clearfix" style="height: {{ altura2 }}px;">
+    <div id="corpo" class="corpo">
         <footer class="footer"></footer>
         {% block content %}{% endblock %}
     </div>
     <div class="barra clearfix">
-        <p class="text">Scan&amp;Skip</p>
+        <p class="textheader">Scan&amp;Skip</p>
         <div class="botoesbarra clearfix">
-            <button onClick="mudaFrame('home.html')" class="botaoBarra botaoHome" type="button">Home</button>
-            <button onClick="mudaFrame('sobre.html')" class="botaoBarra botaoSobre" type="button">Sobre</button>
+            <button onClick="window.location='https://scan-skip.herokuapp.com/';" class="botaoBarra botaoHome">Home</button>
+            <button onClick="window.location='https://scan-skip.herokuapp.com/sobre';" class="botaoBarra botaoSobre" type="button">Sobre</button>
             {% if request.session.logado %}
-                <button class="botaoBarra botaoBemVindo" type="button">Bem Vindo(a) {{ request.session.nome }}!</button>
+                <button onClick="window.location='https://scan-skip.herokuapp.com/perfil';" class="botaoBarra botaoLogin">Perfil</button>
+                <button onClick="window.location='https://scan-skip.herokuapp.com/logout';" class="botaoBarra botaoCadastro">Logout</button>
             {% else %}
-                <button onClick="mudaFrame('login.html')" class="botaoBarra botaoLogin" type="button">Login</button>
-                <button onClick="mudaFrame('cadastro.html');" class="botaoBarra botaoCadastro" type="button">Cadastre-se</button>
+                <button onClick="window.location='https://scan-skip.herokuapp.com/login';" class="botaoBarra botaoLogin">Login</button>
+                <button onClick="window.location='https://scan-skip.herokuapp.com/cadastro';" class="botaoBarra botaoCadastro">Cadastre-se</button>
             {% endif %}
         </div>
     </div>

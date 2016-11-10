@@ -12,9 +12,15 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 from mongoengine import *
+from whitenoise import WhiteNoise
+
 # Build paths inside the project like this: os  .path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/1.10/howto/static-files/
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -46,6 +52,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -80,19 +87,22 @@ STATICFILES_DIRS = [
     (BASE_DIR + '/Templates').replace('\\', '/'),
 ]
 
+<<<<<<< HEAD
+=======
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+>>>>>>> f0738d6b15db2f58d3170c875804ccfeca01bb41
 CORS_ORIGIN_ALLOW_ALL = True
 
 WSGI_APPLICATION = 'carrinho.wsgi.application'
 
-#_MONGODB_USER = 'mongouser'
-#_MONGODB_PASSWD = 'password'
-#_MONGODB_HOST = 'thehost'
-#_MONGODB_NAME = 'thedb'
-#_MONGODB_DATABASE_HOST = \
-#    'mongodb://%s:%s@%s/%s' \
-#    % (_MONGODB_USER, _MONGODB_PASSWD, _MONGODB_HOST, _MONGODB_NAME)
-connect('supermercado', username='admin', password='admin123')
-#mongoengine.connect(_MONGODB_NAME, host=_MONGODB_DATABASE_HOST)
+_MONGODB_USER = 'admin'
+_MONGODB_PASSWD = 'admin123'
+_MONGODB_HOST = 'ds143737.mlab.com:43737'
+_MONGODB_NAME = 'supermercado'
+_MONGODB_DATABASE_HOST = 'mongodb://%s:%s@%s/%s' % (_MONGODB_USER, _MONGODB_PASSWD, _MONGODB_HOST, _MONGODB_NAME)
+connect(_MONGODB_NAME, host=_MONGODB_DATABASE_HOST)
+#connect('supermercado', username='admin', password='admin123')
 
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
@@ -145,9 +155,3 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.10/howto/static-files/
-
-STATIC_URL = '/static/'

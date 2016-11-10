@@ -2,85 +2,120 @@
 
 {% block title %}Carrinho{% endblock %}
 
-{% load staticfiles %}
+{% load static %}
 
 {% block head %}
-  <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700,400,600" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="{% static 'css/standardize.css' %}">
-  <link rel="stylesheet" href="{% static 'css/carrinho-grid.css' %}">
-  <link rel="stylesheet" href="{% static 'css/carrinho.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400,600" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="{% static 'css/carrinho-grid.css' %}">
+<link rel="stylesheet" href="{% static 'css/carrinho.css' %}">
 {% endblock %}
 
 {% block content %}
-  <div class="background" style="height: {{ altura1 }}px;">
-    <div class="carrinho clearfix">
-      <p class="titulocarrinho">Seu carrinho</p>
+<div id="divBackground" class="background">
+  <div id="divCarrinho" class="carrinho clearfix">
+    <p class="titulocarrinho">Seu carrinho</p>
 
-      {% for produto in carrinho.produtos %}
-        <div class="produtocarrinho">
-          <div class="infocarrinho">
-            <div class="alteraquantidade">
-              <button onClick="alteraquantidade('-', '{{ produto.idProduto }}')" class="_button _button-1" id="-">-</button>
-              <button onClick="alteraquantidade('+', '{{ produto.idProduto }}')" class="_button _button-2" id="+">+</button>
-              <p class="quantidade" id="quantidade-{{produto.idProduto}}">{{ produto.quantidade }}</p>
-            </div>
-            <p class="precoproduto">R$ {{ produto.preco }}</p>
-            <p class="nomeproduto">{{ produto.nome }}</p>
-          </div>
-          <form method="post" action="{% url 'Remover' %}">
-            {% csrf_token %}
-            <input type="hidden" name="idProduto" value="{{ produto.idProduto }}">
-            <button class="_button _button-3" name="remover" type="submit">Remover</button>
-          </form>
-          <div class="fotoprodutocarrinho" style="background-image: url('{{ produto.imagem }}');"></div>
+    {% for produto in carrinho.produtos %}
+    <div class="produtocarrinho">
+      <div class="infocarrinho">
+        <div class="alteraquantidade">
+          <button onClick="alteraquantidade('-', '{{ produto.idProduto }}')" class="_button _button-1" id="-">-</button>
+          <button onClick="alteraquantidade('+', '{{ produto.idProduto }}')" class="_button _button-2" id="+">+</button>
+          <p class="quantidade" id="quantidade-{{produto.idProduto}}">{{ produto.quantidade }}</p>
         </div>
-      {% endfor %}
-
-      <div class="campototalcarrinho">
-        <p id="valortotal" class="valortotalcarrinho">{{ total }}</p>
-        <p class="totalcarrinho">Total</p>
+        <p class="precoproduto">R$ {{ produto.preco }}</p>
+        <p class="nomeproduto">{{ produto.nome }}</p>
       </div>
+      <form method="post" action="{% url 'Remover' %}">
+        {% csrf_token %}
+        <input type="hidden" name="idProduto" value="{{ produto.idProduto }}">
+        <button class="_button _button-3" name="remover" type="submit">Remover</button>
+      </form>
+      <div class="fotoprodutocarrinho" style="background-image: url('{{ produto.imagem }}');"></div>
+    </div>
+    {% endfor %}
 
-      <div class="containerbotoescarrinho">
-        <button onClick="window.location='{{ request.session.urlFila }}';" class="_button _button-4" type="button">Finalizar</button>
-        <form method="post" action="{% url 'Limpar' %}">
-          {% csrf_token %}
-          <button class="_button _button-5" type="submit">Limpar</button>
-        </form>
-      </div>
+    <div class="campototalcarrinho">
+      <p id="valortotal" class="valortotalcarrinho">{{ total }}</p>
+      <p class="totalcarrinho">Total</p>
+    </div>
+
+    <div class="containerbotoescarrinho">
+      <form method="post" action="{% url 'Finalizar' %}">
+        {% csrf_token %}
+        <button class="_button _button-4" type="submit">Finalizar</button>
+      </form>
+      <form method="post" action="{% url 'Limpar' %}">
+        {% csrf_token %}
+        <button class="_button _button-5" type="submit">Limpar</button>
+      </form>
     </div>
   </div>
+</div>
 
-  <script>
-      // Definindo variáveis iniciais
-      var produtos = {};
-      {% for produto in carrinho.produtos %}
-        produtos['{{ produto.idProduto }}'] = {'quantidade': Number('{{ produto.quantidade }}'), 'preco': parseFloat('{{ produto.preco }}'.replace(",", "."))};
-      {% endfor %}
-      var valorTotal = parseFloat("{{ totalFloat }}".replace(",", "."));
+<script>
+  // Definindo variáveis iniciais
+  var produtos = {};
+  {% for produto in carrinho.produtos %}
+  produtos['{{ produto.idProduto }}'] = {'quantidade': Number('{{ produto.quantidade }}'), 'preco': parseFloat('{{ produto.preco }}'.replace(",", "."))};
+  {% endfor %}
+  var valorTotal = parseFloat("{{ totalFloat }}".replace(",", "."));
+  window.onload = acertaTamanho;
+  window.addEventListener('resize', acertaTamanho);
 
-      function alteraquantidade(op, idProduto) {
-        // Pegando elementos que vamos alterar
+  function acertaTamanho(){
+    if (window.innerWidth > 960){
+      document.getElementById("divBackground").style.height = ((280 + 180*{{numProdutos}}) + "px");
+      document.getElementById("divCarrinho").style.height = ((240 + 180*{{numProdutos}}) + "px");
+      document.getElementById("corpo").style.height = ((310 + 180*{{numProdutos}}) + "px");
+    }
+    else {
+      document.getElementById("divBackground").style.height = ((340 + 250*{{numProdutos}}) + "px");
+      document.getElementById("divCarrinho").style.height = ((300 + 250*{{numProdutos}}) + "px");
+      document.getElementById("corpo").style.height = ((370 + 250*{{numProdutos}}) + "px");
+    }
+  }
+</script>
 
-        var quantElement = document.getElementById("quantidade-" + idProduto);
-        var valorTotalElement = document.getElementById("valortotal");
+<script>
+  // Definindo variáveis iniciais
+  var produtos = {};
+  {% for produto in carrinho.produtos %}
+    produtos['{{ produto.idProduto }}'] = {'quantidade': Number('{{ produto.quantidade }}'), 'preco': parseFloat('{{ produto.preco }}'.replace(",", "."))};
+  {% endfor %}
+  var valorTotal = calculaTotal();//parseFloat("{{ totalFloat }}".replace(",", "."));
 
-        // Pegando produto atual
-        var produto = produtos[idProduto];
-        var quantidade = produto['quantidade'];
-        var preco = produto['preco'];
+  function alteraquantidade(op, idProduto) {
+    // Pegando elementos que vamos alterar
 
-        if (op == "-" && quantidade > 0) {
-          produtos[idProduto]['quantidade'] -= 1;
-          valorTotal -= preco;
-        }
-        if (op == "+") {
-          produtos[idProduto]['quantidade'] += 1;
-          valorTotal += preco;
-        }
+    var quantElement = document.getElementById("quantidade-" + idProduto);
+    var valorTotalElement = document.getElementById("valortotal");
 
-        quantElement.innerHTML = produtos[idProduto]['quantidade'];
-        valorTotalElement.innerHTML = "R$ " + valorTotal.toFixed(2);
-      }
-  </script>
+    // Pegando produto atual
+    var produto = produtos[idProduto];
+    var quantidade = produto['quantidade'];
+    var preco = produto['preco'];
+
+    if (op == "-" && quantidade > 1) {
+      produtos[idProduto]['quantidade'] -= 1;
+      valorTotal -= preco;
+    }
+    if (op == "+") {
+      produtos[idProduto]['quantidade'] += 1;
+      valorTotal += preco;
+    }
+
+    quantElement.innerHTML = produtos[idProduto]['quantidade'];
+    valorTotalElement.innerHTML = "R$ " + valorTotal.toFixed(2);
+  }
+
+  function calculaTotal() {
+    var total = 0;
+    for (var key in produtos){
+      total += produtos[key]['preco'];
+    }
+
+    return total;
+  }
+</script>
 {% endblock %}
