@@ -113,3 +113,10 @@ def subtrai(request):   # Falta testar
         return HttpResponse(str(quantidade))
     else:
         return redirect(siteLogin)
+
+def produtos(request, idusuario):
+    carrinho = pegaCarrinho(idusuario, None)    
+    listaJson = []
+    for produto in carrinho.produtos:
+        listaJson.append({'idProduto' : produto.idProduto,'nome' : produto.nome,'categoria' : produto.categoria,'marca' : produto.marca,'preco' : produto.preco,'imagem' : produto.imagem,'quantidade' : produto.quantidade})
+    return JsonResponse(listaJson)

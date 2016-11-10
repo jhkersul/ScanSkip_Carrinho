@@ -12,4 +12,5 @@ urlpatterns = [
     url(r'^Remover/', views.remove, name="Remover"),
     url(r'^Soma/', views.soma, name="Soma"),
     url(r'^Subtrai/', views.subtrai, name="Subtrai"),
+    url(r'^id=(?P<idusuario>[-\w ]+)/$', views.produtos, name="Produtos"),
 ]
