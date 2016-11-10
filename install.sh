@@ -21,5 +21,14 @@ pip install blinker
 
 echo "Installing mongo-engine"
 pip install django-rest-framework-mongoengine
-pip uninstall pymongo
+pip uninstall pymongo -y
 pip install pymongo==2.8
+
+echo "Installing whitenoise"
+pip install whitenoise
+
+echo "Installing mongoengine"
+pip install mongoengine
+
+echo "Installing corsheaders"
+pip install django-cors-headers
