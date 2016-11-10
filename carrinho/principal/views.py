@@ -6,6 +6,7 @@ from rest_framework.views import APIView
 from django.http import JsonResponse
 import sys
 import os
+import json
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(BASE_DIR + '/carrinho/utils/')
 

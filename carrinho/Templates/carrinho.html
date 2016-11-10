@@ -8,6 +8,11 @@
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400,600" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="{% static 'css/carrinho-grid.css' %}">
 <link rel="stylesheet" href="{% static 'css/carrinho.css' %}">
+
+<script src="{% static 'js/js.cookie.js' %}"></script>
+<script src="{% static 'js/jquery-min.js' %}"></script>
+<script src="{% static 'js/carrinho.js' %}"></script>
+
 {% endblock %}
 
 {% block content %}
@@ -18,9 +23,9 @@
     {% for produto in carrinho.produtos %}
     <div class="produtocarrinho">
       <div class="infocarrinho">
-        <div class="alteraquantidade">
-          <button onClick="alteraquantidade('-', '{{ produto.idProduto }}')" class="_button _button-1" id="-">-</button>
-          <button onClick="alteraquantidade('+', '{{ produto.idProduto }}')" class="_button _button-2" id="+">+</button>
+        <div class="alteraQuantidade">
+          <button onClick="alteraQuantidade('-', '{{ produto.idProduto }}')" class="_button _button-1" id="-">-</button>
+          <button onClick="alteraQuantidade('+', '{{ produto.idProduto }}')" class="_button _button-2" id="+">+</button>
           <p class="quantidade" id="quantidade-{{produto.idProduto}}">{{ produto.quantidade }}</p>
         </div>
         <p class="precoproduto">R$ {{ produto.preco }}</p>
@@ -55,67 +60,19 @@
 
 <script>
   // Definindo variáveis iniciais
-  var produtos = {};
-  {% for produto in carrinho.produtos %}
-  produtos['{{ produto.idProduto }}'] = {'quantidade': Number('{{ produto.quantidade }}'), 'preco': parseFloat('{{ produto.preco }}'.replace(",", "."))};
-  {% endfor %}
-  var valorTotal = parseFloat("{{ totalFloat }}".replace(",", "."));
-  window.onload = acertaTamanho;
-  window.addEventListener('resize', acertaTamanho);
+  var produtos = pegaProdutosCarrinho();
 
-  function acertaTamanho(){
-    if (window.innerWidth > 960){
-      document.getElementById("divBackground").style.height = ((280 + 180*{{numProdutos}}) + "px");
-      document.getElementById("divCarrinho").style.height = ((240 + 180*{{numProdutos}}) + "px");
-      document.getElementById("corpo").style.height = ((310 + 180*{{numProdutos}}) + "px");
+  {% for produto in carrinho.produtos %}
+    // Adicionando produtos que não temos ao carrinho
+    if (produtos['{{ produto.idProduto }}'] == undefined) {
+      produtos['{{ produto.idProduto }}'] = {'quantidade': Number('{{ produto.quantidade }}'), 'preco': parseFloat('{{ produto.preco }}'.replace(",", "."))};
     }
-    else {
-      document.getElementById("divBackground").style.height = ((340 + 250*{{numProdutos}}) + "px");
-      document.getElementById("divCarrinho").style.height = ((300 + 250*{{numProdutos}}) + "px");
-      document.getElementById("corpo").style.height = ((370 + 250*{{numProdutos}}) + "px");
-    }
-  }
+  {% endfor %}
+
+  var numProdutos = {{numProdutos}};
+
+  setaValorTotal();
+  setaQuantidade();
 </script>
 
-<script>
-  // Definindo variáveis iniciais
-  var produtos = {};
-  {% for produto in carrinho.produtos %}
-    produtos['{{ produto.idProduto }}'] = {'quantidade': Number('{{ produto.quantidade }}'), 'preco': parseFloat('{{ produto.preco }}'.replace(",", "."))};
-  {% endfor %}
-  var valorTotal = calculaTotal();//parseFloat("{{ totalFloat }}".replace(",", "."));
-
-  function alteraquantidade(op, idProduto) {
-    // Pegando elementos que vamos alterar
-
-    var quantElement = document.getElementById("quantidade-" + idProduto);
-    var valorTotalElement = document.getElementById("valortotal");
-
-    // Pegando produto atual
-    var produto = produtos[idProduto];
-    var quantidade = produto['quantidade'];
-    var preco = produto['preco'];
-
-    if (op == "-" && quantidade > 1) {
-      produtos[idProduto]['quantidade'] -= 1;
-      valorTotal -= preco;
-    }
-    if (op == "+") {
-      produtos[idProduto]['quantidade'] += 1;
-      valorTotal += preco;
-    }
-
-    quantElement.innerHTML = produtos[idProduto]['quantidade'];
-    valorTotalElement.innerHTML = "R$ " + valorTotal.toFixed(2);
-  }
-
-  function calculaTotal() {
-    var total = 0;
-    for (var key in produtos){
-      total += produtos[key]['preco'];
-    }
-
-    return total;
-  }
-</script>
 {% endblock %}

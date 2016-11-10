@@ -4,7 +4,7 @@ body {
   color: rgba(0, 0, 0, 0.87);
 }
 
-.alteraquantidade {
+.alteraQuantidade {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -207,7 +207,7 @@ body {
   text-align: center;
 }
 
-.alteraquantidade ._button {
+.alteraQuantidade ._button {
   bottom: 0;
   height: 42px;
   background-color: rgb(250, 220, 10);
@@ -216,7 +216,7 @@ body {
   color: rgb(0, 0, 0);
 }
 
-.alteraquantidade ._button:hover {
+.alteraQuantidade ._button:hover {
   background-color: rgb(243, 205, 39);
 }
 
@@ -228,7 +228,7 @@ body {
   color: rgb(255, 255, 255);
 }
 
-.alteraquantidade ._button-1 {
+.alteraQuantidade ._button-1 {
   left: 0;
   z-index: 9;
   width: 35.294117647%;
@@ -236,7 +236,7 @@ body {
   border-bottom-left-radius: 10px;
 }
 
-.alteraquantidade ._button-2 {
+.alteraQuantidade ._button-2 {
   right: 0;
   z-index: 8;
   width: 35.7843137254%;
@@ -284,7 +284,7 @@ body {
 }
 
 @media(max-width: 960px) {
-  .alteraquantidade .quantidade {
+  .alteraQuantidade .quantidade {
     bottom: -0.5px;
     left: 0;
     right: 0;
@@ -349,7 +349,7 @@ body {
     z-index: 13;
   }
 
-  .infocarrinho .alteraquantidade {
+  .infocarrinho .alteraQuantidade {
     width: 45.7105891719%;
   }
 
@@ -388,7 +388,7 @@ body {
     margin-left: auto;
   }
 
-  .alteraquantidade ._button {
+  .alteraQuantidade ._button {
     bottom: -0.5px;
   }
 
@@ -398,11 +398,11 @@ body {
     width: 35.7634860788%;
   }
 
-  .alteraquantidade ._button-1 {
+  .alteraQuantidade ._button-1 {
     width: 32.35%;
   }
 
-  .alteraquantidade ._button-2 {
+  .alteraQuantidade ._button-2 {
     width: 32.3492784411%;
   }
 
@@ -427,7 +427,7 @@ body {
     font-size: 1em;
   }
 
-  .alteraquantidade .quantidade,
+  .alteraQuantidade .quantidade,
   .carrinho .campototalcarrinho,
   .infocarrinho .nomeproduto,
   .produtocarrinho .infocarrinho {
@@ -487,7 +487,7 @@ body {
 }
 
 @media(max-width: 630px) {
-  .alteraquantidade .quantidade,
+  .alteraQuantidade .quantidade,
   .carrinho .campototalcarrinho,
   .infocarrinho .nomeproduto,
   .produtocarrinho .infocarrinho {
@@ -546,7 +546,7 @@ body {
     font-size: 1em;
   }
 
-  .alteraquantidade .quantidade,
+  .alteraQuantidade .quantidade,
   .background .carrinho,
   .carrinho .campototalcarrinho,
   .infocarrinho .nomeproduto,
@@ -580,7 +580,7 @@ body {
 }
 
 @media(max-width: 475px) {
-  .alteraquantidade .quantidade,
+  .alteraQuantidade .quantidade,
   .background .carrinho,
   .carrinho .campototalcarrinho,
   .infocarrinho .nomeproduto,
@@ -627,7 +627,7 @@ body {
     font-size: 1em;
   }
 
-  .alteraquantidade .quantidade,
+  .alteraQuantidade .quantidade,
   .carrinho .campototalcarrinho,
   .produtocarrinho .infocarrinho {
     left: 0;
