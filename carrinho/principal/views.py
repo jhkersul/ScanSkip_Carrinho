@@ -4,6 +4,7 @@ from control import *
 from django.core.serializers import *
 from rest_framework.views import APIView
 from django.http import JsonResponse
+import urllib
 import sys
 import os
 import json
@@ -20,12 +21,19 @@ def login(request, idusuario, nome):
     request.session['nome'] = nome
     request.session['idusuario'] = idusuario
     numProdutos = len(carrinho.produtos)
+    atualizaQuantidades(carrinho, request)
     return render(request, 'carrinho.html', {'carrinho': carrinho, 'numProdutos': numProdutos})
 
 
 def finalizar(request):
-    urlFila = siteFila + request.session['idusuario']
-    return HttpResponseRedirect(urlFila)
+    logado = verificaUsuario(request)
+    if logado:
+        carrinho = pegaCarrinho(request.session['idusuario'], request.session['nome'])
+        atualizaQuantidades(carrinho, request)
+        urlFila = siteFila + request.session['idusuario']
+        return HttpResponseRedirect(urlFila)
+    else:
+        return redirect(siteLogin)
 
 
 def limpar(request):
@@ -34,7 +42,11 @@ def limpar(request):
         carrinho = pegaCarrinho(request.session['idusuario'], request.session['nome'])
         carrinho = limpaCarrinho(carrinho)
         numProdutos = len(carrinho.produtos)
-        return render(request, 'carrinho.html', {'carrinho': carrinho, 'numProdutos': numProdutos})
+        response = render(request, 'carrinho.html', {'carrinho': carrinho, 'numProdutos': numProdutos})
+        cookies = json.dumps({})
+        cookieString = urllib.quote(cookies)
+        response.set_cookie('produtos', cookieString)
+        return response
     else:
         return redirect(siteLogin)
 
@@ -43,11 +55,9 @@ def carrinho(request):
     logado = verificaUsuario(request)
     if logado:
         carrinho = pegaCarrinho(request.session['idusuario'], request.session['nome'])
-        total = pegaTotal(carrinho)
-        totalFloat = pegaTotalFloat(carrinho)
-        altura1 = pegaAltura(carrinho)
         numProdutos = len(carrinho.produtos)
-        return render(request, 'carrinho.html', {'carrinho': carrinho, 'total': total, 'totalFloat': totalFloat, 'numProdutos': numProdutos, 'altura1': altura1, 'altura2': altura1+30})
+        atualizaQuantidades(carrinho, request)
+        return render(request, 'carrinho.html', {'carrinho': carrinho, 'numProdutos': numProdutos})
     else:
         return redirect(siteLogin)
 
@@ -69,6 +79,8 @@ def fim(request, idusuario):
 def adiciona(request):
     logado = verificaUsuario(request)
     if logado:
+        carrinho = pegaCarrinho(request.session['idusuario'], request.session['nome'])
+        atualizaQuantidades(carrinho, request)
         if 'botaoAdicionar' in request.POST:
             idProduto = request.POST.get('idProduto')
             nome = request.POST.get('nome')
@@ -87,30 +99,26 @@ def adiciona(request):
 def remove(request):
     logado = verificaUsuario(request)
     if logado:
+        carrinho = pegaCarrinho(request.session['idusuario'], request.session['nome'])
+        atualizaQuantidades(carrinho, request)
         idProduto = request.POST.get('idProduto')
         removeProduto(request.session['idusuario'], idProduto)
+        cookies = getCookies(request)
+        cookies.pop(idProduto, None)
+        cookies = json.dumps(cookies)
+        cookieString = urllib.quote(cookies)
         carrinho = pegaCarrinho(request.session['idusuario'], request.session['nome'])
         numProdutos = len(carrinho.produtos)
-        return render(request, 'carrinho.html', {'carrinho': carrinho, 'numProdutos': numProdutos})
+        response = render(request, 'carrinho.html', {'carrinho': carrinho, 'numProdutos': numProdutos})
+        response.set_cookie('produtos', cookieString)
+        return response
     else:
         return redirect(siteLogin)
 
 
-def soma(request):  # Falta testar
-    logado = verificaUsuario(request)
-    if logado:
-        idProduto = request.POST.get('idproduto')
-        quantidade = somaProduto(request.session['idusuario'], idProduto)
-        return HttpResponse(str(quantidade))
-    else:
-        return redirect(siteLogin)
-
-
-def subtrai(request):   # Falta testar
-    logado = verificaUsuario(request)
-    if logado:
-        idProduto = request.POST.get('idproduto')
-        quantidade = subtraiProduto(request.session['idusuario'], idProduto)
-        return HttpResponse(str(quantidade))
-    else:
-        return redirect(siteLogin)
+def produtos(request, idusuario):
+    carrinho = pegaCarrinho(idusuario, None)
+    listaJson = []
+    for produto in carrinho.produtos:
+        listaJson.append({'idProduto' : produto.idProduto,'nome' : produto.nome,'categoria' : produto.categoria,'marca' : produto.marca,'preco' : produto.preco,'imagem' : produto.imagem,'quantidade' : produto.quantidade})
+    return JsonResponse(listaJson)

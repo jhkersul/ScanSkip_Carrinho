@@ -1,7 +1,3 @@
-$(window).load(() => acertaTamanho());
-
-//window.addEventListener('resize', acertaTamanho);
-
 function acertaTamanho() {
   if (window.innerWidth > 960) {
     document.getElementById("divBackground").style.height = ((280 + 180*numProdutos) + "px");
@@ -46,16 +42,6 @@ function salvaEstadoCarrinho() {
   Cookies.set('produtos', produtos);
 
   console.log(Cookies.get('produtos'));
-}
-
-function pegaProdutosCarrinho() {
-  let _produtos = Cookies.getJSON('produtos')
-
-  if (_produtos == 'undefined') {
-    return {};
-  }
-
-  return _produtos;console.log(produto);
 }
 
 function setaQuantidade() {

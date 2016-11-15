@@ -5,14 +5,13 @@
 {% load static %}
 
 {% block head %}
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400,600" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="{% static 'css/carrinho-grid.css' %}">
-<link rel="stylesheet" href="{% static 'css/carrinho.css' %}">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400,600" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="{% static 'css/carrinho-grid.css' %}">
+  <link rel="stylesheet" href="{% static 'css/carrinho.css' %}">
 
-<script src="{% static 'js/js.cookie.js' %}"></script>
-<script src="{% static 'js/jquery-min.js' %}"></script>
-<script src="{% static 'js/carrinho.js' %}"></script>
-
+  <script src="{% static 'js/js.cookie.js' %}"></script>
+  <script src="{% static 'js/jquery-min.js' %}"></script>
+  <script src="{% static 'js/carrinho.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -41,7 +40,7 @@
     {% endfor %}
 
     <div class="campototalcarrinho">
-      <p id="valortotal" class="valortotalcarrinho">{{ total }}</p>
+      <p id="valortotal" class="valortotalcarrinho">R$ 0,00</p>
       <p class="totalcarrinho">Total</p>
     </div>
 
@@ -59,12 +58,14 @@
 </div>
 
 <script>
+  window.onload = acertaTamanho;
+  window.addEventListener('resize', acertaTamanho);
   // Definindo variáveis iniciais
   var produtos = pegaProdutosCarrinho();
 
   {% for produto in carrinho.produtos %}
     // Adicionando produtos que não temos ao carrinho
-    if (produtos['{{ produto.idProduto }}'] == undefined) {
+    if (!('{{ produto.idProduto }}' in produtos)) {
       produtos['{{ produto.idProduto }}'] = {'quantidade': Number('{{ produto.quantidade }}'), 'preco': parseFloat('{{ produto.preco }}'.replace(",", "."))};
     }
   {% endfor %}
@@ -73,6 +74,15 @@
 
   setaValorTotal();
   setaQuantidade();
+
+  function pegaProdutosCarrinho() {
+    let _produtos = Cookies.getJSON('produtos')
+
+    if (_produtos == 'undefined') {
+      return {};
+    }
+    return _produtos;console.log(produto);
+  }
 </script>
 
 {% endblock %}

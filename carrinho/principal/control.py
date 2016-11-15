@@ -1,4 +1,6 @@
 from models import *
+import urllib
+import json
 import sys
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -26,6 +28,23 @@ def pegaCarrinho(idusuario, nome):
     return carrinho
 
 
+def getCookies(request):
+    cookieString = urllib.unquote(request.COOKIES.get('produtos'))
+    cookies = json.loads(cookieString)
+    return cookies
+
+
+def atualizaQuantidades(carrinho, request):
+    cookies = getCookies(request)
+    for produto in carrinho.produtos:
+        idProduto = produto.idProduto
+        try:
+            produto.quantidade = float(cookies[idProduto]['quantidade'])
+        except KeyError:
+            produto.quantidade = 1
+    carrinho.save()
+
+
 def limpaCarrinho(carrinho):
     carrinho.produtos.delete()  # Verificar isso (Garantir que remove todos os produtos, deixando a lista vazia)
     carrinho.save()
@@ -35,14 +54,8 @@ def limpaCarrinho(carrinho):
 def pegaTotal(carrinho):
     total = 0
     for produto in carrinho.produtos:
-        total += float(produto.preco.replace(',', '.'))
+        total += float(produto.preco.replace(',', '.'))*float(produto.quantidade)
     total = 'R$ ' + ('%.2f' % (float(total))).replace('.', ',')
-    return total
-
-def pegaTotalFloat(carrinho):
-    total = 0
-    for produto in carrinho.produtos:
-        total += float(produto.preco.replace(',', '.'))
     return total
 
 
@@ -61,26 +74,3 @@ def adicionaProduto(idusuario, idProduto, nome, marca, categoria, preco, imagem)
 
 def removeProduto(idusuario, idProduto):
     Carrinho.objects(idusuario=idusuario).update_one(pull__produtos__idProduto=idProduto)
-
-def pegaAltura(carrinho):
-    altura = 240
-    for produto in carrinho.produtos:
-        altura += 180
-    altura = max(altura, 420)
-    return altura
-
-def somaProduto(idusuario, idProduto):  # Falta testar
-    produto = Carrinho.objects.get(idusuario=idusuario, produtos__produto__idProduto=idProduto)
-    produto.quantidade += 1
-    quant = produto.quantidade
-    produto.save()
-    return quant
-
-
-def subtraiProduto(idusuario, idProduto):   # Falta testar
-    produto = Carrinho.objects.get(idusuario=idusuario, produtos__produto__idProduto=idProduto)
-    if produto.quantidade > 1:
-        produto.quantidade -= 1
-        produto.save()
-    quant = produto.quantidade
-    return quant
