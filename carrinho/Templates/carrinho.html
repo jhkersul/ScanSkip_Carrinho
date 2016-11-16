@@ -61,7 +61,13 @@
   window.onload = acertaTamanho;
   window.addEventListener('resize', acertaTamanho);
   // Definindo variáveis iniciais
+  var numProdutos = {{numProdutos}};
   var produtos = pegaProdutosCarrinho();
+  var tem;
+
+  if(numProdutos == 0){
+    produtos = {}
+  }
 
   {% for produto in carrinho.produtos %}
     // Adicionando produtos que não temos ao carrinho
@@ -70,7 +76,19 @@
     }
   {% endfor %}
 
-  var numProdutos = {{numProdutos}};
+  if (Object.keys(produtos).length > numProdutos) {
+    for (var idProduto in produtos) {
+      tem = 0;
+      {% for produto in carrinho.produtos %}
+        if (idProduto == '{{ produto.idProduto }}'){
+          tem += 1;
+        }
+      {% endfor %}
+      if (tem == 0){
+        delete produtos[idProduto]
+      }
+    }
+  }
 
   setaValorTotal();
   setaQuantidade();
@@ -78,10 +96,10 @@
   function pegaProdutosCarrinho() {
     let _produtos = Cookies.getJSON('produtos')
 
-    if (_produtos == 'undefined') {
+    if (!_produtos) {
       return {};
     }
-    return _produtos;console.log(produto);
+    return _produtos;
   }
 </script>
 

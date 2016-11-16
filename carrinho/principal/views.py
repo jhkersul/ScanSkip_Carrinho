@@ -4,6 +4,7 @@ from control import *
 from django.core.serializers import *
 from rest_framework.views import APIView
 from django.http import JsonResponse
+from mongoengine.django.sessions import MongoSession
 import urllib
 import sys
 import os
@@ -12,7 +13,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(BASE_DIR + '/carrinho/utils/')
 
 siteFila = 'https://webteste-d2bec.firebaseapp.com/tempodeespera.html?myVar='
-siteLogin = 'http://143.107.102.52:8000/cadastro/login'
+sitePrincipal = 'https://scan-skip-teste.herokuapp.com/'
 
 
 def login(request, idusuario, nome):
@@ -21,8 +22,14 @@ def login(request, idusuario, nome):
     request.session['nome'] = nome
     request.session['idusuario'] = idusuario
     numProdutos = len(carrinho.produtos)
-    atualizaQuantidades(carrinho, request)
-    return render(request, 'carrinho.html', {'carrinho': carrinho, 'numProdutos': numProdutos})
+    return HttpResponseRedirect(sitePrincipal + 'perfil')
+
+
+def logout(request):
+    logado = verificaUsuario(request)
+    if logado:
+        MongoSession.objects.get(session_key=request.session.session_key).delete()
+    return HttpResponseRedirect(sitePrincipal + 'logout')
 
 
 def finalizar(request):
@@ -33,7 +40,7 @@ def finalizar(request):
         urlFila = siteFila + request.session['idusuario']
         return HttpResponseRedirect(urlFila)
     else:
-        return redirect(siteLogin)
+        return redirect(sitePrincipal + 'login')
 
 
 def limpar(request):
@@ -48,7 +55,7 @@ def limpar(request):
         response.set_cookie('produtos', cookieString)
         return response
     else:
-        return redirect(siteLogin)
+        return redirect(sitePrincipal + 'login')
 
 
 def carrinho(request):
@@ -59,7 +66,7 @@ def carrinho(request):
         atualizaQuantidades(carrinho, request)
         return render(request, 'carrinho.html', {'carrinho': carrinho, 'numProdutos': numProdutos})
     else:
-        return redirect(siteLogin)
+        return redirect(sitePrincipal + 'login')
 
 
 def total(request, idusuario):
@@ -93,7 +100,7 @@ def adiciona(request):
         numProdutos = len(carrinho.produtos)
         return render(request, 'carrinho.html', {'carrinho': carrinho, 'numProdutos': numProdutos})
     else:
-        return redirect(siteLogin)
+        return redirect(sitePrincipal + 'login')
 
 
 def remove(request):
@@ -113,7 +120,7 @@ def remove(request):
         response.set_cookie('produtos', cookieString)
         return response
     else:
-        return redirect(siteLogin)
+        return redirect(sitePrincipal + 'login')
 
 
 def produtos(request, idusuario):

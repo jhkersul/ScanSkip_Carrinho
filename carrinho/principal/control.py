@@ -35,14 +35,17 @@ def getCookies(request):
 
 
 def atualizaQuantidades(carrinho, request):
-    cookies = getCookies(request)
-    for produto in carrinho.produtos:
-        idProduto = produto.idProduto
-        try:
-            produto.quantidade = float(cookies[idProduto]['quantidade'])
-        except KeyError:
-            produto.quantidade = 1
-    carrinho.save()
+    try:
+        cookies = getCookies(request)
+        for produto in carrinho.produtos:
+            idProduto = produto.idProduto
+            try:
+                produto.quantidade = float(cookies[idProduto]['quantidade'])
+            except KeyError:
+                produto.quantidade = 1
+        carrinho.save()
+    except AttributeError:
+        pass
 
 
 def limpaCarrinho(carrinho):

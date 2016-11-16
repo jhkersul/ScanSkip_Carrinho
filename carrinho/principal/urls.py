@@ -11,4 +11,5 @@ urlpatterns = [
     url(r'^Adicionar/', views.adiciona, name="Adicionar"),
     url(r'^Remover/', views.remove, name="Remover"),
     url(r'^id=(?P<idusuario>[-\w ]+)/$', views.produtos, name="Produtos"),
+    url(r'^Logout/', views.logout, name="Logout"),
 ]
