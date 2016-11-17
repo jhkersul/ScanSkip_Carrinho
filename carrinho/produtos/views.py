@@ -9,7 +9,7 @@ from django.http import JsonResponse
 
 
 def produto(request, idProduto):
-    urlProduto = 'https://scan-skip-plu.herokuapp.com/produto/' + idProduto
+    urlProduto = 'https://scan-skip-plu-teste.herokuapp.com/produto/' + idProduto
     network = Network()
     response = network.request(urlProduto, 'GET')
     if response != -1:

@@ -28,6 +28,9 @@ def login(request, idusuario, nome):
 def logout(request):
     logado = verificaUsuario(request)
     if logado:
+        del request.session['logado']
+        del request.session['nome']
+        del request.session['idusuario']
         MongoSession.objects.get(session_key=request.session.session_key).delete()
     return HttpResponseRedirect(sitePrincipal + 'logout')
 
