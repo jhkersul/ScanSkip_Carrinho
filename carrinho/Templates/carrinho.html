@@ -5,13 +5,24 @@
 {% load static %}
 
 {% block head %}
+
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400,600" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="{% static 'css/carrinho-grid.css' %}">
 <link rel="stylesheet" href="{% static 'css/carrinho.css' %}">
+<script language="javascript">
+  function confirmacao() {
+	var r = confirm("Deseja realmente remover?");
+	if (r == true){
+		document.form_items.action = "{% url 'Remover' %}";
+		}else{
+			//Não vai pra nenhum link
+		}		
+	}
+</script>
 
-<script src="{% static 'js/js.cookie.js' %}"></script>
-<script src="{% static 'js/jquery-min.js' %}"></script>
-<script src="{% static 'js/carrinho.js' %}"></script>
+  <script src="{% static 'js/js.cookie.js' %}"></script>
+  <script src="{% static 'js/jquery-min.js' %}"></script>
+  <script src="{% static 'js/carrinho.js' %}"></script>
 
 {% endblock %}
 
@@ -31,17 +42,19 @@
         <p class="precoproduto">R$ {{ produto.preco }}</p>
         <p class="nomeproduto">{{ produto.nome }}</p>
       </div>
-      <form method="post" action="{% url 'Remover' %}">
+
+      <form id="form_items" name="form_items" method="post" action="">
         {% csrf_token %}
         <input type="hidden" name="idProduto" value="{{ produto.idProduto }}">
-        <button class="_button _button-3" name="remover" type="submit">Remover</button>
+        <button class="_button _button-3" onClick= "confirmacao()" name="remover" type="submit">Remover</button>
       </form>
-      <div class="fotoprodutocarrinho" style="background-image: url('{{ produto.imagem }}');"></div>
+      <div class="fotoprodutocarrinho" style="background-image: url('{{ produto.imagem }}');">
+      </div>
     </div>
     {% endfor %}
 
     <div class="campototalcarrinho">
-      <p id="valortotal" class="valortotalcarrinho">{{ total }}</p>
+      <p id="valortotal" class="valortotalcarrinho">R$ 0,00</p>
       <p class="totalcarrinho">Total</p>
     </div>
 
@@ -59,20 +72,49 @@
 </div>
 
 <script>
+  window.onload = acertaTamanho;
+  window.addEventListener('resize', acertaTamanho);
   // Definindo variáveis iniciais
+  var numProdutos = {{numProdutos}};
   var produtos = pegaProdutosCarrinho();
+  var tem;
+
+  if(numProdutos == 0){
+    produtos = {}
+  }
 
   {% for produto in carrinho.produtos %}
     // Adicionando produtos que não temos ao carrinho
-    if (produtos['{{ produto.idProduto }}'] == undefined) {
+    if (!('{{ produto.idProduto }}' in produtos)) {
       produtos['{{ produto.idProduto }}'] = {'quantidade': Number('{{ produto.quantidade }}'), 'preco': parseFloat('{{ produto.preco }}'.replace(",", "."))};
     }
   {% endfor %}
 
-  var numProdutos = {{numProdutos}};
+  if (Object.keys(produtos).length > numProdutos) {
+    for (var idProduto in produtos) {
+      tem = 0;
+      {% for produto in carrinho.produtos %}
+        if (idProduto == '{{ produto.idProduto }}'){
+          tem += 1;
+        }
+      {% endfor %}
+      if (tem == 0){
+        delete produtos[idProduto]
+      }
+    }
+  }
 
   setaValorTotal();
   setaQuantidade();
+
+  function pegaProdutosCarrinho() {
+    let _produtos = Cookies.getJSON('produtos')
+
+    if (!_produtos) {
+      return {};
+    }
+    return _produtos;
+  }
 </script>
 
 {% endblock %}
