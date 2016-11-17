@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.shortcuts import render
 import sys
 import os
@@ -8,16 +9,23 @@ from django.http import JsonResponse
 
 
 def produto(request, idProduto):
-    urlProduto = 'https://scan-skip-carrinho.herokuapp.com/produtos/TesteProduto/' #'http://143.107.102.48:3000/produto/' + idProduto
+    urlProduto = 'https://scan-skip-plu-teste.herokuapp.com/produto/' + idProduto
     network = Network()
     response = network.request(urlProduto, 'GET')
-    nome = response['nome']
-    marca = response['marca']
-    preco = response['valor']
-    preco = ('%.2f' % (float(preco)/100)).replace('.', ',')
-    categoria = response['categoria']
-    imagem = response['imagem']
-    return render(request, 'produto-escaneado-confirmacao.html', {'idProduto': idProduto, 'nome': nome, 'marca': marca, 'preco': preco, 'categoria': categoria, 'imagem': imagem})
+    if response != -1:
+        nome = response['nome']
+        marca = response['marca']
+        preco = response['valor']
+        preco = ('%.2f' % (float(preco)/100)).replace('.', ',')
+        categoria = response['categoria']
+        imagem = response['imagem']
+        return render(request, 'produto-escaneado-confirmacao.html', {'idProduto': idProduto, 'nome': nome, 'marca': marca, 'preco': preco, 'categoria': categoria, 'imagem': imagem, 'registrado': True})
+    else:
+        nome = 'Produto não registrado'
+        marca = '-------'
+        preco = '-------'
+        categoria = '-------'
+        return render(request, 'produto-escaneado-confirmacao.html', {'idProduto': idProduto, 'nome': nome, 'marca': marca, 'preco': preco, 'categoria': categoria, 'registrado': False})
 
 
 def testeProduto(request):

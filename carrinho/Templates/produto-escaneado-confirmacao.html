@@ -27,7 +27,11 @@
       <p id="3" class="textoprecoproduto js--preco-produto">Preço do Produto: {{ preco }}</p>
       <p id="4" class="textocategoriaproduto js--categoria-produto">Categoria do Produto: {{ categoria }}</p>
       <button name="botaoRetornar" class="confirmar confirmar-1 js-confirmar" type="submit">Retornar</button>
-      <button name="botaoAdicionar" class="confirmar confirmar-2 js-confirmar" type="submit">Adicionar</button>
+      {% if registrado %}
+        <button name="botaoAdicionar" class="confirmar confirmar-2 js-confirmar" type="submit">Adicionar</button>
+      {% else %}
+        <button class="confirmar confirmar-2 js-confirmar" style="background-color: rgb(120, 120, 120);" type="button">Adicionar</button>
+      {% endif %}
     </form>
   </div>
 {% endblock %}
