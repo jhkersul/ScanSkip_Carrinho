@@ -29,27 +29,35 @@
   <div id="divCarrinho" class="carrinho clearfix">
     <p class="titulocarrinho">Seu carrinho</p>
 
-    {% for produto in carrinho.produtos %}
-    <div class="produtocarrinho">
-      <div class="infocarrinho">
-        <div class="alteraQuantidade">
-          <button onClick="alteraQuantidade('-', '{{ produto.idProduto }}')" class="_button _button-1" id="-">-</button>
-          <button onClick="alteraQuantidade('+', '{{ produto.idProduto }}')" class="_button _button-2" id="+">+</button>
-          <p class="quantidade" id="quantidade-{{produto.idProduto}}">{{ produto.quantidade }}</p>
+    {% if carrinho.produtos %}
+      {% for produto in carrinho.produtos %}
+      <div class="produtocarrinho">
+        <div class="infocarrinho">
+          <div class="alteraQuantidade">
+            <button onClick="alteraQuantidade('-', '{{ produto.idProduto }}')" class="_button _button-1" id="-">-</button>
+            <button onClick="alteraQuantidade('+', '{{ produto.idProduto }}')" class="_button _button-2" id="+">+</button>
+            <p class="quantidade" id="quantidade-{{produto.idProduto}}">{{ produto.quantidade }}</p>
+          </div>
+          <p class="precoproduto">R$ {{ produto.preco }}</p>
+          <p class="nomeproduto">{{ produto.nome }}</p>
         </div>
-        <p class="precoproduto">R$ {{ produto.preco }}</p>
-        <p class="nomeproduto">{{ produto.nome }}</p>
-      </div>
 
-      <form id="form_items" name="form_items" method="post" action="">
-        {% csrf_token %}
-        <input type="hidden" name="idProduto" value="{{ produto.idProduto }}">
-        <button class="_button _button-3" onClick= "confirmacao()" name="remover" type="submit">Remover</button>
-      </form>
-      <div class="fotoprodutocarrinho" style="background-image: url('{{ produto.imagem }}');">
+        <form id="form_items" name="form_items" method="post" action="">
+          {% csrf_token %}
+          <input type="hidden" name="idProduto" value="{{ produto.idProduto }}">
+          <button class="_button _button-3" onClick= "confirmacao()" name="remover" type="submit">Remover</button>
+        </form>
+        <div class="fotoprodutocarrinho" style="background-image: url('{{ produto.imagem }}');">
+        </div>
       </div>
+      {% endfor %}
+    {% else %}
+    <div class="mensagemDeInicio">
+      <p>
+        Comece a Escanear!!
+      </p>
     </div>
-    {% endfor %}
+    {% endif %}
 
     <div class="campototalcarrinho">
       <p id="valortotal" class="valortotalcarrinho">R$ 0,00</p>

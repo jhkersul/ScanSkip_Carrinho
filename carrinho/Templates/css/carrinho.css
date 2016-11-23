@@ -66,6 +66,21 @@ body {
   margin-top: 15px;
 }
 
+.mensagemDeInicio {
+  position: absolute;
+  top: 150px;
+  left: 0;
+  right: 0;
+  z-index: 12;
+  width: 80%;
+  height: 160px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  font: 600 italic 2.5em/1.38 'Open Sans';
+  text-align: center;
+}
+
 .fotoprodutocarrinho {
   position: absolute;
   top: 0;
