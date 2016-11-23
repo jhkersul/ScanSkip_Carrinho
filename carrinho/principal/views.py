@@ -40,6 +40,18 @@ def finalizar(request):
     if logado:
         carrinho = pegaCarrinho(request.session['idusuario'], request.session['nome'])
         atualizaQuantidades(carrinho, request)
+        total = pegaTotal(carrinho)
+        totalFloat = float(total.replace('R$ ', '').replace(',', '.'))
+        return render(request, 'seletor-forma-de-pagamento.html', {'total': total, 'totalFloat': totalFloat})
+    else:
+        return redirect(sitePrincipal + 'login')
+
+
+def fila(request):
+    logado = verificaUsuario(request)
+    if logado:
+        carrinho = pegaCarrinho(request.session['idusuario'], request.session['nome'])
+        atualizaQuantidades(carrinho, request)
         urlFila = siteFila + request.session['idusuario']
         return HttpResponseRedirect(urlFila)
     else:

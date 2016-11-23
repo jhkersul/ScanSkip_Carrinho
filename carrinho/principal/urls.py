@@ -10,6 +10,7 @@ urlpatterns = [
     url(r'^$', views.carrinho, name="Carrinho"),
     url(r'^Adicionar/', views.adiciona, name="Adicionar"),
     url(r'^Remover/', views.remove, name="Remover"),
+    url(r'^fila/', views.fila, name="Fila"),
     url(r'^id=(?P<idusuario>[-\w ]+)/$', views.produtos, name="Produtos"),
     url(r'^logout/', views.logout, name="Logout"),
 ]

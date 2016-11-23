@@ -10,13 +10,23 @@
 <link rel="stylesheet" href="{% static 'css/carrinho.css' %}">
 <script language="javascript">
   function confirmacao() {
-	var r = confirm("Deseja realmente remover?");
+	var r = confirm("Deseja realmente remover o item?");
 	if (r == true){
-		document.form_items.action = "{% url 'Remover' %}";
-		}else{
-			//Não vai pra nenhum link
-		}
+	  document.getElementById("form_items").action = "{% url 'Remover' %}";
+	  document.getElementById("form_items").submit();
+	}else{
+	  //Não vai pra nenhum link
+    }
+  }
+  function limpar() {
+	var r = confirm("Deseja realmente remover todos os itens?");
+	if (r == true){
+	  document.getElementById("limpa").action = "{% url 'Limpar' %}";
+	  document.getElementById("limpa").submit();
+	}else{
+	  //Não vai pra nenhum link
 	}
+  }
 </script>
 
   <script src="{% static 'js/js.cookie.js' %}"></script>
@@ -45,7 +55,7 @@
         <form id="form_items" name="form_items" method="post" action="">
           {% csrf_token %}
           <input type="hidden" name="idProduto" value="{{ produto.idProduto }}">
-          <button class="_button _button-3" onClick= "confirmacao()" name="remover" type="submit">Remover</button>
+          <button class="_button _button-3" onClick= "confirmacao()" name="remover" type="button">Remover</button>
         </form>
         <div class="fotoprodutocarrinho" style="background-image: url('{{ produto.imagem }}');">
         </div>
@@ -69,9 +79,9 @@
         {% csrf_token %}
         <button class="_button _button-4" type="submit">Finalizar</button>
       </form>
-      <form method="post" action="{% url 'Limpar' %}">
+      <form id="limpa" name="limpa" method="post" action="">
         {% csrf_token %}
-        <button class="_button _button-5" type="submit">Limpar</button>
+        <button class="_button _button-5" onClick="limpar()" name="botaoLimpar" type="button">Limpar</button>
       </form>
     </div>
   </div>
