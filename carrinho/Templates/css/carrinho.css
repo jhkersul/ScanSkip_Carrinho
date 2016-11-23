@@ -10,17 +10,18 @@ body {
   right: 0;
   z-index: 10;
   width: 61.3095238095%;
-  height: 44px;
+  height: auto;
+  min-height: 44px;
   border: 1px solid rgba(0, 0, 0, 0.54);
   border-radius: 10px;
 }
 
 .background {
-  position: absolute;
-  top: 30;
+  position: fixed;
+  top: 0;
   float: left;
   width: 100%;
-  min-height: 460px;
+  min-height: 100vh;
   border: 1px double rgb(0, 0, 0);
   background-image: url('images/Scan&Skip%20Background.png');
   background-size: cover;
@@ -40,7 +41,7 @@ body {
 
 .carrinho {
   position: absolute;
-  top: 0;
+  top: 10vh;
   bottom: 0;
   left: 0;
   right: 0;
@@ -64,6 +65,21 @@ body {
   height: 53px;
   margin: 0 auto;
   margin-top: 15px;
+}
+
+.mensagemDeInicio {
+  position: absolute;
+  top: 130px;
+  left: 0;
+  right: 0;
+  z-index: 12;
+  width: 80%;
+  height: 160px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  font: 600 italic 2.5em/1.38 'Open Sans';
+  text-align: center;
 }
 
 .fotoprodutocarrinho {
@@ -91,7 +107,8 @@ body {
   right: 0;
   z-index: 11;
   width: 51.2866989434%;
-  height: 110px;
+  height: auto;
+  min-height: 110px;
   margin: auto;
   border-radius: 5px;
 }
@@ -103,8 +120,8 @@ body {
   right: 0;
   z-index: 5;
   width: 100%;
-  height: 45px;
-  min-height: 34px;
+  height: auto;
+  min-height: 45px;
   margin: 0 auto;
   border: 1px solid rgba(0, 0, 0, 0.54);
   border-radius: 10px;
@@ -135,7 +152,8 @@ body {
   right: 0;
   z-index: 12;
   width: 97.7887834821%;
-  height: 160px;
+  height: auto;
+  min-height: 160px;
   margin: 0 auto;
   margin-bottom: 20px;
   border: 1px solid rgba(0, 0, 0, 0.54);
@@ -162,7 +180,7 @@ body {
   float: left;
   width: 100%;
   min-height: 50px;
-  font-size: 2em;
+  font: 600 2em/2.5 'Open Sans';
   text-align: center;
   color: rgba(0, 0, 0, 0.87);
 }
@@ -211,7 +229,7 @@ body {
   bottom: 0;
   height: 42px;
   background-color: rgb(250, 220, 10);
-  font-size: 2.813em;
+  font-size: 2.6em;
   line-height: 0.8;
   color: rgb(0, 0, 0);
 }
@@ -224,7 +242,7 @@ body {
   width: 35.7896567717%;
   height: 52px;
   border-radius: 5px;
-  font: italic 700 1.5em/1.38 Helvetica;
+  font: italic 700 1.5em/1.38 'Open Sans';
   color: rgb(255, 255, 255);
 }
 
@@ -277,7 +295,7 @@ body {
   border-radius: 15px;
   background-color: rgb(204, 21, 0);
   font-size: 1.125em;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.38;
   text-decoration: underline;
   color: rgb(255, 255, 255);
@@ -388,9 +406,7 @@ body {
     margin-left: auto;
   }
 
-  .alteraQuantidade ._button {
-    bottom: -0.5px;
-  }
+  
 
   .containerbotoescarrinho ._button {
     top: auto;
@@ -468,7 +484,7 @@ body {
 
   .produtocarrinho .fotoprodutocarrinho {
     left: 12.5531528257%;
-    width: 26.5164455751%;
+    width: 30%;
   }
 
   .containerbotoescarrinho ._button-4 {
@@ -482,7 +498,7 @@ body {
 
   .produtocarrinho ._button-3 {
     right: 12.5676903507%;
-    width: 26.5164455751%;
+    width: 30%;
   }
 }
 
@@ -533,11 +549,23 @@ body {
 
   .containerbotoescarrinho ._button-4 {
     left: 58.154340124%;
-    width: 41.8069087688%;
+    width: 46%;
+    font-size: 1.2em;
   }
 
   .containerbotoescarrinho ._button-5 {
-    width: 41.81%;
+    width: 46%;
+    font-size: 1.2em;
+  }
+
+  .produtocarrinho ._button-3 {
+    right: 12.5676903507%;
+    width: 35%;
+  }
+
+  .produtocarrinho .fotoprodutocarrinho {
+    left: 12.5531528257%;
+    width: 35%;
   }
 }
 
@@ -577,9 +605,23 @@ body {
     position: relative;
     z-index: 13;
   }
+
+  .produtocarrinho ._button-3 {
+    right: 12.5676903507%;
+    width: 35%;
+    font-size: 1em;
+  }
+  .produtocarrinho .fotoprodutocarrinho {
+    left: 12.5531528257%;
+    width: 35%;
+  }
 }
 
 @media(max-width: 475px) {
+  .carrinho {
+      width: 65%;
+  }
+
   .alteraQuantidade .quantidade,
   .background .carrinho,
   .carrinho .campototalcarrinho,
@@ -614,17 +656,116 @@ body {
 
   .containerbotoescarrinho ._button-4 {
     left: 54.8381677679%;
-    width: 45.1562325008%;
+    width: 46%;
   }
 
   .containerbotoescarrinho ._button-5 {
-    width: 45.1599999999%;
+    width: 46%;
+  }
+
+  .alteraQuantidade ._button-1 {
+    left: 0;
+    font-size: 2em;
+  }
+
+  .alteraQuantidade ._button-2 {
+    right: 0;
+    font-size: 2em;
   }
 }
 
 @media(max-width: 410px) {
   body {
     font-size: 1em;
+  }
+
+  .carrinho {
+    width: 70%;
+  }
+  .alteraQuantidade .quantidade,
+  .carrinho .campototalcarrinho,
+  .produtocarrinho .infocarrinho {
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .background .carrinho {
+    left: 0;
+    right: 0;
+    width: 80.3921568627%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .carrinho .containerbotoescarrinho {
+    left: 0;
+    right: 0;
+    width: 80.1850818452%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .carrinho .produtocarrinho {
+    left: 0;
+    right: 0;
+    width: 68.4498856707%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .carrinho .titulocarrinho {
+    position: relative;
+    z-index: 13;
+  }
+
+  .infocarrinho .nomeproduto {
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .precoproduto {
+    width: 45%;
+  }
+
+  .mensagemDeInicio {
+    top: 130px;
+    font-size: 2.25em;
+  }
+  .containerbotoescarrinho ._button-4 {
+    left: 54.8381677679%;
+    width: 48%;
+    font-size: 1em;
+  }
+
+  .containerbotoescarrinho ._button-5 {
+    width: 48%;
+    font-size: 1em;
+  }
+
+  .produtocarrinho ._button-3 {
+    right: 12.5676903507%;
+    width: 35%;
+    font-size: 0.75em;
+  }
+
+  .produtocarrinho .fotoprodutocarrinho {
+    left: 12.5531528257%;
+    width: 35%;
+  }
+}
+
+  
+@media(max-width: 360px){
+  body {
+    font-size: 1em;
+  }
+
+  .carrinho {
+    width: 75%;
   }
 
   .alteraQuantidade .quantidade,
