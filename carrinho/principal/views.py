@@ -147,13 +147,16 @@ def produtos(request, idusuario):
     return JsonResponse(listaJson)
 
 def mapa(request):
-    idProduto = request.GET["idProduto"]
-    urlSetoresProduto = 'https://scan-skip-plu-teste.herokuapp.com/setoresProduto/' + idProduto
-    network = Network()
-    response = network.request(urlSetoresProduto, 'GET')
-
+    idProduto = request.GET.get("idProduto", None)
     markedSectors = []
-    for setor in response :
-        markedSectors.append(setor['idSetor'])
+
+    if idProduto is not None:
+        urlSetoresProduto = 'https://scan-skip-plu-teste.herokuapp.com/setoresProduto/' + idProduto
+        network = Network()
+        response = network.request(urlSetoresProduto, 'GET')
+        if response != -1:
+            for setor in response :
+                markedSectors.append(setor['idSetor'])
+
 
     return render(request, 'mapa.html', {'markedSectors' : markedSectors})

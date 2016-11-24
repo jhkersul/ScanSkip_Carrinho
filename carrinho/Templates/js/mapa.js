@@ -6,6 +6,7 @@ $( document ).ready(function() {
   $( ".element" ).click(function() {
     let idSetor = $(this).attr('id').replace("element-", "");
     selectElement([idSetor]);
+    getProducts(idSetor);
   });
 
 });
@@ -22,4 +23,19 @@ function selectElement(indexes) {
   for (let j in indexes) {
     $("#element-" + indexes[j]).css("background-color", "rgba(204, 21, 0, 0.87)");
   }
+}
+
+function getProducts(idSetor) {
+  $.getJSON( "https://scan-skip-plu-teste.herokuapp.com/produtosSetor/" + idSetor, function( data ) {
+    if (data != -1) {
+      for (index in data) {
+        console.log("ID: " + data[index]['idProduto']);
+        console.log("Nome: " + data[index]['nome']);
+        console.log("Imagem: " + data[index]['imagem']);
+        console.log("Marca: " + data[index]['marca']);
+        console.log("Valor: " + data[index]['valor']);
+      }
+    }
+  });
+
 }
