@@ -9,6 +9,7 @@ import urllib
 import sys
 import os
 import json
+from utils.network import Network
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(BASE_DIR + '/carrinho/utils/')
 
@@ -144,3 +145,15 @@ def produtos(request, idusuario):
     for produto in carrinho.produtos:
         listaJson.append({'idProduto' : produto.idProduto,'nome' : produto.nome,'categoria' : produto.categoria,'marca' : produto.marca,'preco' : produto.preco,'imagem' : produto.imagem,'quantidade' : produto.quantidade})
     return JsonResponse(listaJson)
+
+def mapa(request):
+    idProduto = request.GET["idProduto"]
+    urlSetoresProduto = 'https://scan-skip-plu-teste.herokuapp.com/setoresProduto/' + idProduto
+    network = Network()
+    response = network.request(urlSetoresProduto, 'GET')
+
+    markedSectors = []
+    for setor in response :
+        markedSectors.append(setor['idSetor'])
+
+    return render(request, 'mapa.html', {'markedSectors' : markedSectors})
