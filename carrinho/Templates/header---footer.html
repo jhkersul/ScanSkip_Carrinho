@@ -18,14 +18,15 @@
     <div class="barra clearfix">
         <p class="textheader">Scan&amp;Skip</p>
         <div class="botoesbarra clearfix">
-            <button onClick="window.location='https://scan-skip-teste.herokuapp.com/';" class="botaoBarra botaoHome">Home</button>
-            <button onClick="window.location='https://scan-skip-teste.herokuapp.com/sobre';" class="botaoBarra botaoSobre" type="button">Sobre</button>
+            <button onClick="window.location='https://scan-skip-teste.herokuapp.com/';" class="botaoBarra">Home</button>
+            <button onClick="window.location='https://scan-skip-teste.herokuapp.com/sobre';" class="botaoBarra" type="button">Sobre</button>
             {% if request.session.logado %}
-                <button onClick="window.location='https://scan-skip-teste.herokuapp.com/perfil';" class="botaoBarra botaoLogin">Perfil</button>
-                <button onClick="window.location='{% url 'Logout' %}';" class="botaoBarra botaoCadastro">Logout</button>
+                <button onClick="window.location='https://scan-skip-teste.herokuapp.com/mapa';" class="botaoBarra">Mapa</button>
+                <button onClick="window.location='https://scan-skip-teste.herokuapp.com/perfil';" class="botaoBarra">Perfil</button>
+                <button onClick="window.location='{% url 'Logout' %}';" class="botaoBarra">Logout</button>
             {% else %}
-                <button onClick="window.location='https://scan-skip-teste.herokuapp.com/login';" class="botaoBarra botaoLogin">Login</button>
-                <button onClick="window.location='https://scan-skip-teste.herokuapp.com/cadastro';" class="botaoBarra botaoCadastro">Cadastre-se</button>
+                <button onClick="window.location='https://scan-skip-teste.herokuapp.com/login';" class="botaoBarra">Login</button>
+                <button onClick="window.location='https://scan-skip-teste.herokuapp.com/cadastro';" class="botaoBarra">Cadastre-se</button>
             {% endif %}
         </div>
     </div>
