@@ -146,6 +146,7 @@ def produtos(request, idusuario):
         listaJson.append({'idProduto' : produto.idProduto,'nome' : produto.nome,'categoria' : produto.categoria,'marca' : produto.marca,'preco' : produto.preco,'imagem' : produto.imagem,'quantidade' : produto.quantidade})
     return JsonResponse(listaJson)
 
+
 def mapa(request):
     idProduto = request.GET.get("idProduto", None)
     markedSectors = []
@@ -158,5 +159,4 @@ def mapa(request):
             for setor in response :
                 markedSectors.append(setor['idSetor'])
 
-
-    return render(request, 'mapa.html', {'markedSectors' : markedSectors})
+    return render(request, 'mapa.html', {'markedSectors': markedSectors})

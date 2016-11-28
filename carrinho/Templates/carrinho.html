@@ -38,9 +38,13 @@
 <div id="divBackground" class="background"></div>
   <div id="divCarrinho" class="carrinho clearfix">
     <p class="titulocarrinho">Seu carrinho</p>
+    <div class="produtocarrinho">
+      <p>
+        Comece a Escanear!!
+      </p>
+    </div>
 
-    {% if carrinho.produtos %}
-      {% for produto in carrinho.produtos %}
+    {% for produto in carrinho.produtos reversed %}
       <div class="produtocarrinho">
         <div class="infocarrinho">
           <div class="alteraQuantidade">
@@ -60,14 +64,10 @@
         <div class="fotoprodutocarrinho" style="background-image: url('{{ produto.imagem }}');">
         </div>
       </div>
-      {% endfor %}
-    {% else %}
-    <div class="mensagemDeInicio">
-      <p>
-        Comece a Escanear!!
-      </p>
-    </div>
-    {% endif %}
+    {% endfor %}
+
+
+
 
     <div class="campototalcarrinho">
       <p id="valortotal" class="valortotalcarrinho">R$ 0,00</p>

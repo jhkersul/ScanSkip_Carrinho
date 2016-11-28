@@ -100,7 +100,7 @@ WSGI_APPLICATION = 'carrinho.wsgi.application'
 
 _MONGODB_USER = 'admin'
 _MONGODB_PASSWD = 'admin123'
-_MONGODB_HOST = 'localhost:27017'
+_MONGODB_HOST = 'ds143737.mlab.com:43737'
 _MONGODB_NAME = 'supermercado'
 _MONGODB_DATABASE_HOST = 'mongodb://%s:%s@%s/%s' % (_MONGODB_USER, _MONGODB_PASSWD, _MONGODB_HOST, _MONGODB_NAME)
 connect(_MONGODB_NAME, host=_MONGODB_DATABASE_HOST)

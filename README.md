@@ -2,7 +2,7 @@
 
 Parte de aplicação web do aplicativo para supermercado
 
-## ATENÇÃO: PARA TESTAR TUDO, É BOM TER O MONGODB INSTALADO PARA TESTAR O BANCO DE DADOS LOCAL. Se não tiver, quando der runserver, vai ter erro de conexão com o BD.
+##Atenção: O site já realiza a conexão com o banco de dados remoto, hospedado no mLab. Porém esta conexão não funciona em algumas redes, como a do Labsoft, então se houver erro de conexão com o banco de dados tente utilizar outra rede.
 
 ### Como subir a aplicação utilizando o Django:
 
