@@ -144,7 +144,7 @@ def produtos(request, idusuario):
     listaJson = []
     for produto in carrinho.produtos:
         listaJson.append({'idProduto' : produto.idProduto,'nome' : produto.nome,'categoria' : produto.categoria,'marca' : produto.marca,'preco' : produto.preco,'imagem' : produto.imagem,'quantidade' : produto.quantidade})
-    return JsonResponse(listaJson)
+    return JsonResponse(listaJson, safe=False)
 
 
 def mapa(request):
