@@ -19,7 +19,7 @@ body {
   background-position: center center;
 }
 
-.container {
+.containerMapa {
   position: absolute;
   left: 0;
   right: 0;
@@ -37,7 +37,7 @@ body {
   text-align: center;
 }
 
-._container {
+._containerMapa {
   bottom: 20px;
   z-index: 54;
   width: 93.690851735%;
@@ -74,6 +74,98 @@ body {
   padding-left: 20px;
   border-radius: 10px;
   background-color: rgba(113, 164, 225, 0.2);
+}
+
+.fotoprodutocarrinho {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 3%;
+  z-index: 3;
+  width: 16.7902883445%;
+  height: 110px;
+  margin: auto 0;
+  border: 1px solid rgba(0, 0, 0, 0.54);
+  border-radius: 5px;
+  background-color: rgb(222, 222, 222);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.infocarrinho {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 11;
+  width: 51.2866989434%;
+  height: 110px;
+  margin: auto;
+  border-radius: 5px;
+}
+
+.nomeproduto {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  width: 100%;
+  height: 45px;
+  min-height: 34px;
+  margin: 0 auto;
+  border: 1px solid rgba(0, 0, 0, 0.54);
+  border-radius: 10px;
+  font-size: 1em;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.precoproduto {
+  position: absolute;
+  bottom: 0;
+  left: 0.0046502976%;
+  z-index: 6;
+  width: 36.3095238095%;
+  height: 42px;
+  min-height: 34px;
+  border: 1px solid rgba(0, 0, 0, 0.54);
+  border-radius: 10px;
+  font-size: 1em;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.marcaproduto {
+  position: absolute;
+  bottom: 0;
+  right: 0%;
+  z-index: 6;
+  width: 36.3095238095%;
+  height: 42px;
+  min-height: 34px;
+  border: 1px solid rgba(0, 0, 0, 0.54);
+  border-radius: 10px;
+  font-size: 1em;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.produtocarrinho {
+  position: relative;
+  top: 0px;
+  left: 0;
+  right: 0;
+  z-index: 12;
+  width: 97.7887834821%;
+  height: 160px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.54);
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
 }
 
 #element-1 {
@@ -576,7 +668,7 @@ body {
     margin-left: auto;
   }
 
-  .container .container {
+  .containerMapa .containerMapa {
     bottom: 40px;
     left: 0;
     right: 0;
@@ -593,17 +685,17 @@ body {
     margin: auto;
   }
 
-  .container #element-10,
-  .container #element-5,
-  .container #element-6,
-  .container #element-7,
-  .container #element-8,
-  .container #element-9 {
+  .containerMapa #element-10,
+  .containerMapa #element-5,
+  .containerMapa #element-6,
+  .containerMapa #element-7,
+  .containerMapa #element-8,
+  .containerMapa #element-9 {
     left: auto;
     right: 0;
   }
 
-  .container .text-1 {
+  .containerMapa .text-1 {
     left: 0;
     right: 0;
     margin-right: auto;
@@ -617,14 +709,14 @@ body {
   }
 
   .background,
-  .container .container {
+  .containerMapa .containerMapa {
     left: 0;
     right: 0;
     margin-right: auto;
     margin-left: auto;
   }
 
-  .container ._text {
+  .containerMapa ._text {
     font-size: 14px;
   }
 
@@ -637,115 +729,115 @@ body {
     margin: auto;
   }
 
-  .container #element-1 {
+  .containerMapa #element-1 {
     left: 55.3995253164%;
     width: 8.5399999999%;
   }
 
-  .container #element-10,
-  .container #element-5,
-  .container #element-6,
-  .container #element-7,
-  .container #element-8,
-  .container #element-9 {
+  .containerMapa #element-10,
+  .containerMapa #element-5,
+  .containerMapa #element-6,
+  .containerMapa #element-7,
+  .containerMapa #element-8,
+  .containerMapa #element-9 {
     right: 0.3016218354%;
     width: 3.7826344936%;
   }
 
-  .container #element-11 {
+  .containerMapa #element-11 {
     left: -0.0024645111%;
     width: 3.7826344936%;
   }
 
-  .container #element-2 {
+  .containerMapa #element-2 {
     left: 63.9438291139%;
     width: 12.0253164556%;
   }
 
-  .container #element-3 {
+  .containerMapa #element-3 {
     left: 75.9691455696%;
     width: 8.5443037974%;
   }
 
-  .container #element-34,
-  .container #element-35,
-  .container #element-38,
-  .container #element-39 {
+  .containerMapa #element-34,
+  .containerMapa #element-35,
+  .containerMapa #element-38,
+  .containerMapa #element-39 {
     left: 39.7695806962%;
     width: 3.7826344936%;
   }
 
-  .container #element-4 {
+  .containerMapa #element-4 {
     left: 84.513449367%;
     width: 11.3924050632%;
   }
 
-  .container #element-45 {
+  .containerMapa #element-45 {
     left: 15.2096518987%;
     width: 8.5399999999%;
   }
 
-  .container #element-46 {
+  .containerMapa #element-46 {
     left: 35.7792721518%;
     width: 8.5443037974%;
   }
 
-  .container #element-47 {
+  .containerMapa #element-47 {
     left: 44.3235759493%;
     width: 11.075949367%;
   }
 
-  .container #element-48 {
+  .containerMapa #element-48 {
     left: 23.7539556962%;
     width: 12.03%;
   }
 
-  .container #element-49 {
+  .containerMapa #element-49 {
     left: 3.7776898734%;
     width: 11.39%;
   }
 
-  .container #element-50 {
+  .containerMapa #element-50 {
     left: 15.455%;
     width: 3.7826344936%;
   }
 
-  .container #element-12,
-  .container #element-13,
-  .container #element-14,
-  .container #element-15,
-  .container #element-16,
-  .container #element-17,
-  .container #element-18,
-  .container #element-19,
-  .container #element-20,
-  .container #element-21,
-  .container #element-22,
-  .container #element-23,
-  .container #element-24,
-  .container #element-25,
-  .container #element-26,
-  .container #element-27,
-  .container #element-28,
-  .container #element-29,
-  .container #element-30,
-  .container #element-31,
-  .container #element-32,
-  .container #element-33,
-  .container #element-36,
-  .container #element-37,
-  .container #element-40,
-  .container #element-41,
-  .container #element-42,
-  .container #element-43,
-  .container #element-44,
-  .container #element-51,
-  .container #element-52,
-  .container #element-53 {
+  .containerMapa #element-12,
+  .containerMapa #element-13,
+  .containerMapa #element-14,
+  .containerMapa #element-15,
+  .containerMapa #element-16,
+  .containerMapa #element-17,
+  .containerMapa #element-18,
+  .containerMapa #element-19,
+  .containerMapa #element-20,
+  .containerMapa #element-21,
+  .containerMapa #element-22,
+  .containerMapa #element-23,
+  .containerMapa #element-24,
+  .containerMapa #element-25,
+  .containerMapa #element-26,
+  .containerMapa #element-27,
+  .containerMapa #element-28,
+  .containerMapa #element-29,
+  .containerMapa #element-30,
+  .containerMapa #element-31,
+  .containerMapa #element-32,
+  .containerMapa #element-33,
+  .containerMapa #element-36,
+  .containerMapa #element-37,
+  .containerMapa #element-40,
+  .containerMapa #element-41,
+  .containerMapa #element-42,
+  .containerMapa #element-43,
+  .containerMapa #element-44,
+  .containerMapa #element-51,
+  .containerMapa #element-52,
+  .containerMapa #element-53 {
     width: 3.7826344936%;
   }
 
-  .container .text-1 {
+  .containerMapa .text-1 {
     left: 0;
     right: 0;
     margin-right: auto;
@@ -756,15 +848,15 @@ body {
 
 @media(max-width: 500px) {
   .background,
-  .container .container,
-  .container .text-1 {
+  .containerMapa .container,
+  .containerMapa .text-1 {
     left: 0;
     right: 0;
     margin-right: auto;
     margin-left: auto;
   }
 
-  .container ._text {
+  .containerMapa ._text {
     line-height: 1;
   }
 
