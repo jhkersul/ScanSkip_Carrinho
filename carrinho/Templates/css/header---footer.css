@@ -1,7 +1,5 @@
 body {
-  background-color: rgb(255, 255, 255);
-  font: 700 1em/1.38 'Open Sans';
-  color: rgb(255, 255, 255);
+  font-family: 'Open Sans'
 }
 
 .barra {
@@ -17,56 +15,13 @@ body {
 }
 
 .botaoBarra {
-  display: block;
-  float: left;
-  height: 31px;
-  border-radius: 5px;
-  background-color: rgb(11, 62, 174);
   font-style: italic;
   font-size: 1em;
-  text-align: center;
-  color: rgb(255, 255, 255);
-  margin-left: 20px;
-  margin-right: 20px;
-  vertical-align: middle;
-  height: 100%;
+  color: rgb(255, 255, 255) !important;
 }
 
 .botaoBarra:hover {
-  color: rgb(250, 220, 10);
-}
-
-.botaoCadastro {
-  clear: both;
-  width: 34.0899002752%;
-  margin: -31px 7.45717% 0 0;
-}
-
-.botaoHome {
-  width: 20.4539401651%;
-  margin: 10px 79.54606% 0 0;
-}
-
-.botaoLogin {
-  position: relative;
-  clear: both;
-  z-index: 2;
-  width: 19.128221821%;
-  margin: -31px 41.55003% 0 0;
-}
-
-.botaoSobre {
-  position: relative;
-  clear: both;
-  z-index: 1;
-  width: 18.9388334862%;
-  margin: -31px 60.60723% 0 0;
-}
-
-.botoesbarra {
-  float: right;
-  height: 50px;
-  background-color: rgb(11, 62, 174);
+  color: rgb(250, 220, 10) !important;
 }
 
 .corpo {
@@ -78,18 +33,6 @@ body {
   width: 100%;
   min-height: 490px;
   margin: 0 auto;
-}
-
-.footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 7;
-  width: 100%;
-  height: 30px;
-  margin: 0 auto;
-  background-color: rgb(11, 62, 174);
 }
 
 .textheader {
@@ -125,41 +68,6 @@ body {
     margin-left: auto;
   }
 
-  .barra .botoesbarra {
-    width: 100%;
-    margin-top: -2px;
-  }
-
-  .botoesbarra .botaoBarra {
-    position: relative;
-  }
-
-  .botoesbarra .botaoCadastro {
-    z-index: 3;
-    width: 37.9838423295%;
-    min-width: 100px;
-    margin-right: 3.55558%;
-  }
-
-  .botoesbarra .botaoHome {
-    z-index: 0;
-    width: 20.4545454545%;
-    min-width: 50px;
-    margin-right: 79.54102%;
-  }
-
-  .botoesbarra .botaoLogin {
-    z-index: 2;
-    width: 19.1273082386%;
-    margin-right: 41.56605%;
-  }
-
-  .botoesbarra .botaoSobre {
-    z-index: 1;
-    width: 100px;
-    margin-right: 60.61346%;
-  }
-
   .corpo {
     top: 50px;
     left: 0;
@@ -192,40 +100,6 @@ body {
     margin-left: auto;
   }
 
-  .barra .botoesbarra {
-    width: 100%;
-  }
-
-  .botoesbarra .botaoBarra {
-    position: relative;
-  }
-
-  .botoesbarra .botaoCadastro {
-    z-index: 3;
-    width: 37.9853219696%;
-    margin-right: 8px;
-  }
-
-  .botoesbarra .botaoHome {
-    z-index: 0;
-    width: 16.9197396963%;
-    margin-right: 209px;
-  }
-
-  .botoesbarra .botaoLogin {
-    z-index: 2;
-    width: 19.1287878787%;
-    min-width: 50px;
-    margin-right: 108px;
-  }
-
-  .botoesbarra .botaoSobre {
-    z-index: 1;
-    width: 18.9393939393%;
-    min-width: 50px;
-    margin-right: 159px;
-  }
-
   .corpo {
     top: 50px;
     left: 0;
@@ -251,15 +125,6 @@ body {
     height: 150px;
     margin-right: auto;
     margin-left: auto;
-  }
-
-  .barra .botoesbarra {
-    clear: both;
-    width: 100%;
-  }
-
-  .botoesbarra .botaoBarra {
-    position: relative;
   }
 
   .corpo {
@@ -293,14 +158,6 @@ body {
     margin-right: auto;
     margin-left: auto;
     height: 150px;
-  }
-
-  .barra .botoesbarra {
-    width: 100%;
-  }
-
-  .botoesbarra .botaoBarra {
-    position: relative;
   }
 }
 
