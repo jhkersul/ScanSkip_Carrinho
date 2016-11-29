@@ -8,69 +8,79 @@
   <link href="http://fonts.googleapis.com/css?family=Open+Sans:800,600" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="{% static 'css/mapa-grid.css' %}">
   <link rel="stylesheet" href="{% static 'css/mapa.css' %}">
-  <script src="{% static 'js/jquery-min.js' %}"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  
   <script src="{% static 'js/mapa.js' %}"></script>
+  <script type="text/javascript">
+        $('#myModal').on('shown.bs.modal', function () {
+        $('#myInput').focus()
+        })
+  </script>
   {% endblock %}
 
 {% block content %}
   <div class="background">
-    <div class="container container-1">
+    <div class="containerMapa container-1">
       <p class="text text-1">Mapa da loja</p>
-      <div class="container _container">
+      <div class="containerMapa _containerMapa">
         <p class="text _text">TERMINAIS DE PAGAMENTO</p>
-        <div class="element" id="element-1"></div>
-        <div class="element" id="element-2"></div>
-        <div class="element" id="element-3"></div>
-        <div class="element" id="element-4"></div>
-        <div class="element" id="element-5"></div>
-        <div class="element" id="element-6"></div>
-        <div class="element" id="element-7"></div>
-        <div class="element" id="element-8"></div>
-        <div class="element" id="element-9"></div>
-        <div class="element" id="element-10"></div>
-        <div class="element" id="element-11"></div>
-        <div class="element" id="element-12"></div>
-        <div class="element" id="element-13"></div>
-        <div class="element" id="element-14"></div>
-        <div class="element" id="element-15"></div>
-        <div class="element" id="element-16"></div>
-        <div class="element" id="element-17"></div>
-        <div class="element" id="element-18"></div>
-        <div class="element" id="element-19"></div>
-        <div class="element" id="element-20"></div>
-        <div class="element" id="element-21"></div>
-        <div class="element" id="element-22"></div>
-        <div class="element" id="element-23"></div>
-        <div class="element" id="element-24"></div>
-        <div class="element" id="element-25"></div>
-        <div class="element" id="element-26"></div>
-        <div class="element" id="element-27"></div>
-        <div class="element" id="element-28"></div>
-        <div class="element" id="element-29"></div>
-        <div class="element" id="element-30"></div>
-        <div class="element" id="element-31"></div>
-        <div class="element" id="element-32"></div>
-        <div class="element" id="element-33"></div>
-        <div class="element" id="element-34"></div>
-        <div class="element" id="element-35"></div>
-        <div class="element" id="element-36"></div>
-        <div class="element" id="element-37"></div>
-        <div class="element" id="element-38"></div>
-        <div class="element" id="element-39"></div>
-        <div class="element" id="element-40"></div>
-        <div class="element" id="element-41"></div>
-        <div class="element" id="element-42"></div>
-        <div class="element" id="element-43"></div>
-        <div class="element" id="element-44"></div>
-        <div class="element" id="element-45"></div>
-        <div class="element" id="element-46"></div>
-        <div class="element" id="element-47"></div>
-        <div class="element" id="element-48"></div>
-        <div class="element" id="element-49"></div>
-        <div class="element" id="element-50"></div>
-        <div class="element" id="element-51"></div>
-        <div class="element" id="element-52"></div>
-        <div class="element" id="element-53"></div>
+        
+            <div class="element" id="element-1"></div>
+            <div class="element" id="element-2"></div>
+            <div class="element" id="element-3"></div>
+            <div class="element" id="element-4"></div>
+            <div class="element" id="element-5"></div>
+            <div class="element" id="element-6"></div>
+            <div class="element" id="element-7"></div>
+            <div class="element" id="element-8"></div>
+            <div class="element" id="element-9"></div>
+            <div class="element" id="element-10"></div>
+            <div class="element" id="element-11"></div>
+            <div class="element" id="element-12"></div>
+            <div class="element" id="element-13"></div>
+            <div class="element" id="element-14"></div>
+            <div class="element" id="element-15"></div>
+            <div class="element" id="element-16"></div>
+            <div class="element" id="element-17"></div>
+            <div class="element" id="element-18"></div>
+            <div class="element" id="element-19"></div>
+            <div class="element" id="element-20"></div>
+            <div class="element" id="element-21"></div>
+            <div class="element" id="element-22"></div>
+            <div class="element" id="element-23"></div>
+            <div class="element" id="element-24"></div>
+            <div class="element" id="element-25"></div>
+            <div class="element" id="element-26"></div>
+            <div class="element" id="element-27"></div>
+            <div class="element" id="element-28"></div>
+            <div class="element" id="element-29"></div>
+            <div class="element" id="element-30"></div>
+            <div class="element" id="element-31"></div>
+            <div class="element" id="element-32"></div>
+            <div class="element" id="element-33"></div>
+            <div class="element" id="element-34"></div>
+            <div class="element" id="element-35"></div>
+            <div class="element" id="element-36"></div>
+            <div class="element" id="element-37"></div>
+            <div class="element" id="element-38"></div>
+            <div class="element" id="element-39"></div>
+            <div class="element" id="element-40"></div>
+            <div class="element" id="element-41"></div>
+            <div class="element" id="element-42"></div>
+            <div class="element" id="element-43"></div>
+            <div class="element" id="element-44"></div>
+            <div class="element" id="element-45"></div>
+            <div class="element" id="element-46"></div>
+            <div class="element" id="element-47"></div>
+            <div class="element" id="element-48"></div>
+            <div class="element" id="element-49"></div>
+            <div class="element" id="element-50"></div>
+            <div class="element" id="element-51"></div>
+            <div class="element" id="element-52"></div>
+            <div class="element" id="element-53"></div>
+        
       </div>
     </div>
   </div>
@@ -78,4 +88,24 @@
   <script>
     var markedSectors = {{ markedSectors }}
   </script>
+{% endblock %}
+
+{% block modal %}
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btClose" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}

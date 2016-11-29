@@ -5,9 +5,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1.0">
     <title>Scan&amp;Skip - {% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{% static 'css/standardize.css' %}">
     <link rel="stylesheet" href="{% static 'css/header---footer-grid.css' %}">
@@ -15,42 +12,10 @@
     {% block head %}{% endblock %}
 </head>
 <body class="body page-header---footer clearfix">
-    <nav class="navbar navbar-default navbar-fixed-top" style="background-color: rgb(11, 62, 174); border-color: rgb(11, 62, 174);">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" style="padding: 0 !important; padding-left: 10px !important;" href="https://scan-skip-teste.herokuapp.com/">
-                    <img alt="Brand" class="img-responsive" src="{% static 'css/images/LOGO.png' %}" style="height: 50px; width: 80px; display: inline-block !important;">
-                </a>
-                <a href="https://scan-skip-teste.herokuapp.com/">
-                    <span class="navbar-brand-text" style="color: rgb(250, 220, 10); font: italic 400 2em/1.5 'Open Sans'; padding: 0 !important; padding-left: 5px !important;">Scan&Skip</span>
-                </a>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="https://scan-skip-teste.herokuapp.com/sobre" class="botaoBarra">Como usar</a></li>
-                    {% if request.session.logado %}
-                        <li><a href="https://scan-skip-teste.herokuapp.com/mapa" class="botaoBarra">Mapa</a></li>
-                        <li><a href="https://scan-skip-carrinho-teste.herokuapp.com/" class="botaoBarra">Carrinho</a></li>
-                        <li><a href="https://scan-skip-teste.herokuapp.com/perfil" class="botaoBarra">Minha Conta</a></li>
-                        <li><a href="https://scan-skip-carrinho-teste.herokuapp.com/logout" class="botaoBarra">Logout</a></li>
-                    {% else %}
-                        <li><a href="https://scan-skip-teste.herokuapp.com/cadastro" class="botaoBarra">Cadastre-se</a></li>
-                        <li><a href="https://scan-skip-teste.herokuapp.com/login" class="botaoBarra">Login</a></li>
-                    {% endif %}
-                </ul>
-            </div>
-        </div>
-    </nav>
-
     <div id="corpo" class="corpo">
         {% block content %}{% endblock %}
     </div>
-    <!--<div class="barra clearfix">
+    <div class="barra clearfix">
         <p class="textheader">Scan&amp;Skip</p>
         <div class="botoesbarra clearfix">
             <button onClick="window.location='https://scan-skip-teste.herokuapp.com/';" class="botaoBarra">Home</button>
@@ -64,6 +29,8 @@
                 <button onClick="window.location='https://scan-skip-teste.herokuapp.com/cadastro';" class="botaoBarra">Cadastre-se</button>
             {% endif %}
         </div>
-    </div>-->
+    </div>
+{% block modal %}{% endblock %}
+
 </body>
 </html>
