@@ -159,4 +159,4 @@ def mapa(request):
             for setor in response :
                 markedSectors.append(setor['idSetor'])
 
-    return render(request, 'mapa.html', {'markedSectors': markedSectors})
+    return render(request, 'mapa.html', {'markedSectors': markedSectors, 'sectorsRange': range(1, 53)})

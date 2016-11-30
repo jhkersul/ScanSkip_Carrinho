@@ -15,6 +15,20 @@ $( document ).ready(function() {
     $(".modal-body").val("");
   });
 
+  $('#myModal').on('shown.bs.modal', function () {
+    $('#myInput').focus()
+  })
+
+  $(function() {
+    var options = {
+      byRow: true,
+      property: 'height',
+      target: null,
+      remove: false
+    }
+    $('.modal-child').matchHeight(options);
+  });
+
 });
 
 
@@ -31,66 +45,75 @@ function selectElement(indexes) {
   }
 }
 
+// Pega os produtos do PLU
 function getProducts(idSetor) {
+  // Setando HTMLs iniciais para começarmos a dar loading nos produtos
+  $('#products-container').html("");
+  $('#myModalLabel').html("Setor " + idSetor);
+
+  // Mostrando loading
+  showLoading();
+
+  // Carregando produtos
   $.getJSON( "https://scan-skip-plu-teste.herokuapp.com/produtosSetor/" + idSetor, function( data ) {
+    // Se tivermos resultados, data vai ser diferente de -1
     if (data != -1) {
+      var productsRendered = [];
+
       for (index in data) {
-        console.log("ID: " + data[index]['idProduto']);
-        console.log("Nome: " + data[index]['nome']);
-        console.log("Imagem: " + data[index]['imagem']);
-        console.log("Marca: " + data[index]['marca']);
-        console.log("Valor: " + data[index]['valor']);
-
-        var nomeModal = document.getElementsByClassName('modal-title');
-        nomeModal.innerHTML = data[index]['idProduto'];
-        var divProduto = document.createElement('div');
-        divProduto.id = index;
-        divProduto.className = 'produtocarrinho';
-        document.getElementsByClassName('modal-body')[0].appendChild(divProduto);
-
-        var divInfo = document.createElement('div');
-        divInfo.className = 'infocarrinho';
-        divProduto.appendChild(divInfo);
-
-        var infoNome = document.createElement('P');
-        infoNome.className = 'nomeproduto';
-        divInfo.appendChild(infoNome);
-        infoNome.innerHTML = data[index]['nome'];
-        
-        var infoMarca = document.createElement('P');
-        infoMarca.className = 'marcaproduto';
-        divInfo.appendChild(infoMarca);
-        infoMarca.innerHTML = data[index]['marca'];
-
-        var infoPreco = document.createElement('P');
-        infoPreco.className = 'precoproduto';
-        divInfo.appendChild(infoPreco);
-        infoPreco.innerHTML = data[index]['valor'];
-
-        var produtoFoto = document.createElement('div');
-        produtoFoto.className = 'fotoprodutocarrinho';
-        divProduto.appendChild(produtoFoto);
-
-        //tentativa de conversão do base64
-        var base64imgC = data[index]['imagem'];
-        console.log(base64imgC);
-
-        var base64img = base64imgC.split(',')[1];
-        console.log(base64img);
-
-        var urls = window.atob(base64img);
-        console.log(urls);
-
-        produtoFoto.style.backgroundImage = base64imgC;
-
-
-        //tentativa de mudar o titulo do modal pegando o nome da categoria que vem do PLU (mudado hoje)
-        var modalTitle = document.getElementsById("myModalLabel");
-        modalTitle.innerHTML = data[index]['categoria']
-
+        // Renderizando o template com o Mustache
+        Mustache.tags = ['[[', ']]'];
+        var template = $('#template').html();
+        Mustache.parse(template);
+        var price = (data[index]['valor']/100).toFixed(2);
+        var product = {
+          name: data[index]['nome'],
+          brand: data[index]['marca'],
+          price: price,
+          category: data[index]['categoria'],
+          image: data[index]['imagem'],
+        }
+        var rendered = Mustache.render(template, product);
+        productsRendered.push(rendered);
       }
-    }
-  }
-  );
 
+      // Colocando todos os produtos renderizados dentro de 'products-container'
+      $('#products-container').html(productsRendered);
+    } else {
+      // Caso nenhum produto seja encontrado, é gerado um aviso para o usuário
+      $('#products-container').html("Nenhum produto encontrado neste setor.");
+    }
+
+    // Escondendo o loading
+    hideLoading();
+  });
+
+}
+
+function toDataUrl(src, callback, outputFormat) {
+  var img = new Image();
+  img.crossOrigin = 'Anonymous';
+  img.onload = function() {
+    var canvas = document.createElement('CANVAS');
+    var ctx = canvas.getContext('2d');
+    var dataURL;
+    canvas.height = this.height;
+    canvas.width = this.width;
+    ctx.drawImage(this, 0, 0);
+    dataURL = canvas.toDataURL(outputFormat);
+    callback(dataURL);
+  };
+  img.src = src;
+  if (img.complete || img.complete === undefined) {
+    img.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
+    img.src = src;
+  }
+}
+
+function showLoading() {
+    $("#loading").show();
+}
+
+function hideLoading() {
+    $("#loading").hide();
 }

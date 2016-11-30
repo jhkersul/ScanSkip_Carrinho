@@ -869,3 +869,27 @@ body {
     margin: auto;
   }
 }
+
+.modal-parent {
+  margin-top: 50px;
+}
+
+.modal-child {
+  display: flex;
+  align-items: center;
+}
+
+.modal-child-img {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0px;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.modal-row {
+  margin-bottom: 20px;
+}
+
+.list-description {
+  width: 100%;
+}

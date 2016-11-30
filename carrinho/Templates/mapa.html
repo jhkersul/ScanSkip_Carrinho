@@ -11,13 +11,10 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  
+  <script src="{% static 'js/jquery.matchHeight.js' %}"></script>
+  <script src="{% static 'js/mustache.min.js' %}"></script>
+
   <script src="{% static 'js/mapa.js' %}"></script>
-  <script type="text/javascript">
-        $('#myModal').on('shown.bs.modal', function () {
-        $('#myInput').focus()
-        })
-  </script>
   {% endblock %}
 
 {% block content %}
@@ -26,61 +23,12 @@
       <p class="text text-1">Mapa da loja</p>
       <div class="containerMapa _containerMapa">
         <p class="text _text">TERMINAIS DE PAGAMENTO</p>
-        
-            <div class="element" id="element-1"></div>
-            <div class="element" id="element-2"></div>
-            <div class="element" id="element-3"></div>
-            <div class="element" id="element-4"></div>
-            <div class="element" id="element-5"></div>
-            <div class="element" id="element-6"></div>
-            <div class="element" id="element-7"></div>
-            <div class="element" id="element-8"></div>
-            <div class="element" id="element-9"></div>
-            <div class="element" id="element-10"></div>
-            <div class="element" id="element-11"></div>
-            <div class="element" id="element-12"></div>
-            <div class="element" id="element-13"></div>
-            <div class="element" id="element-14"></div>
-            <div class="element" id="element-15"></div>
-            <div class="element" id="element-16"></div>
-            <div class="element" id="element-17"></div>
-            <div class="element" id="element-18"></div>
-            <div class="element" id="element-19"></div>
-            <div class="element" id="element-20"></div>
-            <div class="element" id="element-21"></div>
-            <div class="element" id="element-22"></div>
-            <div class="element" id="element-23"></div>
-            <div class="element" id="element-24"></div>
-            <div class="element" id="element-25"></div>
-            <div class="element" id="element-26"></div>
-            <div class="element" id="element-27"></div>
-            <div class="element" id="element-28"></div>
-            <div class="element" id="element-29"></div>
-            <div class="element" id="element-30"></div>
-            <div class="element" id="element-31"></div>
-            <div class="element" id="element-32"></div>
-            <div class="element" id="element-33"></div>
-            <div class="element" id="element-34"></div>
-            <div class="element" id="element-35"></div>
-            <div class="element" id="element-36"></div>
-            <div class="element" id="element-37"></div>
-            <div class="element" id="element-38"></div>
-            <div class="element" id="element-39"></div>
-            <div class="element" id="element-40"></div>
-            <div class="element" id="element-41"></div>
-            <div class="element" id="element-42"></div>
-            <div class="element" id="element-43"></div>
-            <div class="element" id="element-44"></div>
-            <div class="element" id="element-45"></div>
-            <div class="element" id="element-46"></div>
-            <div class="element" id="element-47"></div>
-            <div class="element" id="element-48"></div>
-            <div class="element" id="element-49"></div>
-            <div class="element" id="element-50"></div>
-            <div class="element" id="element-51"></div>
-            <div class="element" id="element-52"></div>
-            <div class="element" id="element-53"></div>
-        
+
+          <!-- Criando todos os setores do mapa -->
+          {% for i in sectorsRange %}
+            <div class="element" id="element-{{ i }}"></div>
+          {% endfor %}
+
       </div>
     </div>
   </div>
@@ -96,16 +44,37 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title" id="myModalLabel">Setor</h4>
       </div>
-      <div class="modal-body">
+      <div class="modal-body text-center">
+        <img id="loading" src="{% static 'img/ajax-loader.gif' %}" style="width: 30px;" />
+
+        <div id="products-container" class="col-md-12 col-xs-12 modal-parent">
+        </div>
 
       </div>
       <div class="modal-footer">
-        <button type="button" id="btClose" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" id="btClose" class="btn btn-default" data-dismiss="modal">Fechar</button>
       </div>
     </div>
   </div>
 </div>
+
+<script id="template" type="x-tmpl-mustache">
+<div class="row modal-row">
+  <div class="col-md-5 col-xs-5 modal-child modal-child-img">
+    <img src="[[ image ]]" alt="Foto do produto"
+    style="width: 100%; max-width: 200px;">
+  </div>
+  <div class="col-md-7 col-xs-7 modal-child">
+    <ul class="list-group list-description">
+      <li class="list-group-item">[[ name ]]</li>
+      <li class="list-group-item">[[ brand ]]</li>
+      <li class="list-group-item">R$ [[ price ]]</li>
+      <li class="list-group-item">[[ category ]]</li>
+    </ul>
+  </div>
+</div>
+</script>
+
 {% endblock %}
