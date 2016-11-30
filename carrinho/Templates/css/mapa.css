@@ -1,10 +1,23 @@
 body {
   background-color: rgb(255, 255, 255);
-  font: 800 1em/2.3 'Open Sans';
-  color: rgb(54, 61, 63);
+  font: 400 1em/2.5 'Open Sans';
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .background {
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  float: left;
+  width: 100%;
+  min-height: 100vh;
+  border: 1px double rgb(0, 0, 0);
+  background-image: url('images/Scan&Skip%20Background.png');
+  background-size: cover;
+  background-position: center center;
+}
+
+.principalMapa {
   position: absolute;
   top: 0;
   left: 0;
@@ -13,10 +26,6 @@ body {
   width: 100%;
   height: 800px;
   margin: 0 auto;
-  border: 1px double rgb(0, 0, 0);
-  background: url('../images/Scan&Go.png') rgb(255, 255, 255);
-  background-size: cover;
-  background-position: center center;
 }
 
 .containerMapa {
