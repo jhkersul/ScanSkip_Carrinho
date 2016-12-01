@@ -13,6 +13,7 @@ def produto(request, idProduto):
     network = Network()
     response = network.request(urlProduto, 'GET')
     if response != -1:
+        quantidade = 1
         nome = response['nome']
         marca = response['marca']
         preco = response['valor']
@@ -23,7 +24,7 @@ def produto(request, idProduto):
         # Salvando ultimo produto escaneado na sessão
         request.session['lastScannedProduct'] = idProduto
 
-        return render(request, 'produto-escaneado-confirmacao.html', {'idProduto': idProduto, 'nome': nome, 'marca': marca, 'preco': preco, 'categoria': categoria, 'imagem': imagem, 'registrado': True})
+        return render(request, 'produto-escaneado-confirmacao.html', {'idProduto': idProduto, 'nome': nome, 'marca': marca, 'preco': preco, 'categoria': categoria, 'imagem': imagem, 'quantidade': quantidade, 'registrado': True})
     else:
         nome = 'Produto não registrado'
         marca = '-------'

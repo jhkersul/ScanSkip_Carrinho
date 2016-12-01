@@ -66,11 +66,11 @@ def deletaCarrinho(carrinho):
     carrinho.delete()
 
 
-def adicionaProduto(idusuario, idProduto, nome, marca, categoria, preco, imagem):
+def adicionaProduto(idusuario, idProduto, nome, marca, categoria, preco, imagem, quantidade):
     try:
         produto = Carrinho.objects.get(idusuario=idusuario, produtos__produto__idProduto=idProduto)
     except:
-        produto = Produto(idProduto=idProduto, nome=nome, categoria=categoria, marca=marca, preco=preco, imagem=imagem, quantidade=1)
+        produto = Produto(idProduto=idProduto, nome=nome, categoria=categoria, marca=marca, preco=preco, imagem=imagem, quantidade=quantidade)
         Carrinho.objects(idusuario=idusuario).update(add_to_set__produtos=produto)
     return produto
 

@@ -1,13 +1,11 @@
 function acertaTamanho() {
   if (window.innerWidth > 960) {
-    document.getElementById("divBackground").style.height = ((440 + 180*numProdutos) + "px");
-    document.getElementById("divCarrinho").style.height = ((400 + 180*numProdutos) + "px");
-    document.getElementById("corpo").style.height = ((470 + 180*numProdutos) + "px");
+    document.getElementById("divCarrinho").style.height = ((410 + 180*numProdutos) + "px");
+    document.getElementById("corpo").style.height = ((480 + 180*numProdutos) + "px");
   }
   else {
-    document.getElementById("divBackground").style.height = ((500 + 250*numProdutos) + "px");
-    document.getElementById("divCarrinho").style.height = ((460 + 250*numProdutos) + "px");
-    document.getElementById("corpo").style.height = ((530 + 250*numProdutos) + "px");
+    document.getElementById("divCarrinho").style.height = ((480 + 270*numProdutos) + "px");
+    document.getElementById("corpo").style.height = ((550 + 270*numProdutos) + "px");
   }
 }
 
