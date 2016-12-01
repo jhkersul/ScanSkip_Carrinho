@@ -14,7 +14,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(BASE_DIR + '/carrinho/utils/')
 
 siteFila = 'https://webteste-d2bec.firebaseapp.com/tempodeespera.html?preferencial='
-sitePrincipal = 'https://scan-skip-teste.herokuapp.com/'
+sitePrincipal = 'https://scan-skip.herokuapp.com/'
 
 
 def login(request, idusuario, nome):
@@ -155,7 +155,7 @@ def produtos(request, idusuario):
     listaJson = []
     for produto in carrinho.produtos:
         listaJson.append({'idProduto' : produto.idProduto,'nome' : produto.nome,'categoria' : produto.categoria,'marca' : produto.marca,'preco' : produto.preco,'imagem' : produto.imagem,'quantidade' : produto.quantidade})
-    return JsonResponse(listaJson)
+    return JsonResponse(listaJson, safe=False)
 
 def mapa(request):
     idProduto = request.GET.get("idProduto", None)

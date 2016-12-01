@@ -5,24 +5,35 @@ body {
 }
 
 .background {
+  z-index: -1;
   position: fixed;
+  top: 0;
+  float: left;
+  width: 100%;
+  min-height: 100vh;
+  border: 1px double rgb(0, 0, 0);
+  background-image: url('images/Scan&Skip%20Background.png');
+  background-size: cover;
+  background-position: center center;
+}
+
+.principalMapa {
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 0;
+  z-index: 57;
   width: 100%;
-  height: 100vh;
+  height: 800px;
   margin: 0 auto;
-  border: 1px double rgb(0, 0, 0);
-  background: url('images/Pague leve.png');
-  background-size: cover;
-  background-position: center center;
 }
 
 .containerMapa {
   position: absolute;
   left: 0;
   right: 0;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .element {
