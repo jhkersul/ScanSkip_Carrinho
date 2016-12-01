@@ -13,7 +13,7 @@ from utils.network import Network
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(BASE_DIR + '/carrinho/utils/')
 
-siteFila = 'https://webteste-d2bec.firebaseapp.com/tempodeespera.html?myVar='
+siteFila = 'https://webteste-d2bec.firebaseapp.com/tempodeespera.html?preferencial='
 sitePrincipal = 'https://scan-skip-teste.herokuapp.com/'
 
 
@@ -53,7 +53,17 @@ def fila(request):
     if logado:
         carrinho = pegaCarrinho(request.session['idusuario'], request.session['nome'])
         atualizaQuantidades(carrinho, request)
-        urlFila = siteFila + request.session['idusuario']
+        urlFila = siteFila + "0?myVar=" + request.session['idusuario']
+        return HttpResponseRedirect(urlFila)
+    else:
+        return redirect(sitePrincipal + 'login')
+
+def filaPref(request):
+    logado = verificaUsuario(request)
+    if logado:
+        carrinho = pegaCarrinho(request.session['idusuario'], request.session['nome'])
+        atualizaQuantidades(carrinho, request)
+        urlFila = siteFila + "1?myVar=" + request.session['idusuario']
         return HttpResponseRedirect(urlFila)
     else:
         return redirect(sitePrincipal + 'login')
@@ -145,16 +155,11 @@ def produtos(request, idusuario):
     listaJson = []
     for produto in carrinho.produtos:
         listaJson.append({'idProduto' : produto.idProduto,'nome' : produto.nome,'categoria' : produto.categoria,'marca' : produto.marca,'preco' : produto.preco,'imagem' : produto.imagem,'quantidade' : produto.quantidade})
-    return JsonResponse(listaJson, safe=False)
+    return JsonResponse(listaJson)
 
 def mapa(request):
     idProduto = request.GET.get("idProduto", None)
     markedSectors = []
-
-    # Aqui nos vemos se existe um produto que foi escaneado salvo na sessao
-    # Se tivermos esse produto, nos vamos marcar o mapa com o setor que esse produto esta
-    if idProduto is None:
-        idProduto = request.session['lastScannedProduct']
 
     if idProduto is not None:
         urlSetoresProduto = 'https://scan-skip-plu-teste.herokuapp.com/setoresProduto/' + idProduto
@@ -163,4 +168,6 @@ def mapa(request):
         if response != -1:
             for setor in response :
                 markedSectors.append(setor['idSetor'])
-    return render(request, 'mapa.html', {'markedSectors' : markedSectors, 'sectorsRange': range(1, 53)})
+
+
+    return render(request, 'mapa.html', {'markedSectors' : markedSectors})
