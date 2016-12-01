@@ -81,11 +81,11 @@
     <div class="containerbotoescarrinho">
       <form method="post" action="{% url 'Finalizar' %}">
         {% csrf_token %}
-        <button class="_button _button-4" type="submit">Finalizar</button>
+        <button class="_button _button-4" type="submit">Finalizar Compra</button>
       </form>
       <form id="limpa" name="limpa" method="post" action="">
         {% csrf_token %}
-        <button class="_button _button-5" onClick="limpar()" name="botaoLimpar" type="button">Limpar</button>
+        <button class="_button _button-5" onClick="limpar()" name="botaoLimpar" type="button">Limpar Carrinho</button>
       </form>
     </div>
   </div>
