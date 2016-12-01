@@ -6,7 +6,7 @@ body {
 
 .alteraQuantidade {
   position: absolute;
-  bottom: 0;
+  bottom: 24px;
   right: 0;
   z-index: 10;
   width: 61.3095238095%;
@@ -115,7 +115,7 @@ body {
 
 .nomeproduto {
   position: absolute;
-  top: 0;
+  top: 24px;
   left: 0;
   right: 0;
   z-index: 5;
@@ -130,10 +130,28 @@ body {
   color: rgba(0, 0, 0, 0.87);
 }
 
+.comoUsar {
+  position: absolute;
+  top: 56px;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  width: 100%;
+  height: auto;
+  min-height: 45px;
+  margin: 0 auto;
+  border: 1px solid rgba(0, 0, 0, 0.54);
+  border-radius: 10px;
+  font-size: 1em;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.87);
+  line-height: 1.5;
+}
+
 .precoproduto {
   position: absolute;
-  bottom: 0;
-  left: 0.0046502976%;
+  bottom: 24px;
+  left: 0;
   z-index: 6;
   width: 36.3095238095%;
   height: 42px;
@@ -151,7 +169,7 @@ body {
   left: 0;
   right: 0;
   z-index: 12;
-  width: 97.7887834821%;
+  width: 90%;
   height: auto;
   min-height: 160px;
   margin: 0 auto;
@@ -354,9 +372,6 @@ body {
 
   .carrinho .produtocarrinho {
     top: 77px;
-    left: 0;
-    right: 0;
-    width: 97.8962988826%;
     height: 250px;
     margin-right: auto;
     margin-left: auto;
@@ -368,10 +383,12 @@ body {
   }
 
   .infocarrinho .alteraQuantidade {
+    bottom: 0;
     width: 45.7105891719%;
   }
 
   .infocarrinho .nomeproduto {
+    top: 8px;
     left: 0;
     right: 0;
     height: 40px;
@@ -381,8 +398,18 @@ body {
     line-height: 1.2;
   }
 
+  .infocarrinho .comoUsar {
+    top: 8px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 10px;
+    line-height: 1.2;
+  }
+
+
+
   .infocarrinho .precoproduto {
-    bottom: -2px;
+    bottom: 0;
     left: -0.4396231423%;
     height: 40px;
     line-height: 2;
@@ -470,11 +497,7 @@ body {
   }
 
   .carrinho .produtocarrinho {
-    left: 0;
-    right: 0;
-    width: 82.5664271016%;
-    margin-right: auto;
-    margin-left: auto;
+    width: 85%;
   }
 
   .carrinho .titulocarrinho {
@@ -530,11 +553,7 @@ body {
   }
 
   .carrinho .produtocarrinho {
-    left: 0;
-    right: 0;
-    width: 74.6668921203%;
-    margin-right: auto;
-    margin-left: auto;
+    width: 75%;
   }
 
   .carrinho .titulocarrinho {
