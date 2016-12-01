@@ -48,9 +48,14 @@
 
       <form class="containerEscolha container-2" id="formFila" name="formFila" method="post" action="">
         {% csrf_token %}
+        <label class="checkbox-label clearfix">
+          <input class="checkbox" type="checkbox">
+          <span class="point-text">Fila Preferencial</span>
+        </label>
         <button class="botaofila" onClick= "confirmacaoFila()" type="button">Pagar na fila</button>
       </form>
       <p class="text">Escolha a forma de pagamento</p>
+      
     </div>
   
 {% endblock %}
