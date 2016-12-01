@@ -1,37 +1,31 @@
 {% extends "header---footer.html" %}
 
-{% block title %}Forma de Pagamento{% endblock %}
+{% block title %}Produto{% endblock %}
 
 {% load static %}
 
 {% block head %}
-  <link href="http://fonts.googleapis.com/css?family=Open+Sans:600" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="{% static 'css/requisita-fila-grid.css' %}">
-  <link rel="stylesheet" href="{% static 'css/requisita-fila.css' %}">
-<script language="javascript">
-  function confirmacaoFila() {
-	var r = confirm("Tem certeza que deseja entrar na fila?");
-	if (r == true){
-	  document.getElementById("formFila").action = "{% url 'Fila' %}";
-	  document.getElementById("formFila").submit();
-	}else{
-	  //Não vai pra nenhum link
+  <link rel="stylesheet" href="{% static 'css/standardize.css' %}">
+  <link rel="stylesheet" href="{% static 'css/escolha-pagamento.css' %}">
+  <script language="javascript">
+    function confirmacaoFila() {
+    var r = confirm("Tem certeza que deseja entrar na fila?");
+    if (r == true){
+      document.getElementById("formFila").action = "{% url 'Fila' %}";
+      document.getElementById("formFila").submit();
+    }else{
+      //Não vai pra nenhum link
+      }
     }
-  }
-</script>
+  </script>
 {% endblock %}
 
 {% block content %}
   <div class="background"></div>
-  <div class="container">
-    <form id="formFila" name="formFila" method="post" action="">
-        {% csrf_token %}
-        <button class="_button _button-1" onClick= "confirmacaoFila()" name="entrarFila" type="button">Pagar na fila</button>
-    </form>
-    <!--<button class="_button _button-2">Pagar no aplicativo</button> -->
-      <div>
-        <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-            <fieldset>
+    <div class="botoesescolha">
+
+      <form class="containerEscolha container-1" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+        <fieldset>
                 <input type="hidden" name="cmd" value="_xclick" />
                 <input type="hidden" name="business" value="tiagoguy@hotmail.com" />
                 <input type="hidden" name="lc" value="BR" />
@@ -46,11 +40,20 @@
                 <input type="hidden" name="return" value="http://www.ekerner.com/payments/?payment=success" />
                 <input type="hidden" name="cancel_return" value="http://www.ekerner.com/payments/?payment=cancelled" />
                 <input type="hidden" name="bn" value="PP-BuyNowBF:btn_paynowCC_LG.gif:NonHostedGuest" />
-                <input type="image" src="https://www.paypalobjects.com/webstatic/en_US/i/btn/png/blue-rect-paypal-60px.png" name="submit" alt="PayPal . The safer, easier way to pay online." />
-                <input id="valorTotal" value="{{ totalFloat }}" type="hidden" name="amount"/>
-            </fieldset>
-        </form>
-          TOTAL: {{total}}
-      </div>
-  </div>
+        <input class="botaopaypal" type="image" src="https://www.paypalobjects.com/webstatic/en_US/i/btn/png/blue-rect-paypal-60px.png" name="submit" alt="PayPal . The safer, easier way to pay online." />
+        <input id="valorTotal" value="{{ totalFloat }}" type="hidden" name="amount"/>
+        </fieldset>
+      </form>
+
+      <form class="containerEscolha container-2" id="formFila" name="formFila" method="post" action="">
+        {% csrf_token %}
+        <label class="checkbox-label clearfix">
+          <input class="checkbox" type="checkbox">
+          <span class="point-text">Fila Preferencial</span>
+        </label>
+        <button class="botaofila" onClick= "confirmacaoFila()" type="button">Pagar na fila</button>
+      </form>
+      <p class="text">Escolha a forma de pagamento</p>
+
+    </div>
 {% endblock %}

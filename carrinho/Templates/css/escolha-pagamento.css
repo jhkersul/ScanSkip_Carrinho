@@ -1,0 +1,300 @@
+body {
+  background-color: rgb(255, 255, 255);
+  font: 600 1em/1.38 'Open Sans';
+  color: rgb(0, 0, 0);
+}
+
+.background {
+  position: fixed;
+  float: left;
+  width: 100%;
+  height: 100vh;
+  background-image: url('images/Pague%20leve.png');
+  background-size: cover;
+  background-position: center center;
+}
+
+.botaofila {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 160px;
+  border-radius: 10px;
+  background-color: rgb(62, 113, 255);
+  font-style: italic;
+  font-size: 1.3em;
+  text-align: center;
+  color: rgb(255, 255, 255);
+}
+
+.botaofila:hover {
+  background-color: rgb(11, 62, 174);
+}
+
+.botaopaypal {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 3;
+  width: 100%;
+  height: 160px;
+  border-radius: 10px;
+  background-color: rgb(62, 113, 255);
+}
+
+.botaopaypal:hover {
+  background-color: rgb(11, 62, 174);
+}
+
+.botoesescolha {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  width: 48.75%;
+  height: 433px;
+  margin: auto;
+  border-radius: 10px;
+  background-color: rgba(113, 164, 255, 0.2);
+}
+
+.containerEscolha {
+  position: absolute;
+  top: 185px;
+  width: 28%;
+  height: 160px;
+}
+
+.text {
+  position: absolute;
+  top: 62px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  min-height: 55px;
+  margin: 0 auto;
+  font-size: 1.7em;
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+
+.checkbox {
+  display: block;
+  float: left;
+  margin-top: 3px;
+}
+
+.checkbox-label {
+  position: absolute;
+  display: block;
+  float: left;
+  width: 150%;
+  height: 22px;
+  top: 170px;
+  border: solid 2px;
+}
+
+.point-text {
+  display: block;
+  float: left;
+  margin-left: 6px;
+  font-weight: 400;
+  text-decoration: underline;
+}
+
+.point-text:hover {
+  font-style: italic;
+}
+
+
+.container-1 {
+  right: 15%;
+  z-index: 4;
+}
+
+.container-2 {
+  left: 15%;
+  z-index: 2;
+}
+
+@media(max-width: 920px) {
+  .background .botoesescolha {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 60.7608695652%;
+    margin: auto;
+  }
+
+  .botoesescolha .containerEscolha {
+    width: 35%;
+  }
+
+  .botoesescolha .text {
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .containerEscolha .botaofila {
+    left: -0.1021241831%;
+    width: 99.9183006535%;
+  }
+
+  .containerEscolha .botaopaypal {
+    right: 0.5514705882%;
+    width: 99.9183006535%;
+  }
+
+  .checkbox-label {
+    width: 180%;
+  }
+
+  .container-1 {
+    right: 10%;
+    z-index: 4;
+  }
+
+  .container-2 {
+    left: 10%;
+    z-index: 2;
+  }
+
+}
+
+@media(max-width: 750px) {
+  .botoesescolha {
+    width: 55%;
+  }
+
+  .background .botoesescolha {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 74.4%;
+    margin: auto;
+  }
+
+  .botoesescolha .containerEscolha {
+    width: 35%;
+  }
+
+  .botoesescolha .text {
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .containerEscolha .botaofila {
+    left: -0.2042483661%;
+    width: 99.7446895424%;
+  }
+
+  .containerEscolha .botaopaypal {
+    right: 0.4493464052%;
+    width: 99.7446895424%;
+  }
+
+  .checkbox-label {
+    width: 200%;
+  }
+}
+
+@media(max-width: 615px) {
+  .botoesescolha {
+    width: 70%;
+  }
+
+  .background .botoesescolha {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 80%;
+    margin: auto;
+  }
+
+  .botoesescolha .containerEscolha {
+    width: 35%;
+  }
+
+  .botoesescolha .text {
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .containerEscolha .botaofila {
+    left: -0.150462963%;
+    width: 99.6759259259%;
+  }
+
+  .containerEscolha .botaopaypal {
+    right: 0.5902777777%;
+    width: 99.6759259259%;
+  }
+
+  
+
+}
+
+@media(max-width: 450px) {
+  .botoesescolha {
+    width: 85%;
+  }
+
+  .botaofila:hover,
+  .botaopaypal:hover {
+    background-color: rgb(11, 62, 174);
+  }
+
+  .background .botoesescolha {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+  .botoesescolha .containerEscolha {
+    width: 35%;
+  }
+
+  .botoesescolha .text {
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .containerEscolha .botaofila {
+    left: -0.4836309524%;
+    width: 100%;
+  }
+
+  .containerEscolha .botaopaypal {
+    right: 0.3100198412%;
+    width: 100%;
+  }
+
+  .botoesescolha .container-1 {
+    right: 9%;
+  }
+
+  .botoesescolha .container-2 {
+    left: 9%;
+  }
+
+  
+
+}

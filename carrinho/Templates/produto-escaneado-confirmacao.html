@@ -8,10 +8,11 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:600,300,400" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="{% static 'css/produto-escaneado-confirmacao-grid.css' %}">
   <link rel="stylesheet" href="{% static 'css/produto-escaneado-confirmacao.css' %}">
+  <script src="{% static 'js/produto-escaneado-confirmacao.js' %}"></script>
 {% endblock %}
 
 {% block content %}
-  <div class="background">
+  <div class="background"></div>
     <form class="produtoescaneado" method="post" action="{% url 'Adicionar' %}">
       {% csrf_token %}
       <p class="text">Visualização de Produto</p>
@@ -21,17 +22,39 @@
       <input type="hidden" name="categoria" value="{{ categoria }}">
       <input type="hidden" name="preco" value="{{ preco }}">
       <input type="hidden" name="imagem" value="{{ imagem }}">
+      <input type="hidden" id="quantidade" name="quantidade" value="{{ quantidade }}">
+      
       <p id="1" class="textnomeproduto js--nome-produto">{{ nome }}</p>
       <div class="element" style="background: url('{{imagem}}') rgb(222, 222, 222); background-size: contain; background-repeat: no-repeat; background-position: center center;"></div>
-      <p id="2" class="textmarcaproduto js--marca-produto">{{ marca }}</p>
-      <p id="3" class="textoprecoproduto js--preco-produto">R$ {{ preco }}</p>
-      <p id="4" class="textocategoriaproduto js--categoria-produto">{{ categoria }}</p>
-      <button name="botaoRetornar" class="confirmar confirmar-1 js-confirmar" type="submit">Retornar</button>
-      {% if registrado %}
-        <button name="botaoAdicionar" class="confirmar confirmar-2 js-confirmar" type="submit">Adicionar</button>
-      {% else %}
-        <button class="confirmar confirmar-2 js-confirmar" style="background-color: rgb(120, 120, 120);" type="button">Adicionar</button>
-      {% endif %}
+      <p id="2" class="textmarcaproduto">{{ marca }}</p>
+      <p id="3" class="textoprecoproduto">R$ {{ preco }}</p>
+      <p id="4" class="textocategoriaproduto">{{ categoria }}</p>
+      <div class="alteraQuantidade">
+            <button onClick="alteraQuantidade('-')" class="_button _button-1" id="-" type="button">-</button>
+            <button onClick="alteraQuantidade('+')" class="_button _button-2" id="+" type="button">+</button>
+            <p class="quantidade" id="qtdd">{{ quantidade }}</p>
+      </div>
+      <div class="botoesconfirma">
+        <button name="botaoRetornar" class="confirmar confirmar-1" type="submit">Ver carrinho</button>
+        {% if registrado %}
+        <button name="botaoAdicionar" class="confirmar confirmar-2" type="submit">Adicionar</button>
+        {% else %}
+        <button class="confirmar confirmar-2" style="background-color: rgb(120, 120, 120);" type="button">Adicionar</button>
+        {% endif %}
+      </div>
     </form>
-  </div>
+    <script type="text/javascript">
+      function alteraQuantidade(op) {
+        if (op == "-" && {{ 'quantidade' }} > 1) {
+          console.log('entrou')
+          var document.getElementbyId('qtdd').innerHTML = number(document.getElementbyId('quantidade').innerHTML)-1;
+          var document.getElementbyId('quantidade').value -= 1;
+        }
+        if (op == "+") {
+          var document.getElementbyId('qtdd').innerHTML = number(document.getElementbyId('quantidade').innerHTML)+1;
+          var document.getElementbyId('quantidade').value += 1;
+        }
+      }
+    </script>
+  
 {% endblock %}
