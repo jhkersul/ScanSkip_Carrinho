@@ -6,7 +6,7 @@ body {
 
 .alteraQuantidade {
   position: absolute;
-  bottom: 24px;
+  bottom: 25px;
   right: 0;
   z-index: 10;
   width: 61.3095238095%;
@@ -93,7 +93,7 @@ body {
   margin: auto 0;
   border: 1px solid rgba(0, 0, 0, 0.54);
   border-radius: 5px;
-  background-color: rgb(222, 222, 222);
+  background-color: rgb(255, 255, 255);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
@@ -115,7 +115,7 @@ body {
 
 .nomeproduto {
   position: absolute;
-  top: 24px;
+  top: 25px;
   left: 0;
   right: 0;
   z-index: 5;
@@ -128,30 +128,12 @@ body {
   font-size: 1em;
   text-align: center;
   color: rgba(0, 0, 0, 0.87);
-}
-
-.comoUsar {
-  position: absolute;
-  top: 56px;
-  left: 0;
-  right: 0;
-  z-index: 5;
-  width: 100%;
-  height: auto;
-  min-height: 45px;
-  margin: 0 auto;
-  border: 1px solid rgba(0, 0, 0, 0.54);
-  border-radius: 10px;
-  font-size: 1em;
-  text-align: center;
-  color: rgba(0, 0, 0, 0.87);
-  line-height: 1.5;
 }
 
 .precoproduto {
   position: absolute;
-  bottom: 24px;
-  left: 0;
+  bottom: 25px;
+  left: 0%;
   z-index: 6;
   width: 36.3095238095%;
   height: 42px;
@@ -169,7 +151,7 @@ body {
   left: 0;
   right: 0;
   z-index: 12;
-  width: 90%;
+  width: 97.7887834821%;
   height: auto;
   min-height: 160px;
   margin: 0 auto;
@@ -319,27 +301,13 @@ body {
   color: rgb(255, 255, 255);
 }
 
-@media(max-width: 1300px) {
-  .campototalcarrinho {
-    bottom: 115px;
-  }
-
-  .containerbotoescarrinho {
-    bottom: 35px;
-  }
-
-  .containerbotoescarrinho ._button-4 {
-    height: 70px;
-  }
-
-  .containerbotoescarrinho ._button-5 {
-    height: 70px;
-  }
-}
-
 @media(max-width: 960px) {
+  .alteraQuantidade {
+    bottom: 0px;
+  }
+
   .alteraQuantidade .quantidade {
-    bottom: -0.5px;
+    bottom: 0px;
     left: 0;
     right: 0;
     width: 35.6310892974%;
@@ -370,7 +338,7 @@ body {
 
   .carrinho .campototalcarrinho {
     top: auto;
-    bottom: 115px;
+    bottom: 100px;
     left: 0;
     right: 0;
     width: 80.4469273743%;
@@ -390,6 +358,9 @@ body {
 
   .carrinho .produtocarrinho {
     top: 77px;
+    left: 0;
+    right: 0;
+    width: 97.8962988826%;
     height: 250px;
     margin-right: auto;
     margin-left: auto;
@@ -401,14 +372,13 @@ body {
   }
 
   .infocarrinho .alteraQuantidade {
-    bottom: 0;
     width: 45.7105891719%;
   }
 
   .infocarrinho .nomeproduto {
-    top: 8px;
     left: 0;
     right: 0;
+    top: 10px;
     height: 40px;
     margin-right: auto;
     margin-left: auto;
@@ -416,19 +386,9 @@ body {
     line-height: 1.2;
   }
 
-  .infocarrinho .comoUsar {
-    top: 8px;
-    margin-right: auto;
-    margin-left: auto;
-    padding: 10px;
-    line-height: 1.2;
-  }
-
-
-
   .infocarrinho .precoproduto {
-    bottom: 0;
-    left: -0.4396231423%;
+    bottom: 0px;
+    left: 0%;
     height: 40px;
     line-height: 2;
   }
@@ -515,7 +475,11 @@ body {
   }
 
   .carrinho .produtocarrinho {
-    width: 85%;
+    left: 0;
+    right: 0;
+    width: 82.5664271016%;
+    margin-right: auto;
+    margin-left: auto;
   }
 
   .carrinho .titulocarrinho {
@@ -571,7 +535,11 @@ body {
   }
 
   .carrinho .produtocarrinho {
-    width: 75%;
+    left: 0;
+    right: 0;
+    width: 74.6668921203%;
+    margin-right: auto;
+    margin-left: auto;
   }
 
   .carrinho .titulocarrinho {
