@@ -12,7 +12,7 @@ urlpatterns = [
     url(r'^Remover/', views.remove, name="Remover"),
     url(r'^fila/', views.fila, name="Fila"),
     url(r'^filaPreferencial/', views.filaPref, name="FilaPref"),
-    url(r'^id=(?P<idusuario>[-\w ]+)/$', views.produtos, name="Produtos"),
+    url(r'^Produtos/id=(?P<idusuario>[-\w ]+)/$', views.produtos, name="Produtos"),
     url(r'^logout/', views.logout, name="Logout"),
     url(r'^mapa', views.mapa, name="mapa"),
 ]
