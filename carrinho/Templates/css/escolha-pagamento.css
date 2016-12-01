@@ -66,7 +66,7 @@ body {
 .containerEscolha {
   position: absolute;
   top: 185px;
-  width: 27.3504273504%;
+  width: 28%;
   height: 160px;
 }
 
@@ -82,6 +82,35 @@ body {
   text-align: center;
   color: rgb(0, 0, 0);
 }
+
+.checkbox {
+  display: block;
+  float: left;
+  margin-top: 3px;
+}
+
+.checkbox-label {
+  position: absolute;
+  display: block;
+  float: left;
+  width: 150%;
+  height: 22px;
+  top: 170px;
+  border: solid 2px;
+}
+
+.point-text {
+  display: block;
+  float: left;
+  margin-left: 6px;
+  font-weight: 400;
+  text-decoration: underline;
+}
+
+.point-text:hover {
+  font-style: italic;
+}
+
 
 .container-1 {
   right: 15%;
@@ -104,7 +133,7 @@ body {
   }
 
   .botoesescolha .containerEscolha {
-    width: 27.3479427549%;
+    width: 35%;
   }
 
   .botoesescolha .text {
@@ -123,10 +152,27 @@ body {
     right: 0.5514705882%;
     width: 99.9183006535%;
   }
+
+  .checkbox-label {
+    width: 180%;
+  }
+
+  .container-1 {
+    right: 10%;
+    z-index: 4;
+  }
+
+  .container-2 {
+    left: 10%;
+    z-index: 2;
+  }
+
 }
 
 @media(max-width: 750px) {
-  
+  .botoesescolha {
+    width: 55%;
+  }
 
   .background .botoesescolha {
     top: 0;
@@ -138,7 +184,7 @@ body {
   }
 
   .botoesescolha .containerEscolha {
-    width: 27.3493503584%;
+    width: 35%;
   }
 
   .botoesescolha .text {
@@ -157,9 +203,17 @@ body {
     right: 0.4493464052%;
     width: 99.7446895424%;
   }
+
+  .checkbox-label {
+    width: 200%;
+  }
 }
 
 @media(max-width: 615px) {
+  .botoesescolha {
+    width: 70%;
+  }
+
   .background .botoesescolha {
     top: 0;
     bottom: 0;
@@ -170,7 +224,7 @@ body {
   }
 
   .botoesescolha .containerEscolha {
-    width: 27.350101626%;
+    width: 35%;
   }
 
   .botoesescolha .text {
@@ -189,15 +243,20 @@ body {
     right: 0.5902777777%;
     width: 99.6759259259%;
   }
+
+  
+
 }
 
 @media(max-width: 450px) {
+  .botoesescolha {
+    width: 85%;
+  }
+
   .botaofila:hover,
   .botaopaypal:hover {
     background-color: rgb(11, 62, 174);
   }
-
- 
 
   .background .botoesescolha {
     top: 0;
@@ -235,4 +294,7 @@ body {
   .botoesescolha .container-2 {
     left: 9%;
   }
+
+  
+
 }
