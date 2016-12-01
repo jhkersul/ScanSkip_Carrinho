@@ -111,7 +111,8 @@ def adiciona(request):
             categoria = request.POST.get('categoria')
             preco = request.POST.get('preco')
             imagem = request.POST.get('imagem')
-            produto = adicionaProduto(request.session['idusuario'], idProduto, nome, marca, categoria,  preco, imagem)
+            quantidade = request.POST.get('quantidade')
+            produto = adicionaProduto(request.session['idusuario'], idProduto, nome, marca, categoria,  preco, imagem, quantidade)
         carrinho = pegaCarrinho(request.session['idusuario'], request.session['nome'])
         numProdutos = len(carrinho.produtos)
         return render(request, 'carrinho.html', {'carrinho': carrinho, 'numProdutos': numProdutos})
@@ -144,8 +145,7 @@ def produtos(request, idusuario):
     listaJson = []
     for produto in carrinho.produtos:
         listaJson.append({'idProduto' : produto.idProduto,'nome' : produto.nome,'categoria' : produto.categoria,'marca' : produto.marca,'preco' : produto.preco,'imagem' : produto.imagem,'quantidade' : produto.quantidade})
-    return JsonResponse(listaJson, safe=False)
-
+    return JsonResponse(listaJson)
 
 def mapa(request):
     idProduto = request.GET.get("idProduto", None)
@@ -159,4 +159,5 @@ def mapa(request):
             for setor in response :
                 markedSectors.append(setor['idSetor'])
 
-    return render(request, 'mapa.html', {'markedSectors': markedSectors, 'sectorsRange': range(1, 53)})
+
+    return render(request, 'mapa.html', {'markedSectors' : markedSectors})
