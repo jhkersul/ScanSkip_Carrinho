@@ -23,17 +23,17 @@
       <input type="hidden" name="preco" value="{{ preco }}">
       <input type="hidden" name="imagem" value="{{ imagem }}">
       <input type="hidden" id="quantidade" name="quantidade" value="{{ quantidade }}">
-
+      
       <p id="1" class="textnomeproduto js--nome-produto">{{ nome }}</p>
       <div class="element" style="background: url('{{imagem}}') rgb(222, 222, 222); background-size: contain; background-repeat: no-repeat; background-position: center center;"></div>
       <p id="2" class="textmarcaproduto">{{ marca }}</p>
       <p id="3" class="textoprecoproduto">R$ {{ preco }}</p>
       <p id="4" class="textocategoriaproduto">{{ categoria }}</p>
-      <div class="alteraQuantidade">
+      <!--div class="alteraQuantidade">
             <button onClick="alteraQuantidade('-')" class="_button _button-1" id="-" type="button">-</button>
             <button onClick="alteraQuantidade('+')" class="_button _button-2" id="+" type="button">+</button>
             <p class="quantidade" id="qtdd">{{ quantidade }}</p>
-      </div>
+      </div-->
       <div class="botoesconfirma">
         <button name="botaoRetornar" class="confirmar confirmar-1" type="submit">Ver carrinho</button>
         {% if registrado %}
@@ -43,5 +43,5 @@
         {% endif %}
       </div>
     </form>
-
+  
 {% endblock %}
