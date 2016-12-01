@@ -1,0 +1,618 @@
+body {
+  background-color: rgb(255, 255, 255);
+  font: 300 1em/1.38 'Open Sans';
+  color: rgb(0, 0, 0);
+}
+
+.background {
+  position: fixed;
+  float: left;
+  width: 100%;
+  height: 100vh;
+  background-image: url('images/Pague%20leve.png');
+  background-size: cover;
+  background-position: center center;
+}
+
+.produtoescaneado {
+  position: absolute;
+  top: 80px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 8;
+  width: 55%;
+  height: 580px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  background-color: rgba(113, 164, 255, 0.2);
+}
+
+.alteraQuantidade {
+  position: absolute;
+  top: 390px;
+  right: 0;
+  z-index: 10;
+  width: 38.3280757097%;
+  height: auto;
+  right: 10%;
+  min-height: 55px;
+  border: 1px solid rgba(0, 0, 0, 0.54);
+  border-radius: 10px;
+}
+
+.quantidade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 7;
+  width: 30%;
+  height: 53px;
+  margin: 0 auto;
+  line-height: 3em;
+  font-size: 1em;
+  font-weight: 600;
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+}
+
+._button {
+  display: block;
+  position: absolute;
+  text-align: center;
+  width: 35%;
+  font: italic 700 1.5em/1.38 'Open Sans';
+  color: rgb(255, 255, 255);
+}
+
+.alteraQuantidade ._button {
+  bottom: 0;
+  height: 53px;
+  background-color: rgb(250, 220, 10);
+  font-size: 2.6em;
+  line-height: 0.8;
+  color: rgb(0, 0, 0);
+}
+
+.alteraQuantidade ._button:hover {
+  background-color: rgb(243, 205, 39);
+}
+
+.alteraQuantidade ._button-1 {
+  left: 0;
+  z-index: 9;
+  width: 35%;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.alteraQuantidade ._button-2 {
+  right: 0;
+  z-index: 8;
+  width: 35%;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.confirmar {
+  display: block;
+  position: absolute;
+  float: left;
+  min-width: 25%;
+  height: 70px;
+  top: 480px;
+  border-radius: 5px;
+  font-style: italic;
+  font-size: 1.5em;
+  font-weight: 600;
+  text-align: center;
+  color: rgb(255, 255, 255);
+}
+
+.element {
+  position: absolute;
+  float: left;
+  clear: both;
+  z-index: 5;
+  width: 38.643533123%;
+  height: 235px;
+  top: 210px;
+  left: 10%;
+  border: 1px solid rgba(0, 0, 0, 0.54);
+  border-radius: 15px;
+}
+
+.text {
+  position: absolute;
+  top: 16px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  min-height: 50px;
+  margin: 0 auto;
+  font-size: 2em;
+  font-weight: 400;
+  line-height: 2.5;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.textnomeproduto {
+  position: absolute;
+  float: left;
+  width: 79.9684542586%;
+  height: 59px;
+  top: 113px;
+  right: 10%;
+  border: 1px solid rgba(0, 0, 0, 0.54);
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  font-size: 1.2em;
+  line-height: 2.5em;
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+
+.textmarcaproduto {
+  position: absolute;
+  float: left;
+  z-index: 2;
+  width: 38.3280757097%;
+  height: 46px;
+  top: 210px;
+  right: 10%;
+  border: 1px solid rgba(0, 0, 0, 0.54);
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  font-size: 1.2em;
+  line-height: 2.5em;
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+
+.textocategoriaproduto {
+  position: absolute;
+  float: left;
+  z-index: 4;
+  width: 38.3280757097%;
+  height: 37px;
+  top: 325px;
+  right: 10%;
+  border: 1px solid rgba(0, 0, 0, 0.54);
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  font-size: 1em;
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+
+.textoprecoproduto {
+  position: absolute;
+  float: left;
+  clear: both;
+  z-index: 3;
+  width: 38.4858044164%;
+  height: 35px;
+  top: 275px;
+  right: 10%;
+  border: 1px solid rgba(0, 0, 0, 0.54);
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  font-size: 1em;
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+
+.confirmar-1 {
+  z-index: 6;
+  left: 15%;
+  background-color: rgb(62, 113, 255);
+}
+
+.confirmar-1:hover {
+  background-color: rgb(11, 62, 174);
+}
+
+.confirmar-2 {
+  z-index: 7;
+  right: 15%;
+  background-color: rgb(67, 212, 87);
+}
+
+.confirmar-2:hover {
+  background-color: rgb(16, 161, 36);
+}
+
+@media(max-width: 770px) {
+  .background .produtoescaneado {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 60%;
+    margin: auto;
+  }
+
+  .produtoescaneado .confirmar {
+    position: absolute;
+    float: none;
+    top: 480px;
+    width: 35%;
+    margin-top: 0;
+    margin-left: 0;
+  }
+
+  .produtoescaneado .element {
+    position: absolute;
+    float: none;
+    clear: none;
+    top: 210px;
+    left: 9.9285604547%;
+    width: 38.6426486403%;
+    margin-top: 0;
+    margin-left: 0;
+  }
+
+  .produtoescaneado .text {
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .produtoescaneado .textmarcaproduto {
+    position: absolute;
+    float: none;
+    top: 210px;
+    left: 51.6323552004%;
+    width: 38.3277001075%;
+    margin-top: 0;
+    margin-left: 0;
+  }
+
+  .produtoescaneado .textnomeproduto {
+    position: absolute;
+    float: none;
+    top: 113px;
+    left: 0;
+    right: 0;
+    width: 79.9662006452%;
+    margin-top: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .produtoescaneado .textocategoriaproduto {
+    position: absolute;
+    float: none;
+    top: 325px;
+    left: 51.6395709763%;
+    width: 38.3469042863%;
+    height: 37px;
+    margin-top: 0;
+    margin-left: 0;
+  }
+
+  .produtoescaneado .textoprecoproduto {
+    position: absolute;
+    float: none;
+    clear: none;
+    height: 35px;
+    top: 275px;
+    left: 51.640036872%;
+    width: 38.4851743739%;
+    margin-top: 0;
+    margin-left: 0;
+  }
+
+  .produtoescaneado .confirmar-1 {
+    left: 10%;
+  }
+
+  .produtoescaneado .confirmar-2 {
+    left: 55%;
+  }
+}
+
+@media(max-width: 680px) {
+  body {
+    font-size: 1em;
+  }
+
+  .confirmar {
+    min-width: 35px;
+  }
+
+  .background .produtoescaneado {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+  .produtoescaneado .confirmar {
+    top: 480px;
+    min-width: 35%;
+  }
+
+  .produtoescaneado .element {
+    left: 10.0804565701%;
+  }
+
+  .produtoescaneado .text {
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+    line-height: 2;
+  }
+
+  .produtoescaneado .textmarcaproduto {
+    left: 51.7842427616%;
+  }
+
+  .produtoescaneado .textnomeproduto {
+    top: 114px;
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .produtoescaneado .textocategoriaproduto {
+    left: 51.7886971046%;
+  }
+
+  .produtoescaneado .textoprecoproduto {
+    left: 51.7912026726%;
+  }
+
+  .produtoescaneado .confirmar-1 {
+    left: 10.0779510022%;
+  }
+
+  .produtoescaneado .confirmar-2 {
+    left: 55.9820434298%;
+  }
+}
+
+@media(max-width: 595px) {
+  .background .produtoescaneado {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 65%;
+    margin: auto;
+  }
+
+  .produtoescaneado .confirmar {
+    position: absolute;
+    float: none;
+    top: 490px;
+    width: 40%;
+    font-size: 1em;
+    margin-top: 0;
+    margin-left: 0;
+  }
+
+  .produtoescaneado .element {
+    position: absolute;
+    float: none;
+    clear: none;
+    top: 220px;
+    left: 9.9285604547%;
+    width: 38.6426486403%;
+    margin-top: 0;
+    margin-left: 0;
+  }
+
+  .produtoescaneado .text {
+    left: 0;
+    right: 0;
+    line-height: 1.60;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .produtoescaneado .textmarcaproduto {
+    position: absolute;
+    float: none;
+    top: 220px;
+    left: 51.6323552004%;
+    width: 38.3277001075%;
+    margin-top: 0;
+    margin-left: 0;
+  }
+
+  .produtoescaneado .textnomeproduto {
+    position: absolute;
+    float: none;
+    top: 135px;
+    left: 0;
+    right: 0;
+    width: 79.9662006452%;
+    height: 50px;
+    margin-top: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .produtoescaneado .textocategoriaproduto {
+    position: absolute;
+    float: none;
+    top: 325px;
+    left: 51.6395709763%;
+    width: 38.3469042863%;
+    height: 37px;
+    margin-top: 0;
+    margin-left: 0;
+  }
+
+  .produtoescaneado .textoprecoproduto {
+    position: absolute;
+    float: none;
+    clear: none;
+    top: 275px;
+    left: 51.640036872%;
+    height: 35px;
+    width: 38.4851743739%;
+    margin-top: 0;
+    margin-left: 0;
+  }
+
+  .produtoescaneado .confirmar-1 {
+    left: 10%;
+  }
+
+  .produtoescaneado .confirmar-2 {
+    left: 55%;
+  }
+}
+
+@media(max-width: 475px) {
+  .background .produtoescaneado {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 80%;
+    margin: auto;
+  }
+
+  .produtoescaneado .confirmar {
+    width: 38%;
+  }
+
+  .produtoescaneado .element {
+    left: 6.7105263157%;
+    width: 42.1052631578%;
+  }
+
+  .produtoescaneado .text {
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .produtoescaneado .textnomeproduto {
+    left: 0;
+    right: 0;
+    width: 86.8421052631%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .produtoescaneado .textmarcaproduto,
+  .produtoescaneado .textocategoriaproduto,
+  .produtoescaneado .textoprecoproduto {
+    left: 51.7105263157%;
+    width: 41.5789473684%;
+  }
+
+  .produtoescaneado .confirmar-1 {
+    left: 6.7105263157%;
+  }
+
+  .produtoescaneado .confirmar-2 {
+    left: 55.4235197368%;
+  }
+}
+
+@media(max-width: 360px) {
+  .background .produtoescaneado {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+  .produtoescaneado .confirmar {
+    position: absolute;
+    float: none;
+    top: 490px;
+    width: 40%;
+    margin-top: 0;
+    margin-left: 0;
+    font-size: 1em;
+  }
+
+  .produtoescaneado .element {
+    position: absolute;
+    float: none;
+    clear: none;
+    top: 220px;
+    left: 9.9285604547%;
+    width: 38.6426486403%;
+    margin-top: 0;
+    margin-left: 0;
+  }
+
+  .produtoescaneado .text {
+    left: 0;
+    right: 0;
+    line-height: 1.60;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .produtoescaneado .textmarcaproduto {
+    position: absolute;
+    float: none;
+    top: 220px;
+    left: 51.6323552004%;
+    width: 38.3277001075%;
+    margin-top: 0;
+    margin-left: 0;
+  }
+
+  .produtoescaneado .textnomeproduto {
+    position: absolute;
+    float: none;
+    top: 130px;
+    left: 0;
+    right: 0;
+    width: 79.9662006452%;
+    height: 50px;
+    margin-top: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .produtoescaneado .textocategoriaproduto {
+    position: absolute;
+    float: none;
+    top: 325px;
+    left: 51.6395709763%;
+    width: 38.3469042863%;
+    height: 54px;
+    margin-top: 0;
+    margin-left: 0;
+  }
+
+  .produtoescaneado .textoprecoproduto {
+    position: absolute;
+    float: none;
+    clear: none;
+    top: 275px;
+    left: 51.640036872%;
+    width: 38.4851743739%;
+    margin-top: 0;
+    margin-left: 0;
+  }
+
+  .produtoescaneado .confirmar-1 {
+    left: 10%;
+  }
+
+  .produtoescaneado .confirmar-2 {
+    left: 55%;
+  }
+
+}
