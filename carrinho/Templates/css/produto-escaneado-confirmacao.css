@@ -5,10 +5,10 @@ body {
 }
 
 .background {
-  position: relative;
+  position: fixed;
   float: left;
   width: 100%;
-  height: 611px;
+  height: 100vh;
   background-image: url('images/Pague%20leve.png');
   background-size: cover;
   background-position: center center;
@@ -16,13 +16,13 @@ body {
 
 .produtoescaneado {
   position: absolute;
-  top: 0;
+  top: 80px;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: 8;
-  width: 52.8333333333%;
-  height: 541px;
+  width: 55%;
+  height: 580px;
   margin: auto;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -30,13 +30,80 @@ body {
   background-color: rgba(113, 164, 255, 0.2);
 }
 
+.alteraQuantidade {
+  position: absolute;
+  top: 390px;
+  right: 0;
+  z-index: 10;
+  width: 38.3280757097%;
+  height: auto;
+  right: 10%;
+  min-height: 55px;
+  border: 1px solid rgba(0, 0, 0, 0.54);
+  border-radius: 10px;
+}
+
+.quantidade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 7;
+  width: 30%;
+  height: 53px;
+  margin: 0 auto;
+  line-height: 3em;
+  font-size: 1em;
+  font-weight: 600;
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+}
+
+._button {
+  display: block;
+  position: absolute;
+  text-align: center;
+  width: 35%;
+  font: italic 700 1.5em/1.38 'Open Sans';
+  color: rgb(255, 255, 255);
+}
+
+.alteraQuantidade ._button {
+  bottom: 0;
+  height: 53px;
+  background-color: rgb(250, 220, 10);
+  font-size: 2.6em;
+  line-height: 0.8;
+  color: rgb(0, 0, 0);
+}
+
+.alteraQuantidade ._button:hover {
+  background-color: rgb(243, 205, 39);
+}
+
+.alteraQuantidade ._button-1 {
+  left: 0;
+  z-index: 9;
+  width: 35%;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.alteraQuantidade ._button-2 {
+  right: 0;
+  z-index: 8;
+  width: 35%;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
 .confirmar {
   display: block;
-  position: relative;
+  position: absolute;
   float: left;
-  width: 28.7066246056%;
-  height: 52px;
-  margin-top: 26px;
+  width: 25%;
+  height: 70px;
+  top: 480px;
   border-radius: 5px;
   font-style: italic;
   font-size: 1.5em;
@@ -46,13 +113,14 @@ body {
 }
 
 .element {
-  position: relative;
+  position: absolute;
   float: left;
   clear: both;
   z-index: 5;
   width: 38.643533123%;
   height: 235px;
-  margin: 36px 0 0 9.93691%;
+  top: 210px;
+  left: 10%;
   border: 1px solid rgba(0, 0, 0, 0.54);
   border-radius: 15px;
 }
@@ -72,74 +140,85 @@ body {
   color: rgba(0, 0, 0, 0.87);
 }
 
+.textnomeproduto {
+  position: absolute;
+  float: left;
+  width: 79.9684542586%;
+  height: 59px;
+  top: 113px;
+  right: 10%;
+  border: 1px solid rgba(0, 0, 0, 0.54);
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  font-size: 1.2em;
+  line-height: 2.5em;
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+
 .textmarcaproduto {
-  position: relative;
+  position: absolute;
   float: left;
   z-index: 2;
   width: 38.3280757097%;
   height: 46px;
-  margin: 37px 0 0 3.06339%;
+  top: 210px;
+  right: 10%;
   border: 1px solid rgba(0, 0, 0, 0.54);
   border-radius: 10px;
   background-color: rgb(255, 255, 255);
-  font-size: 1em;
-  color: rgb(0, 0, 0);
-}
-
-.textnomeproduto {
-  float: left;
-  width: 79.9684542586%;
-  height: 59px;
-  margin: 113px 0 0 9.93691%;
-  border: 1px solid rgba(0, 0, 0, 0.54);
-  border-radius: 10px;
-  background-color: rgb(255, 255, 255);
-  font-size: 1em;
+  font-size: 1.2em;
+  line-height: 2.5em;
+  text-align: center;
   color: rgb(0, 0, 0);
 }
 
 .textocategoriaproduto {
-  position: relative;
+  position: absolute;
   float: left;
   z-index: 4;
   width: 38.3280757097%;
   height: 37px;
-  margin: -37px 0 0 51.8631699999%;
+  top: 325px;
+  right: 10%;
   border: 1px solid rgba(0, 0, 0, 0.54);
   border-radius: 10px;
   background-color: rgb(255, 255, 255);
   font-size: 1em;
+  text-align: center;
   color: rgb(0, 0, 0);
 }
 
 .textoprecoproduto {
-  position: relative;
+  position: absolute;
   float: left;
   clear: both;
   z-index: 3;
   width: 38.4858044164%;
-  height: 64px;
-  margin: -155px 0 0 51.64383%;
+  height: 35px;
+  top: 275px;
+  right: 10%;
   border: 1px solid rgba(0, 0, 0, 0.54);
   border-radius: 10px;
   background-color: rgb(255, 255, 255);
   font-size: 1em;
+  text-align: center;
   color: rgb(0, 0, 0);
 }
 
 .confirmar-1 {
   z-index: 6;
-  margin-left: 9.87037%;
-  background-color: rgb(204, 21, 0);
+  left: 15%;
+  background-color: rgb(62, 113, 255);
 }
 
 .confirmar-1:hover {
-  background-color: rgb(179, 0, 0);
+  background-color: rgb(11, 62, 174);
 }
 
 .confirmar-2 {
   z-index: 7;
-  margin-left: 22.77455%;
+  right: 15%;
   background-color: rgb(67, 212, 87);
 }
 
@@ -153,16 +232,15 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    width: 66.0294117647%;
-    height: 593px;
+    width: 60%;
     margin: auto;
   }
 
   .produtoescaneado .confirmar {
     position: absolute;
     float: none;
-    top: 521px;
-    width: 28.706406514%;
+    top: 480px;
+    width: 35%;
     margin-top: 0;
     margin-left: 0;
   }
@@ -171,7 +249,7 @@ body {
     position: absolute;
     float: none;
     clear: none;
-    top: 239px;
+    top: 210px;
     left: 9.9285604547%;
     width: 38.6426486403%;
     margin-top: 0;
@@ -188,7 +266,7 @@ body {
   .produtoescaneado .textmarcaproduto {
     position: absolute;
     float: none;
-    top: 240px;
+    top: 210px;
     left: 51.6323552004%;
     width: 38.3277001075%;
     margin-top: 0;
@@ -210,7 +288,7 @@ body {
   .produtoescaneado .textocategoriaproduto {
     position: absolute;
     float: none;
-    top: 420px;
+    top: 390px;
     left: 51.6395709763%;
     width: 38.3469042863%;
     height: 54px;
@@ -222,7 +300,7 @@ body {
     position: absolute;
     float: none;
     clear: none;
-    top: 319px;
+    top: 290px;
     left: 51.640036872%;
     width: 38.4851743739%;
     margin-top: 0;
@@ -230,11 +308,11 @@ body {
   }
 
   .produtoescaneado .confirmar-1 {
-    left: 10.0189925935%;
+    left: 10%;
   }
 
   .produtoescaneado .confirmar-2 {
-    left: 61.4987553397%;
+    left: 55%;
   }
 }
 
@@ -252,7 +330,7 @@ body {
   }
 
   .produtoescaneado .confirmar {
-    top: 509px;
+    top: 480px;
     width: 34%;
   }
 
@@ -273,7 +351,7 @@ body {
   }
 
   .produtoescaneado .textnomeproduto {
-    top: 144px;
+    top: 114px;
     left: 0;
     right: 0;
     margin-right: auto;
@@ -294,6 +372,98 @@ body {
 
   .produtoescaneado .confirmar-2 {
     left: 55.9820434298%;
+  }
+}
+
+@media(max-width: 595px) {
+  .background .produtoescaneado {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 65%;
+    margin: auto;
+  }
+
+  .produtoescaneado .confirmar {
+    position: absolute;
+    float: none;
+    top: 490px;
+    width: 35%;
+    margin-top: 0;
+    margin-left: 0;
+  }
+
+  .produtoescaneado .element {
+    position: absolute;
+    float: none;
+    clear: none;
+    top: 220px;
+    left: 9.9285604547%;
+    width: 38.6426486403%;
+    margin-top: 0;
+    margin-left: 0;
+  }
+
+  .produtoescaneado .text {
+    left: 0;
+    right: 0;
+    line-height: 1.60;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .produtoescaneado .textmarcaproduto {
+    position: absolute;
+    float: none;
+    top: 220px;
+    left: 51.6323552004%;
+    width: 38.3277001075%;
+    margin-top: 0;
+    margin-left: 0;
+  }
+
+  .produtoescaneado .textnomeproduto {
+    position: absolute;
+    float: none;
+    top: 130px;
+    left: 0;
+    right: 0;
+    width: 79.9662006452%;
+    height: 50px;
+    margin-top: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .produtoescaneado .textocategoriaproduto {
+    position: absolute;
+    float: none;
+    top: 400px;
+    left: 51.6395709763%;
+    width: 38.3469042863%;
+    height: 54px;
+    margin-top: 0;
+    margin-left: 0;
+  }
+
+  .produtoescaneado .textoprecoproduto {
+    position: absolute;
+    float: none;
+    clear: none;
+    top: 300px;
+    left: 51.640036872%;
+    width: 38.4851743739%;
+    margin-top: 0;
+    margin-left: 0;
+  }
+
+  .produtoescaneado .confirmar-1 {
+    left: 10%;
+  }
+
+  .produtoescaneado .confirmar-2 {
+    left: 55%;
   }
 }
 
@@ -345,4 +515,97 @@ body {
   .produtoescaneado .confirmar-2 {
     left: 55.4235197368%;
   }
+}
+
+@media(max-width: 360px) {
+  .background .produtoescaneado {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+  .produtoescaneado .confirmar {
+    position: absolute;
+    float: none;
+    top: 490px;
+    width: 40%;
+    margin-top: 0;
+    margin-left: 0;
+    font-size: 1.2em;
+  }
+
+  .produtoescaneado .element {
+    position: absolute;
+    float: none;
+    clear: none;
+    top: 220px;
+    left: 9.9285604547%;
+    width: 38.6426486403%;
+    margin-top: 0;
+    margin-left: 0;
+  }
+
+  .produtoescaneado .text {
+    left: 0;
+    right: 0;
+    line-height: 1.60;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .produtoescaneado .textmarcaproduto {
+    position: absolute;
+    float: none;
+    top: 220px;
+    left: 51.6323552004%;
+    width: 38.3277001075%;
+    margin-top: 0;
+    margin-left: 0;
+  }
+
+  .produtoescaneado .textnomeproduto {
+    position: absolute;
+    float: none;
+    top: 130px;
+    left: 0;
+    right: 0;
+    width: 79.9662006452%;
+    height: 50px;
+    margin-top: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .produtoescaneado .textocategoriaproduto {
+    position: absolute;
+    float: none;
+    top: 400px;
+    left: 51.6395709763%;
+    width: 38.3469042863%;
+    height: 54px;
+    margin-top: 0;
+    margin-left: 0;
+  }
+
+  .produtoescaneado .textoprecoproduto {
+    position: absolute;
+    float: none;
+    clear: none;
+    top: 300px;
+    left: 51.640036872%;
+    width: 38.4851743739%;
+    margin-top: 0;
+    margin-left: 0;
+  }
+
+  .produtoescaneado .confirmar-1 {
+    left: 10%;
+  }
+
+  .produtoescaneado .confirmar-2 {
+    left: 55%;
+  }
+
 }
