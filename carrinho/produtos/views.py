@@ -19,6 +19,10 @@ def produto(request, idProduto):
         preco = ('%.2f' % (float(preco)/100)).replace('.', ',')
         categoria = response['categoria']
         imagem = response['imagem']
+
+        # Salvando ultimo produto escaneado na sessão
+        request.session['lastScannedProduct'] = idProduto
+
         return render(request, 'produto-escaneado-confirmacao.html', {'idProduto': idProduto, 'nome': nome, 'marca': marca, 'preco': preco, 'categoria': categoria, 'imagem': imagem, 'registrado': True})
     else:
         nome = 'Produto não registrado'

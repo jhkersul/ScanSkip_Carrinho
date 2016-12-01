@@ -151,6 +151,11 @@ def mapa(request):
     idProduto = request.GET.get("idProduto", None)
     markedSectors = []
 
+    # Aqui nos vemos se existe um produto que foi escaneado salvo na sessao
+    # Se tivermos esse produto, nos vamos marcar o mapa com o setor que esse produto esta
+    if idProduto is None:
+        idProduto = request.session['lastScannedProduct']
+
     if idProduto is not None:
         urlSetoresProduto = 'https://scan-skip-plu-teste.herokuapp.com/setoresProduto/' + idProduto
         network = Network()
