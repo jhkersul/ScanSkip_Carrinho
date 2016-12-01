@@ -13,13 +13,14 @@ def produto(request, idProduto):
     network = Network()
     response = network.request(urlProduto, 'GET')
     if response != -1:
+        quantidade = 1
         nome = response['nome']
         marca = response['marca']
         preco = response['valor']
         preco = ('%.2f' % (float(preco)/100)).replace('.', ',')
         categoria = response['categoria']
         imagem = response['imagem']
-        return render(request, 'produto-escaneado-confirmacao.html', {'idProduto': idProduto, 'nome': nome, 'marca': marca, 'preco': preco, 'categoria': categoria, 'imagem': imagem, 'registrado': True})
+        return render(request, 'produto-escaneado-confirmacao.html', {'idProduto': idProduto, 'nome': nome, 'marca': marca, 'preco': preco, 'categoria': categoria, 'imagem': imagem, 'quantidade': quantidade, 'registrado': True})
     else:
         nome = 'Produto não registrado'
         marca = '-------'
