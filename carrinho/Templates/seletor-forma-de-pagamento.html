@@ -6,13 +6,21 @@
 
 {% block head %}
   <link rel="stylesheet" href="{% static 'css/standardize.css' %}">
+  <link rel="stylesheet" href="{% static 'css/escolha-pagamento-grid.css' %}">
   <link rel="stylesheet" href="{% static 'css/escolha-pagamento.css' %}">
   <script language="javascript">
     function confirmacaoFila() {
     var r = confirm("Tem certeza que deseja entrar na fila?");
     if (r == true){
-      document.getElementById("formFila").action = "{% url 'Fila' %}";
-      document.getElementById("formFila").submit();
+      var checkPref = document.getElementById('preferencial');
+      if (checkPref.checked) {
+        document.getElementById("formFila").action = "{% url 'FilaPref' %}";
+        document.getElementById("formFila").submit();
+      }
+      else {
+        document.getElementById("formFila").action = "{% url 'Fila' %}";
+        document.getElementById("formFila").submit();
+      } 
     }else{
       //Não vai pra nenhum link
       }
@@ -48,12 +56,13 @@
       <form class="containerEscolha container-2" id="formFila" name="formFila" method="post" action="">
         {% csrf_token %}
         <label class="checkbox-label clearfix">
-          <input class="checkbox" type="checkbox">
+          <input class="checkbox" id="preferencial" type="checkbox">
           <span class="point-text">Fila Preferencial</span>
         </label>
         <button class="botaofila" onClick= "confirmacaoFila()" type="button">Pagar na fila</button>
       </form>
       <p class="text">Escolha a forma de pagamento</p>
-
+      
     </div>
+  
 {% endblock %}
