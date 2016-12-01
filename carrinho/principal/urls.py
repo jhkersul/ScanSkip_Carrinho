@@ -3,6 +3,7 @@ from . import views
 
 urlpatterns = [
     url(r'^end=(?P<idusuario>[-\w ]+)/$', views.fim, name="Fim"),
+    url(r'^id=(?P<idusuario>[-\w ]+)/$', views.total, name="Total"),
     url(r'^Produtos/id=(?P<idusuario>[-\w ]+)/$', views.produtos, name="Produtos"),
     url(r'^id=(?P<idusuario>[-\w. ]+)/nome=(?P<nome>[-\w ]+)/$', views.login, name="Login"),
     url(r'^Finalizar/', views.finalizar, name="Finalizar"),
